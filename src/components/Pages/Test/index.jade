@@ -1,0 +1,73 @@
+.test
+    .row
+        nav.navbar.navbar-toggleable-md.navbar-light.bg-faded.samotopbar
+            button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+
+            #navbarNavDropdown.collapse.navbar-collapse
+                ul.navbar-nav.samoulnav
+                    li.nav-item.active
+                        a.nav-link.samonavlink(href='/app/purchase')
+                            | Purchases
+                            span.sr-only (current)
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/setting') Settings
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/sales') Sales
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/calendar') Calendar
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/notes') Notes
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/timesheet') Timesheets
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/pointofsale') PointofSale
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/attendance') Attendence
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/Employees') Employees
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/recruitment') recruitment
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/Discuess') Discuss
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/accounting') Accounting
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/inventory') Inventory
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/expenses') Expenses
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/manufacturing') Manufacturing
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/leaves') Leaves
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/maintenance') Maintenance
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/dashboards') Dashboards
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/repairs') Repairs
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/fleets') Fleet
+                    li.nav-item
+                        a.nav-link.samonavlink(href='/projects') Project
+                    li.samolinav
+                        i.fa.fa-at.samoat
+                        i.fa.fa-comment.samocomment
+                        ul.samouldropdown
+                            li.nav-item.dropdown.right
+                                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.samonavlink(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                    | Administrators
+                                    img.img-circle.oe_topbar_avatar.samoimg(src='images/image.png')
+                                .dropdown-menu.samodropdownmenulink(aria-labelledby='navbarDropdownMenuLink')
+                                    a.dropdown-item(href='#') Documentation
+                                    a.dropdown-item(href='#') Support
+                                    a.dropdown-item(href='#') Preferences
+                                    hr
+                                    a.dropdown-item(href='#') My Odoo.com Account
+                                    a.dropdown-item(href='#') Logout
+
+    .discuss
+        router-view
+
+
+
