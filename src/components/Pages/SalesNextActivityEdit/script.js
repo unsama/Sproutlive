@@ -2,7 +2,8 @@ import DashboardController from "./../../partials/DashboardController/DashboardC
 import Tabledrag from "./../../partials/Tabledrag/Tabledrag.vue"
 import Message from "./../../partials/Message/Message.vue"
 import Modal from "./../../partials/Modal/Modal.vue"
-import Request_Quotation_Lower from "./../../partials/Request_Quotation_Lower/Request_Quotation_Lower.vue"
+// import Request_Quotation_Lower from "./../../partials/Request_Quotation_Lower/Request_Quotation_Lower.vue"
+import Request_Quotation_Lower from "./../../partials/Request_quotation_lower/Request_quotation_lower.vue"
 
 export default{
     created: function () {
