@@ -1,5 +1,6 @@
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
-import TableDrag from "./../../partials/TableDrag/TableDrag.vue"
+// import TableDrag from "./../../partials/TableDrag/TableDrag.vue"
+import TableDrag from "./../../partials/Tabledrag/Tabledrag.vue"
 
 export default{
     created: function () {
