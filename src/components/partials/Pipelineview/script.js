@@ -1,5 +1,6 @@
 import DashboardController from "./../DashboardController/DashboardController.vue"
-import Request_Quotation_Lower from "./../Request_Quotation_Lower/Request_Quotation_Lower.vue"
+// import Request_Quotation_Lower from "./../Request_Quotation_Lower/Request_Quotation_Lower.vue"
+import Request_Quotation_Lower from "./../Request_quotation_lower/Request_quotation_lower.vue"
 
 export default{
     created: function () {
