@@ -52,7 +52,7 @@ import Posmarketcustomercompo   from "./../../components/partials/Posmarketcusto
 import Posmarketaddcustomer   from "./../../components/partials/Posmarketaddcustomer/Posmarketaddcustomer.vue"
 import Posmodalorder   from "./../../components/partials/Posmodalorder/Posmodalorder.vue"
 import Possessioninnermodal   from "./../../components/partials/Possessioninnermodal/Possessioninnermodal.vue"
-import posorderreport  from "./../../components/Pages/posorderreport/posorderreport.vue"
+import posorderreport  from "./../../components/Pages/Posorderreport/Posorderreport.vue"
 import Pointofsale   from "./../../components/Pages/Pointofsale/Pointofsale.vue"
 import Pointofsalemain   from "./../../components/Pages/Pointofsalemain/Pointofsalemain.vue"
 import Pointofsalemaincreate   from "./../../components/Pages/Pointofsalemaincreate/Pointofsalemaincreate.vue"
