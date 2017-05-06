@@ -11,8 +11,8 @@ export default{
         return {
             head: "Barcode Nomenclatures / New",
             btnlinks: {
-                savebtnlink:"#/posdefaultcreate",
-                discardbtnlink:"#/posbarcode"
+                savebtnlink:"/pointofsale/posdefaultcreate",
+                discardbtnlink:"/pointofsale/posbarcode"
             },
         }
     },

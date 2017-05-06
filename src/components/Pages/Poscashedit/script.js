@@ -10,7 +10,7 @@ export default{
             head: "Payment Methods / Cash(EUR)",
             btnlinks: {
                 savedbtnlink:"#/app/pos/",
-                discardbtnlink:"#/pospayment"
+                discardbtnlink:"/pointofsale/pospayment"
             },
         }
     },

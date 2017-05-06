@@ -10,8 +10,8 @@ export default{
             head: "Payment Methods",
             title: 'Payment Methods - Sprout',
             btnlinks: {
-                createbtnlink:"#/poscasheditt",
-                importbtnlink:"#/pospaymentimport"
+                createbtnlink:"/pointofsale/poscasheditt",
+                importbtnlink:"/pointofsale/pospaymentimport"
             },
             tableheader: [
                 "Journal Name",
@@ -29,7 +29,7 @@ export default{
                         "Cash",
                         "Alupak industries"
                     ],
-                    "url": "#/poscash"
+                    "url":"/pointofsale/poscash"
                 },
             },
 

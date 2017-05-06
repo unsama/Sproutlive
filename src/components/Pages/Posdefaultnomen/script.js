@@ -31,7 +31,7 @@ export default{
             head: "Barcode Nomenclatures / Default Nomenclature",
             aa: "aai",
             btnlinks: {
-                createbtnlink: "#/posdefaultcreate",
+                createbtnlink: "/pointofsale/posdefaultcreate",
                 importbtnlink: "#/app/imported"
             },
             tableheader: [

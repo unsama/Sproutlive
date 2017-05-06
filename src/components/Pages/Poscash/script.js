@@ -9,8 +9,8 @@ export default{
         return {
             head: "Payment Methods / Cash(EUR)",
             btnlinks: {
-                createbtnlink:"#/poscasheditt",
-                editbtnlink:"#/poscashh"
+                createbtnlink:"/pointofsale/poscasheditt",
+                editbtnlink:"/pointofsale/poscashh"
             },
         }
     },

@@ -10,8 +10,8 @@ export default{
             head: "Barcode Nomenclatures",
             title: 'Barcode Nomenclatures - Sprout',
             btnlinks: {
-                createbtnlink:"#/posdefaultcreate",
-                importbtnlink:"#/posbarcodeimport"
+                createbtnlink:"/pointofsale/posdefaultcreate",
+                importbtnlink:"/pointofsale/posbarcodeimport"
             },
             tableheader: [
                 "Nomenclature Name",
@@ -27,7 +27,7 @@ export default{
                     "data": [
                         "Default Nomenclature",
                     ],
-                    "url": "#/posdefault"
+                    "url": "/pointofsale/posdefault"
                 },
 
             }

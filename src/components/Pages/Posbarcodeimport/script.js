@@ -15,7 +15,7 @@ export default{
             head: "Barcode Nomenclatures / Import a File",
             btncancellink: {
                 nextactivity: "Payment Methods / Import a File",
-                cancelbtnlink:"#/posbarcode",
+                cancelbtnlink:"/pointofsale/posbarcode",
 
             },
 

@@ -17,7 +17,7 @@
                         span
                 td.fa.fa-arrows.pointer
                 td.samotablepadd( v-for='td in tr.data')
-                    a(v-bind:href='tr.url') {{ td }}
+                    router-link(v-bind:to='tr.url') {{ td }}
                 td(v-if="typeof tr.checkbox !== 'undefined' && tr.checkbox")
                     .o_checkbox
                         input.checkBoxClass(type='checkbox')

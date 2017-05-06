@@ -15,7 +15,7 @@ export default{
             head: "Payment Methods / Import a File",
             btncancellink: {
                 nextactivity: "Payment Methods / Import a File",
-                cancelbtnlink:"#/pospayment",
+                cancelbtnlink:"/pointofsale/pospayment",
 
             },
 
