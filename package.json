@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "watchify": "watchify -vd -e src/Pages/Pointofsale/main.js -o public/Modules/Pointofsale/build.js",
+    "watchify": "watchify -vd -e src/Pages/Expenses/main.js -o public/Modules/Expenses/build.js",
     "dev": "npm-run-all --parallel watchify start",
-    "build": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o public/Modules/Pointofsale/build.css ] -e src/Pages/Pointofsale/main.js | uglifyjs -c warnings=false -m > public/Modules/Pointofsale/build.js"
+    "build": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o public/Modules/Expenses/build.css ] -e src/Pages/Expenses/main.js | uglifyjs -c warnings=false -m > public/Modules/Expenses/build.js"
   },
   "browserify": {
     "transform": [
