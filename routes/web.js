@@ -10,21 +10,21 @@ var transporter = nodemailer.createTransport({
         pass: 'usama4slash1234'
     }
 });
-var mysql = require("mysql");
-var connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "4Slash1234!@#$",
-    database: "sprout"
-});
-
-connection.connect(function (err) {
-    if(err){
-        console.error('error connecting: ' + err.stack);
-        return;
-    }
-    console.log("connected as id "+ connection.threadId);
-});
+// var mysql = require("mysql");
+// var connection = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "sprout"
+// });
+//
+// connection.connect(function (err) {
+//     if(err){
+//         console.error('error connecting: ' + err.stack);
+//         return;
+//     }
+//     console.log("connected as id "+ connection.threadId);
+// });
 
 
 /*router.get('/', function (req, res, next) {
