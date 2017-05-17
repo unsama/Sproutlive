@@ -1,5 +1,4 @@
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
-import BarChart from "./../../partials/BarChart/BarChart.vue"
 
 export default{
     created: function () {
@@ -37,7 +36,5 @@ export default{
 
     components: {
         DashboardController,
-        BarChart
-
     }
 }
