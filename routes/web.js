@@ -1,4 +1,12 @@
 var express = require("express");
+var func = require("./../config/func");
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require("express-session");
+var passport = require("passport");
+var validator = require("express-validator");
+var passportlocal = require("passport-local");
+
 var router = express.Router();
 var bcrypt   = require('bcrypt-nodejs');
 var saltRounds = 10;
@@ -10,21 +18,36 @@ var transporter = nodemailer.createTransport({
         pass: 'usama4slash1234'
     }
 });
-// var mysql = require("mysql");
-// var connection = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "",
-//     database: "sprout"
-// });
-//
-// connection.connect(function (err) {
-//     if(err){
-//         console.error('error connecting: ' + err.stack);
-//         return;
-//     }
-//     console.log("connected as id "+ connection.threadId);
-// });
+
+var mysql = require("mysql");
+var connection = mysql.createConnection({
+    host: "http://46.101.37.156",
+    port: 81,
+    user: "root",
+    password: "4Slash1234",
+    database: "sprout"
+});
+
+
+
+connection.connect(function (err) {
+    if(err){
+        console.error('error connecting: ' + err.stack);
+        return;
+    }
+    console.log("connected as id "+ connection.threadId);
+});
+
+router.get('/clear', function (req, res, next) {
+    connection.query('INSERT INTO `user`(`username`) VALUES ("hassan")', function (error, results, fields) {
+        if (error) res.json({"status": "failed", "message": error.message});
+
+        else {
+            console.log(err);
+            res.send("Something goes wrong!");
+        }
+    });
+});
 
 
 /*router.get('/', function (req, res, next) {
@@ -138,78 +161,153 @@ router.get("/pointofsale", function(req, res, next){
     res.render('modules/Pointofsale', {title: 'Sprout'});
 });
 
+router.get('/signup', function(req, res, next){
+    res.render('registration', {title: 'Sprout', success: req.session.success, errors: req.session.errors});
+    req.session.error = null ;
+    // res.render('registration', {title: 'Sprout', success: req.session.success, errors:req.session,errors});
 
+});
 router.post('/check', function(req, res, next){
     var salt = bcrypt.genSaltSync(saltRounds);
     var hash = bcrypt.hashSync(req.body.password, salt);
     var datetime = getDateTime();
     var token = bcrypt.hashSync(datetime, salt);
-    //res.json({"data":req.body});
+    var status = "inactive";
+    req.check('username', 'Invalid username').notEmpty();
+    req.check('email', 'Invalid email address').isEmail();
+    req.check('company_name', 'Invalid company name').notEmpty();
+    req.check('phone_no', 'Invalid phone number').isInt();
+    req.check('country', 'Invalid country').notEmpty();
     var html = "";
-    res.render('email_template',{token:token}, function (err, output)
-    {
-        html =  output ;
-    });
-    req.checkBody('password2','Passwords do not match.').equals(req.body.password1);
+
     var errors = req.validationErrors();
-    // req.check('username', 'Username is required').notEmpty();
-    // req.check('password', 'Password is required').isLength({min:6}).equals(req.body.confirmPassword);
-    // req.check('company_name', 'company_name is required').notEmpty();
-    // req.check('phone_no', 'phone_no is required').notEmpty();
-    // req.check('country', 'country is required').notEmpty();
-    // req.check('email', 'Email is required').isEmail();
-    //
-    // var errors = req.validationErrors();
-    // if (errors) {
-    //     res.session.errors = errors;
-    //     res.session.success = false;
-    // }
-    // else {
-    //     res.session.success = true;
-    // }
-    // res.redirect('/signup');
-    
-    var mailOptions = {
-        from: '<no-reply@gmail.com>', // sender address
-        to: req.body.email, // list of receivers
-        subject: 'Hello USama ✔', // Subject line
-        // text: 'Hello world iam Khan  ?'//, // plain text body
-        html: html // html body
-    };
-    // res.json(req.body);
-    connection.query('INSERT INTO `user`(`username`, `email`,`company_name`,`phone_no`,`country`, `password`,`user_token`,`created_at`) VALUES ("'+req.body.username+'","'+req.body.email+'","'+req.body.company_name+'","'+req.body.phone_no+'","'+req.body.country+'","'+hash+'","'+token+'","'+datetime+'")', function (error, results, fields) {
-        if (error) res.json({"status": "failed", "message": error.message});
-
-        transporter.sendMail(mailOptions, function (err, info) {
-            if(err){
-                console.log(err);
-                res.send("Something gose wrong!");
-            }
-            else {
-                res.send("Message "+info.messageId+" sent: "+info.response);
-
-            }
-
+    if(errors){
+        req.session.errors = errors;
+        req.session.success = false;
+        res.redirect('/signup')
+    }else{
+        res.render('email_template',{token:token}, function (err, output)
+        {
+            html =  output ;
         });
-    });
-    //  res.render('user/forgot_password', {title: 'Forgot Password', csrfToken: req.csrfToken(), emailSend: true});
-    // connection.end();
+        var mailOptions = {
+            from: '<no-reply@gmail.com>', // sender address
+            to: req.body.email, // list of receivers
+            subject: 'Hello USama ✔', // Subject line
+            html: html // html body
+        };
+        // res.json(req.body);
+        connection.query('INSERT INTO `user`(`username`, `email`,`company_name`,`phone_no`,`country`,`user_token`,`status`,`created_at`) VALUES ("'+req.body.username+'","'+req.body.email+'","'+req.body.company_name+'","'+req.body.phone_no+'","'+req.body.country+'","'+token+'","'+status+'","'+datetime+'")', function (error, results, fields) {
+            if (error) res.json({"status": "failed", "message": error.message});
+
+            transporter.sendMail(mailOptions, function (err, info) {
+                if(err){
+                    console.log(err);
+                    res.send("Something goes wrong!");
+                }
+                else {
+                    res.render('registration');
+                }
+
+            });
+        });
+        //req.session.success = true;
+    }
 
 });
+router.post('/check', function(req, res, next){
+    var salt = bcrypt.genSaltSync(saltRounds);
+    var hash = bcrypt.hashSync(req.body.password, salt);
+    var datetime = getDateTime();
+    var token = bcrypt.hashSync(datetime, salt);
+    var status = "inactive";
+    req.check('username', 'Invalid username').notEmpty();
+    req.check('email', 'Invalid email address').isEmail();
+    req.check('company_name', 'Invalid company name').notEmpty();
+    req.check('phone_no', 'Invalid phone number').isInt();
+    req.check('country', 'Invalid country').notEmpty();
+    var html = "";
 
+    var errors = req.validationErrors();
+    if(errors){
+        req.session.errors = errors;
+        req.session.success = false;
+        res.redirect('/signup')
+    }else{
+        res.render('email_template',{token:token}, function (err, output)
+        {
+            html =  output ;
+        });
+        var mailOptions = {
+            from: '<no-reply@gmail.com>', // sender address
+            to: req.body.email, // list of receivers
+            subject: 'Hello USama ✔', // Subject line
+            html: html // html body
+        };
+        // res.json(req.body);
+       
+        //req.session.success = true;
+    }
+
+});
 /*router.get('/', function(req, res, next){
     res.render('index', {title: 'Sprout'});
 });*/
-router.get('/signup', function(req, res, next){
-    res.render('registration', {title: 'Sprout'});
-    // res.render('registration', {title: 'Sprout', success: req.session.success, errors:req.session,errors});
 
-});
 router.get('/email_temp', function(req, res, next){
     res.render('email_template', {title: 'Sprout'});
 });
+router.get('/dashboard', func.isLoggedIn, function(req, res, next){
+    res.render('dashboard', {title: 'Sprout'});
+});
+
+router.get('/',function (req , res ) {
+        res.render('dashboard', {
+            isAuthenticated: false,
+            users: req.user
+        });
+});
+router.get('/login',func.notLoggedIn, function(req, res, next){
+    // if(req["sessions"].hasOwnProperty("flash"))
+        console.log(req);
+    res.render('login', {title: 'Sprout'});
+});
+
+// process the login form
+router.post('/sign', passport.authenticate('local-login', {
+        successRedirect : '/dashboard', // redirect to the secure profile section
+        failureRedirect : '/login', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
+
+
 router.get('/password', function(req, res, next){
-    res.render('password', {title: 'Sprout'});
+    var token = req.query.token;
+    var errors = req.session.errors;
+    req.session.error = null ;
+    res.render('password', {title: 'Sprout' , success: req.session.success, errors: errors, token: token});
+
+});
+router.post('/password', function(req, res, next){
+    var salt = bcrypt.genSaltSync(saltRounds);
+    var hash = bcrypt.hashSync(req.body.password, salt);
+    var token = req.body._token;
+    // req.check('email', 'Invalid email address').isEmail();
+    req.check('password', 'Password not matched!').isLength({min: 6}).withMessage("Password is too short!").equals(req.body.confirmpass);
+
+    var errors = req.validationErrors();
+    if(errors){
+        req.session.errors = errors;
+        req.session.success = false;
+        res.redirect("password?token="+token);
+    }else{
+        connection.query('UPDATE user SET password = "'+hash+'", status = "Active" WHERE user_token = "'+token+'"'  , function (error, results, fields) {
+            if (error) res.send("failed: "+error.message);
+            res.redirect('/dashboard')
+        });
+        //req.session.success = true;
+    }
+
 });
 
 

@@ -6,13 +6,18 @@ var csrf = require("csurf");
 csrfProtection = csrf();
 var nodemailer = require("nodemailer");
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'mail.4slash.com',
+    port: 465,
+    secure: true, // use TLS
     auth: {
-        user: 'usama4slash@gmail.com',
-        pass: 'usama4slash1234'
+        user: 'no-reply@4slash.com',
+        pass: 'Nor123_'
+    },
+    tls: {
+        // do not fail on invalid certs
+        rejectUnauthorized: false
     }
 });
-
 router.use(csrfProtection);
 
 router.get('/logout', func.isLoggedIn, function(req, res, next){

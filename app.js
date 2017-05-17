@@ -19,6 +19,8 @@ var webRoutes = require('./routes/web');
 var app = express();
 
 
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -73,6 +75,7 @@ app.use(history({
         { from: /\/forgot_password/, to: '/forgot_password'},
         { from: /\/email_temp/, to: '/email_temp'},
         { from: /\/password/, to: '/password'},
+        { from: /\/clear/, to: '/clear'},
 
     ]
 }));
