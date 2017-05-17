@@ -9,15 +9,15 @@ var bcrypt = require('bcrypt-nodejs');
 // var dbconfig = require('./database');
 // var connection = mysql.createConnection(dbconfig.connection);
 //
-connection.query('USE ' + dbconfig.database);
-var mysql = require("mysql");
-var connection = mysql.createConnection({
-    host: "46.101.37.156",
-    port: "81",
-    user: "root",
-    password: "4Slash1234",
-    database: "sprout"
-});
+// connection.query('USE ' + dbconfig.database);
+// var mysql = require("mysql");
+// var connection = mysql.createConnection({
+//     host: "46.101.37.156",
+//     port: "81",
+//     user: "root",
+//     password: "4Slash1234",
+//     database: "sprout"
+// });
 // expose this function to our app using module.exports
 module.exports = function(passport) {
 

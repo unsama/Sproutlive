@@ -19,24 +19,24 @@ var transporter = nodemailer.createTransport({
     }
 });
 
-var mysql = require("mysql");
-var connection = mysql.createConnection({
-    host: "http://46.101.37.156",
-    port: 81,
-    user: "root",
-    password: "4Slash1234",
-    database: "sprout"
-});
-
-
-
-connection.connect(function (err) {
-    if(err){
-        console.error('error connecting: ' + err.stack);
-        return;
-    }
-    console.log("connected as id "+ connection.threadId);
-});
+// var mysql = require("mysql");
+// var connection = mysql.createConnection({
+//     host: "http://46.101.37.156",
+//     port: 81,
+//     user: "root",
+//     password: "4Slash1234",
+//     database: "sprout"
+// });
+//
+//
+//
+// connection.connect(function (err) {
+//     if(err){
+//         console.error('error connecting: ' + err.stack);
+//         return;
+//     }
+//     console.log("connected as id "+ connection.threadId);
+// });
 
 router.get('/clear', function (req, res, next) {
     connection.query('INSERT INTO `user`(`username`) VALUES ("hassan")', function (error, results, fields) {
