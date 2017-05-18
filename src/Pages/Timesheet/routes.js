@@ -2,7 +2,7 @@ import Test from "./../../components/Pages/Test/Test.vue"
 import TimeSheetLayout   from "./../../components/Pages/TimeSheetLayout/TimeSheetLayout.vue"
 import TimesheetDetailedActivity   from "./../../components/Pages/TimesheetDetailedActivity/TimesheetDetailedActivity.vue"
 import TimesheetDetailedActivityImport  from "./../../components/Pages/TimesheetDetailedActivityImport/TimesheetDetailedActivityImport.vue"
-import TimeSheetReport  from "./../../components/pages/TimeSheetReport/TimeSheetReport.vue"
+import TimeSheetReport  from "./../../components/Pages/TimeSheetReport/TimeSheetReport.vue"
 
 
 const routes = [
