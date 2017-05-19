@@ -63,6 +63,7 @@ const routes = [
 
             { path: '', component: Subview,
                 children: [
+                    { path: 'Request_quotation_lower', component: Request_quotation_lower},
                     { path: 'request_quotation', component: RequestQuotation},
                     { path: 'EditProduct', component: EditProduct},
                     { path: 'CreateProduct', component: CreateProduct},
