@@ -19,7 +19,7 @@ import VendorCreate from "./../../components/Pages/VendorCreate/VendorCreate.vue
 import PurchaseorderImport from "./../../components/Pages/PurchaseorderImport/PurchaseorderImport.vue"
 import VendorbillImport from "./../../components/Pages/VendorbillImport/VendorbillImport.vue"
 import IncomingProductImport from "./../../components/Pages/IncomingProductImport/IncomingProductImport.vue"
-import vendors from "./../../components/Pages/Vendors/vendors.vue"
+import vendors from "./../../components/Pages/vendors/vendors.vue"
 import VendorBills from "./../../components/Pages/VendorBills/VendorBills.vue"
 import Vendorpkr  from "./../../components/Pages/Vendorpkr/Vendorpkr.vue"
 import Vendoredit  from "./../../components/Pages/Vendoredit/Vendoredit.vue"
