@@ -3,7 +3,7 @@ import ProductEdit from "./../../partials/ProductEdit/ProductEdit.vue"
 import Request_quotation_lower from "./../../partials/Request_quotation_lower/Request_quotation_lower.vue"
 import Modal from "./../../partials/Modal/Modal.vue"
 import Message from "./../../partials/Message/Message.vue"
-import pivot from "./../../partials/pivot/pivot.vue"
+import pivot from "./../../partials/Pivot/Pivot.vue"
 
 export default{
     created: function(){
