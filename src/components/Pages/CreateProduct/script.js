@@ -1,4 +1,5 @@
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
+import Request_Quotation_Lower from "./../../partials/Request_quotation_lower/Request_quotation_lower.vue"
 import Modal from "./../../partials/Modal/Modal.vue"
 
 
@@ -96,6 +97,7 @@ export default{
     },
     components: {
         DashboardController,
+        Request_Quotation_Lower,
         Modal,
     },
 
