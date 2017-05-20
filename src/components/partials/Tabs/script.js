@@ -1,7 +1,7 @@
 import Emptyform from "./../Emptyform/Emptyform.vue"
-import ModelDescription from "./../ModelDescription/ModelDescription.vue"
+import ModelDescription from "./../Modeldescription/Modeldescription.vue"
 import Componame from "./../Componame/Componame.vue"
-import Tableview from "./..//Tableview/Tableview.vue"
+import Tableview from "./../Tableview/Tableview.vue"
 import DashboardController from "./../DashboardController/DashboardController.vue"
 
 
