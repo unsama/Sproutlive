@@ -30,7 +30,7 @@ import All_Transfer_Create   from "./../../components/Pages/All_Transfer_Create/
 import Inventory_Adjustment_Edit   from "./../../components/Pages/Inventory_Adjustment_Edit/Inventory_Adjustment_Edit.vue"
 import Inventory_Product_Categories   from "./../../components/Pages/Inventory_Product_Categories/Inventory_Product_Categories.vue"
 import Inventory_Categories_Table   from "./../../components/Pages/Inventory_Categories_Table/Inventory_Categories_Table.vue"
-import Accordions   from "./../../components/Partials/Accordions/Accordions.vue"
+import Accordions   from "./../../components/partials/Accordions/Accordions.vue"
 import All_Transfer_Import   from "./../../components/Pages/All_Transfer_Import/All_Transfer_Import.vue"
 import All_Transfer_Edit   from "./../../components/Pages/All_Transfer_Edit/All_Transfer_Edit.vue"
 import Inventory_Categories_Create   from "./../../components/Pages/Inventory_Categories_Create/Inventory_Categories_Create.vue"
@@ -44,7 +44,7 @@ import Grid_View   from "./../../components/partials/Grid_View/Grid_View.vue"
 import All_Transfer_Calender   from "./../../components/Pages/All_Transfer_Calender/All_Transfer_Calender.vue"
 import Test from "./../../components/Pages/Test/Test.vue"
 import Inventorylayout  from "./../../components/Pages/Inventorylayout/Inventorylayout.vue"
-import Modal  from "./../../components/Partials/Modal/Modal.vue"
+import Modal  from "./../../components/partials/Modal/Modal.vue"
 import All_Transfer_Grid  from "./../../components/Pages/All_Transfer_Grid/All_Transfer_Grid.vue"
 
 const routes = [
