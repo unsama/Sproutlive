@@ -1,5 +1,4 @@
 import Sidebar from "./../../partials/Sidebar/Sidebar.vue"
-import Dashboardsetting from "./../../partials/Dashboardsetting/Dashboardsetting.vue"
 
 
 export default{
@@ -10,10 +9,9 @@ export default{
         return{
             title: 'Discuss',
             sidebarData: {
-                Dashboard: { url: "#/",title: "Dashboard" },
                 Purchase: [
                     {
-                        url: "/purchase/request_quotation",
+                        url: "/purchase",
                         title: "Requests for Quotation"
                     },
                     {
@@ -59,7 +57,6 @@ export default{
     },
     components: {
         Sidebar,
-        Dashboardsetting,
     }
 
 }

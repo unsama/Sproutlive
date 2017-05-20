@@ -10,7 +10,7 @@ import RQorder from "./../../components/Pages/RQorder/RQorder.vue"
 import incomcreate from "./../../components/Pages/incomcreate/incomcreate.vue"
 import RQEdit from "./../../components/Pages/RQEdit/RQEdit.vue"
 import RQcreate from "./../../components/Pages/RQcreate/RQcreate.vue"
-import RQImport from "./../../components/Pages/RQImport/RQImport.vue"
+import RequestQuotation from "./../../components/Pages/RequestQuotation/RequestQuotation.vue"
 import RQ from "./../../components/Pages/RQ/RQ.vue"
 import VendorBillEdits from "./../../components/Pages/VendorBillEdits/VendorBillEdits.vue"
 import VendorBillCreate from "./../../components/Pages/VendorBillCreate/VendorBillCreate.vue"
@@ -31,7 +31,6 @@ import Companies  from "./../../components/Pages/Companies/Companies.vue"
 import Calendar from "./../../components/partials/Calendar/Calendar.vue"
 import Product_inner  from "./../../components/Pages/Product_inner/Product_inner.vue"
 import Pkr  from "./../../components/partials/Pkr/Pkr.vue"
-import Dashboardsetting  from "./../../components/partials/Dashboardsetting/Dashboardsetting.vue"
 import Companypopup from "./../../components/partials/Companypopup/Companypopup.vue"
 import Receipts  from "./../../components/partials/Receipts/Receipts.vue"
 import Yourcompany  from "./../../components/Pages/Yourcompany/Yourcompany.vue"
@@ -54,16 +53,17 @@ import Pagination   from "./../../components/partials/Pagination/Pagination.vue"
 import Test   from "./../../components/Pages/Test/Test.vue"
 import InsideHrThree from "./../../components/Pages/InsideHrThree/InsideHrThree.vue"
 import Subview from "./../../components/Pages/Subview/Subview.vue"
+import RQImport from "./../../components/Pages/RQImport/RQImport.vue"
+import board from "./../../components/Pages/board/board.vue"
 
 const routes = [
 
     { path: '/purchase', component: Test,
         children: [
-
             { path: '', component: Subview,
                 children: [
                     { path: 'Request_quotation_lower', component: Request_quotation_lower},
-                    { path: 'request_quotation', component: RequestQuotation},
+                    { path: '', component: RequestQuotation},
                     { path: 'EditProduct', component: EditProduct},
                     { path: 'CreateProduct', component: CreateProduct},
                     { path: 'Productingcreate', component: Productingcreate},
@@ -94,7 +94,6 @@ const routes = [
                     { path: 'calendar', component: Calendar},
                     { path: 'product_inner', component: Product_inner},
                     { path: 'pkr', component: Pkr},
-                    { path: 'Dashboardsetting', component: Dashboardsetting},
                     { path: 'Incomingmenu', component: Incomingmenu},
                     { path: 'Companypopup', component: Companypopup},
                     { path: 'Receipts', component: Receipts},
