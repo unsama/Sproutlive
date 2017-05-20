@@ -4,7 +4,7 @@ import Dashboardsetting from "./../../partials/Dashboardsetting/Dashboardsetting
 
 export default{
     created: function(){
-        console.log("this is some check")
+        console.log("this is some check");
     },
     data(){
         return{
@@ -13,33 +13,33 @@ export default{
                 Dashboard: { url: "#/",title: "Dashboard" },
                 Purchase: [
                     {
-                        url: "#/app/purchase/request_quotation",
+                        url: "/purchase/request_quotation",
                         title: "Requests for Quotation"
                     },
                     {
-                        url: "#/app/purchase/purchase_order",
+                        url: "/purchase/purchase_order",
                         title: "Purchase Orders"
                     },
                     {
-                        url: "#/app/purchase/vendor",
+                        url: "/purchase/vendor",
                         title: "Vendors"
                     },
                     {
-                        url: "#/app/purchase/products",
+                        url: "/purchase/products",
                         title: "Products"
                     },
                     {
-                        url: "#/app/purchase/entry_gate",
+                        url: "/purchase/entry_gate",
                         title: "Gate Entry"
                     }
                 ],
                 Control: [
                     {
-                        url: "#/app/purchase/incoming_products",
+                        url: "/purchase/incoming_products",
                         title: "Incoming Products"
                     },
                     {
-                        url: "#/app/purchase/vendor_bills",
+                        url: "/purchase/vendor_bills",
                         title: "Vendor Bills"
                     },
 
@@ -47,7 +47,7 @@ export default{
                 Reports: { url: "#/",title: "Reports" },
                 Configuration: [
                     {
-                        url: "#/app/purchase/setting",
+                        url: "/purchase/setting",
                         title: "Settings"
                     },
 
