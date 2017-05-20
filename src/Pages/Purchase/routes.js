@@ -53,6 +53,7 @@ import Product_Boxes   from "./../../components/partials/Product_Boxes/Product_B
 import Pagination   from "./../../components/partials/Pagination/Pagination.vue"
 import Test   from "./../../components/Pages/Test/Test.vue"
 import InsideHrThree from "./../../components/Pages/InsideHrThree/InsideHrThree.vue"
+import Subview from "./../../components/Pages/Subview/Subview.vue"
 
 const routes = [
 
