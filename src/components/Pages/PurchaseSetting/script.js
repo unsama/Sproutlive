@@ -1,4 +1,4 @@
-import TopController from "./../../partials/TopController/TopController.vue"
+import TopController from "./../../partials/Topcontroller/Topcontroller.vue"
 
 export default{
     created: function(){
