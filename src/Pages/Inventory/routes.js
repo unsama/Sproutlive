@@ -33,7 +33,7 @@ import Inventory_Categories_Table   from "./../../components/Pages/Inventory_Cat
 import Accordions   from "./../../components/partials/Accordions/Accordions.vue"
 import All_Transfer_Import   from "./../../components/Pages/All_Transfer_Import/All_Transfer_Import.vue"
 import All_Transfer_Edit   from "./../../components/Pages/All_transfer_Edit/All_Transfer_Edit.vue"
-import Inventory_Categories_Create   from "./../../components/Pages/Inventory_Categories_Create/Inventory_Categories_Create.vue"
+import Inventory_Categories_Create   from "./../../components/Pages/Inventory_Categories_Create/Inventory_Categories_create.vue"
 import Reordering_Rules_Import   from "./../../components/Pages/Reordering_Rules_Import/Reordering_Rules_Import.vue"
 import Inventory_Valuation_Table   from "./../../components/Pages/Inventory_Valuation_Table/Inventory_Valuation_Table.vue"
 import Inventory_Adjustments_Import   from "./../../components/Pages/Inventory_Adjustments_Import/Inventory_Adjustments_Import.vue"
