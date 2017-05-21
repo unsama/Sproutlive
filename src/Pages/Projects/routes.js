@@ -1,4 +1,4 @@
-import Project_layout   from "./../../components/Pages/Project_layout/Project_layout.vue"
+import Project_layout   from "./../../components/Pages/Project_Layout/Project_Layout.vue"
 import Project_Task   from "./../../components/Pages/Project_Task/Project_Task.vue"
 import Test from "./../../components/Pages/Test/Test.vue"
 import Project_settings   from "./../../components/Pages/Project_settings/Project_settings.vue"
