@@ -33,10 +33,10 @@ export default{
     data () {
         return {
             dashboard: "Activities",
-            modal: "Open: Project",
-            modal1: "Open: Project Manager",
+            modal: "Open: Projects",
+            modal1: "Open: Projects Manager",
             modal2: "Open: Customer",
-            modal3: "Open: Project Manager",
+            modal3: "Open: Projects Manager",
             modal4: "Open: Company",
             modal5: "Confirmation",
             btnlinks: {

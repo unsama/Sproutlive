@@ -1989,7 +1989,7 @@ const routes = [
                     { path: 'project_stage_create', component: Project_Stage_Create },
                     { path: 'project_stage_table', component: Project_Stage_Table },
                     { path: 'project_stage_edit', component: Project_Stage_Edit },
-                    { path: 'Projects', component: Projects },
+                    { path: 'Project', component: Projects },
                     { path: 'project_import', component: Project_Import },
                     { path: 'project_create', component: Project_Create },
                     { path: 'project_table', component: Project_Table },

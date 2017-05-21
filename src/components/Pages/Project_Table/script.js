@@ -15,7 +15,7 @@ export default{
     },
     data () {
         return {
-            nextactivity: "Projects / Data Import/Export Plugin",
+            nextactivity: "Project / Data Import/Export Plugin",
             title: "Data Import/Export Plugin - Sprout",
             title: "New - Sprout",
             btnlinks: {

@@ -12,18 +12,17 @@ import Project_Import   from "./../../components/Pages/Project_Import/Project_Im
 import Project_Create   from "./../../components/Pages/Project_Create/Project_Create.vue"
 import Project_Table   from "./../../components/Pages/Project_Table/Project_Table.vue"
 import Project_Edit   from "./../../components/Pages/Project_Edit/Project_Edit.vue"
-import Project_Issues   from "./../../components/pages/Project_Issues/Project_Issues.vue"
-import Project_Issue_Create   from "./../../components/pages/Project_Issue_Create/Project_Issue_Create.vue"
-import Project_Issue_Edit   from "./../../components/pages/Project_Issue_Edit/Project_Issue_Edit.vue"
-import Project_Issue_Inner   from "./../../components/pages/Project_Issue_Inner/Project_Issue_Inner.vue"
-import Task_Analysis  from "./../../components/pages/Task_Analysis/Task_Analysis.vue"
-import Issue_Analysis  from "./../../components/pages/Issue_Analysis/Issue_Analysis.vue"
-import Project_Dashboard  from "./../../components/pages/Project_Dashboard/Project_Dashboard.vue"
-import Project_Dashboard_Pipeline  from "./../../components/pages/Project_Dashboard_Pipeline/Project_Dashboard_Pipeline.vue"
-import Project_Grid  from "./../../components/Partials/Project_Grid/Project_Grid.vue"
+import Project_Issues   from "./../../components/Pages/Project_Issues/Project_Issues.vue"
+import Project_Issue_Create   from "./../../components/Pages/Project_Issue_Create/Project_Issue_Create.vue"
+import Project_Issue_Edit   from "./../../components/Pages/Project_Issue_Edit/Project_Issue_Edit.vue"
+import Project_Issue_Inner   from "./../../components/Pages/Project_Issue_Inner/Project_Issue_Inner.vue"
+import Task_Analysis  from "./../../components/Pages/Task_Analysis/Task_Analysis.vue"
+import Issue_Analysis  from "./../../components/Pages/Issue_Analysis/Issue_Analysis.vue"
+import Project_Dashboard  from "./../../components/Pages/Project_Dashboard/Project_Dashboard.vue"
+import Project_Dashboard_Pipeline  from "./../../components/Pages/Project_Dashboard_Pipeline/Project_Dashboard_Pipeline.vue"
+import Project_Grid  from "./../../components/partials/Project_Grid/Project_Grid.vue"
 import Project_Task_Inner  from "./../../components/Pages/Project_Task_Inner/Project_Task_Inner.vue"
 import Project_Task_Create  from "./../../components/Pages/Project_Task_Create/Project_Task_Create.vue"
-import Project_Task_Edit  from "./../../components/Pages/Project_Task_Edit/Project_Task_Edit.vue"
 
 
 const routes = [
@@ -38,7 +37,7 @@ const routes = [
                     { path: 'project_stage_create', component: Project_Stage_Create },
                     { path: 'project_stage_table', component: Project_Stage_Table },
                     { path: 'project_stage_edit', component: Project_Stage_Edit },
-                    { path: 'Projects', component: Projects },
+                    { path: 'Project', component: Projects },
                     { path: 'project_import', component: Project_Import },
                     { path: 'project_create', component: Project_Create },
                     { path: 'project_table', component: Project_Table },
@@ -54,7 +53,6 @@ const routes = [
                     { path: 'project_grid', component: Project_Grid },
                     { path: 'project_task_inner', component: Project_Task_Inner },
                     { path: 'project_task_create', component: Project_Task_Create },
-                    { path: 'project_task_edit', component: Project_Task_Edit },
                 ]
             },
         ]

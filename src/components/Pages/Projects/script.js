@@ -7,15 +7,15 @@ export default{
     },
     data () {
         return {
-            activities: "Projects",
+            activities: "Project",
             title: "Projects - Sprout",
             btnlinks: {
                 createbtnlink:"/projects/project_create",
                 importbtnlink:"/projects/project_import "
             },
             tableheader: [
-                "Project Name",
-                "Project Manager",
+                "Projects Name",
+                "Projects Manager",
                 "Contact",
 
             ],

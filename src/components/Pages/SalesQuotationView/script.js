@@ -30,7 +30,7 @@ export default{
     data(){
         return {
             quotation: "Quotations / SO014",
-            modal: "Open: Project",
+            modal: "Open: Projects",
             btnlinks: {
                 createbtnlink:"/sales/salesquotationcreate",
                 editbtnlink:"/sales/salesquotationedit"
