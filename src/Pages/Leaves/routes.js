@@ -22,7 +22,7 @@ import Leaves_Detail_Table   from "./../../components/Pages/Leaves_Detail_Table/
 import Leaves_Detail_Edit   from "./../../components/Pages/Leaves_Detail_Edit/Leaves_Detail_Edit.vue"
 import Leaves_Detail_Create   from "./../../components/Pages/Leaves_Detail_Create/Leaves_Detail_Create.vue"
 import Leaves_Configuration   from "./../../components/Pages/Leaves_Configuration/Leaves_Configuration.vue"
-import Leaves_Configuration_Table   from "./../../components/Pages/Leaves_Configuration_Table/Leaves_Configuration_Table.vue"
+import Leaves_Configuration_Table   from "./../../components/Pages/Leaves_Configuration_table/Leaves_Configuration_table.vue"
 import Leaves_Configuration_Edit   from "./../../components/Pages/Leaves_Configuration_Edit/Leaves_Configuration_Edit.vue"
 import Leaves_Configuration_Create   from "./../../components/Pages/Leaves_Configuration_Create/Leaves_Configuration_Create.vue"
 import Leaves_Configuration_Import   from "./../../components/Pages/Leaves_Configuration_Import/Leaves_Configuration_Import.vue"
