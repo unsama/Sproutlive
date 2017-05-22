@@ -20,7 +20,7 @@ export default{
             tableheader: [
                 "Expense Sheet",
                 "Accounting Date",
-                "Employee",
+                "Employees",
                 "Total Amount",
                 "Status",
 

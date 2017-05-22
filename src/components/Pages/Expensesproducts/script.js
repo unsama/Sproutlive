@@ -22,7 +22,7 @@ export default{
             tableheader: [
                 "Expense Sheet",
                 "Accounting Date",
-                "Employee",
+                "Employees",
                 "Total Amount",
                 "Status",
 
@@ -45,7 +45,7 @@ export default{
                     "data": [
                         "Hotel Expenses",
                         "Travel",
-                        "Employee",
+                        "Employees",
                         "10.000",
                         "Submitted",
 

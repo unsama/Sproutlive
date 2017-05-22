@@ -15,7 +15,7 @@ export default{
                 fifthbtnlink:"/leaves/leaves_request_calendar",
             },
             tableheader: [
-                "Employee",
+                "Employees",
                 "Leave type",
                 "Description",
                 "Start Date",

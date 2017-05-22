@@ -22,7 +22,7 @@ export default{
             tableheader: [
                 "Date",
                 "Expense Description",
-                "Employee",
+                "Employees",
                 "Total",
                 "Status",
 

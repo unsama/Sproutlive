@@ -13,9 +13,9 @@ export default{
                 importbtnlink:"/leaves/leaves_allocation_import"
             },
             tableheader: [
-                "Employee",
+                "Employees",
                 "Allocation Mode",
-                "Employee Tag",
+                "Employees Tag",
                 "Leave type",
                 "Description",
                 "Allocated Days",

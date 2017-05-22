@@ -15,9 +15,9 @@ export default{
                 fifthbtnlink:"/leaves/leaves_request_calendar",
             },
             tableheader: [
-                "Employee",
+                "Employees",
                 "Allocation Mode",
-                "Employee Tag",
+                "Employees Tag",
                 "Leave type",
                 "Description",
                 "Allocated Days",

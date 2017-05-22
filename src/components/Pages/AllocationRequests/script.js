@@ -44,7 +44,7 @@ export default{
             tableheader: [
                 " Employee",
                 " Allocation Mode",
-                " Employee Tag",
+                " Employees Tag",
                 " Leave Type",
                 " Description",
                 " Allocation Day",

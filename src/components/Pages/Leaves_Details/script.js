@@ -14,7 +14,7 @@ export default{
                 importbtnlink:"/leaves/leaves_detail_import"
             },
             tableheader: [
-                "Employee",
+                "Employees",
                 "Request Type",
                 "Description",
                 "Number of Days",

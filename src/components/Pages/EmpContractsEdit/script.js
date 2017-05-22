@@ -74,7 +74,7 @@ export default{
             m: 'Log an internal note which will not be sent to followers, but which can be read by users accessing this document.',
             message: 'To: Followers of "PO00007: 637.50 Rs."',
             v: false,
-            nextactivity: "Contracts/v/Employee",
+            nextactivity: "Contracts/v/Employees",
             btnlinks: {
                 createbtnlink:"#/app/attendance/Createemp",
                 importbtnlink:"#/app/imported",

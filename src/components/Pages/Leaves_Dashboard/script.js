@@ -13,9 +13,9 @@ export default{
                 importbtnlink:"/inventory/inventory_adjustments_import"
             },
             tableheader: [
-                "Employee",
+                "Employees",
                 "Allocation Mode",
-                "Employee Tag",
+                "Employees Tag",
                 "Leave type",
                 "Description",
                 "Allocated Days",
