@@ -107,7 +107,7 @@ import Employeeslayout from "./../../components/Pages/Employeeslayout/Employeesl
 const routes = [
 
 
-    { path: '/Employee', component: Test,
+    { path: '/employee', component: Test,
         children: [
 
 
