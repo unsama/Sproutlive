@@ -3,6 +3,7 @@ import Request_quotation_lower from "./../../partials/Request_quotation_lower/Re
 import Message from "./../../partials/Message/Message.vue"
 import Modal from "./../../partials/Modal/Modal.vue"
 import infochannal from "./../../partials/infochannal/infochannal.vue"
+import infochannal from "./../../partials/infochannal/infochannal.vue"
 
 
 export default{
