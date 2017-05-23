@@ -66,7 +66,7 @@ app.use(history({
         { from: /\/attendance/, to: '/attendance'},
         { from: /\/recruitment/, to: '/recruitment'},
         { from: /\/signup/, to: '/signup'},
-        { from: /\/Discuess/, to: '/Discuess'},
+        { from: /\/discuess/, to: '/discuess'},
         { from: /\/dashboards/, to: '/dashboards'},
         { from: /\/leaves/, to: '/leaves'},
         { from: /\/test/, to: '/test'},

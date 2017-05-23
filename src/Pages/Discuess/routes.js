@@ -19,7 +19,7 @@ import ChannelGridEdit from "./../../components/Pages/ChannelGridEdit/ChannelGri
 
 
 const routes = [
-    { path: '/Discuess', component: Test,
+    { path: '/discuess', component: Test,
         children: [
             { path: '', component: DiscuessLayout,
                 children: [
