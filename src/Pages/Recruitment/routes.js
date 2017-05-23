@@ -55,7 +55,7 @@ import ContractNew from "./../../components/partials/ContractNew/ContractNew.vue
 
 
 const routes = [
-    { path: '/Recruitment', component: Test,
+    { path: '/recruitment', component: Test,
         children: [
 
             { path: '', component: Recruitment_layout,

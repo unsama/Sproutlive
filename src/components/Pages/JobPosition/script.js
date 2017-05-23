@@ -1,6 +1,6 @@
 import Emptyform from "./../../partials/Emptyform/Emptyform.vue"
 import Tabs from "./../../partials/Tabs/Tabs.vue"
-import ModelDescription from "./../../partials/ModelDescription/ModelDescription.vue"
+import ModelDescription from "./../../partials/Modeldescription/Modeldescription.vue"
 import Componame from "./../../partials/Componame/Componame.vue"
 import Tableview from "./../../partials/Tableview/Tableview.vue"
 import TableMain from "./../../partials/TableMain/TableMain.vue"
