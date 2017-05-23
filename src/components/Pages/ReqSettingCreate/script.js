@@ -2,7 +2,7 @@ import DashboardController from "./../../partials/DashboardController/DashboardC
 
 import Message from "./../../partials/Message/Message.vue"
 import Modal from "./../../partials/Modal/Modal.vue"
-import jobs from "./../../partials/jobs/jobs.vue"
+import jobs from "./../../partials/Jobs/Jobs.vue"
 import Request_quotation_lower from "./../../partials/Request_quotation_lower/Request_quotation_lower.vue"
 
 
