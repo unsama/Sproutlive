@@ -6,7 +6,7 @@
     "start": "nodemon ./bin/www",
     "watchify": "watchify -vd -e src/Pages/Employees/main.js -o public/Modules/Employees/build.js",
     "dev": "npm-run-all --parallel watchify start",
-    "build": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o public/Modules/Dashboards/build.css ] -e src/Pages/Dashboards/main.js | uglifyjs -c warnings=false -m > public/Modules/Dashboards/build.js"
+    "build": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o public/Modules/Setting/build.css ] -e src/Pages/Setting/main.js | uglifyjs -c warnings=false -m > public/Modules/Setting/build.js"
   },
   "browserify": {
     "transform": [
