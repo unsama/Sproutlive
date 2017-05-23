@@ -51,6 +51,7 @@ app.use('/user', userRoutes);
 app.use(history({
     rewrites: [
         { from: /\/sales/, to: '/sales'},
+        { from: /\/attendance/, to: '/attendance'},
         { from: /\/purchase/, to: '/purchase'},
         { from: /\/employees/, to: '/employees'},
         { from: /\/accounting/, to: '/accounting'},
@@ -63,7 +64,6 @@ app.use(history({
         { from: /\/inventory/, to: '/inventory'},
         { from: /\/expenses/, to: '/expenses'},
         { from: /\/maintenance/, to: '/maintenance'},
-        { from: /\/attendance/, to: '/attendance'},
         { from: /\/recruitment/, to: '/recruitment'},
         { from: /\/signup/, to: '/signup'},
         { from: /\/discuess/, to: '/discuess'},

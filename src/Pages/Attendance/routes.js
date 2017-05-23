@@ -66,7 +66,6 @@ import EditLeave from "./../../components/partials/EditLeave/EditLeave.vue"
 import LeavesEdit from "./../../components/partials/LeavesEdit/LeavesEdit.vue"
 import ImportLeave from "./../../components/Pages/ImportLeave/ImportLeave.vue"
 import LeaveDep from "./../../components/Pages/LeaveDep/LeaveDep.vue"
-
 import LeaveRequestcreate from "./../../components/Pages/LeaveRequestcreate/LeaveRequestcreate.vue"
 import LeaveRequestEdit from "./../../components/Pages/LeaveRequestEdit/LeaveRequestEdit.vue"
 import LeaveRequest  from "./../../components/Pages/LeaveRequest/LeaveRequest.vue"
@@ -116,6 +115,7 @@ const routes = [
         children: [
             { path: '', component: Attendancelayout,
                 children: [
+                    { path: '', component: Click},
                     { path: 'attSettings', component: AttSettings},
                     { path: 'AttHrTables', component: AttHrTables},
                     { path: 'Reportattendence', component: Reportattendence},
@@ -131,7 +131,6 @@ const routes = [
                     { path: 'mode', component: Mode},
                     { path: 'empatt', component: Empatt},
                     { path: 'emp', component: Emp},
-                    { path: '', component: Click},
                     { path: 'grid', component: Grid},
                     { path: 'report', component: Report},
                     { path: 'hr', component: Hr},
