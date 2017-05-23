@@ -1,5 +1,4 @@
 import Sidebar from "./../../partials/Sidebar/Sidebar.vue"
-import Dashboardsetting from "./../../partials/DAshboardsetting/Dashboardsetting.vue"
 import Topcontroller from "./../../partials/Topcontroller/Topcontroller.vue"
 
 
@@ -40,7 +39,6 @@ export default{
     },
     components: {
         Sidebar,
-        Dashboardsetting,
         Topcontroller
     }
 
