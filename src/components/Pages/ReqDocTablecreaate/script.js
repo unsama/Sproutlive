@@ -1,6 +1,6 @@
 
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
-import Chat from "./../../partials/Chat/Chat.vue"
+import Chat from "./../../partials/chat/chat.vue"
 import Imported from "./../../Pages/Imported/Imported.vue"
 
 export default{
