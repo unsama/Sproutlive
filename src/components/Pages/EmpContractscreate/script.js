@@ -1,7 +1,7 @@
 
 import Emptyform from "./../../partials/Emptyform/Emptyform.vue"
 import Tabs from "./../../partials/Tabs/Tabs.vue"
-import ModelDescription from "./../../partials/ModelDescription/ModelDescription.vue"
+import ModelDescription from "./../../partials/Modeldescription/Modeldescription.vuee"
 import Componame from "./../../partials/Componame/Componame.vue"
 import Tableview from "./../../partials/Tableview/Tableview.vue"
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
