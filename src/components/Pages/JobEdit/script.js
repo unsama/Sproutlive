@@ -1,5 +1,4 @@
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
-
 import Message from "./../../partials/Message/Message.vue"
 import Modal from "./../../partials/Modal/Modal.vue"
 import jobs from "./../../partials/jobs/jobs.vue"
