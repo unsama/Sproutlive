@@ -1,5 +1,5 @@
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
-import Imported from "./../imported/imported.vue"
+import Imported from "./../Imported/Imported.vue"
 
 
 export default{

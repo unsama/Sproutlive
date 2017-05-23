@@ -1,5 +1,5 @@
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
-import Tablemain from "./../../partials/Tablemain/Tablemain.vue"
+import Tablemain from "./../../partials/TableMain/TableMain.vue"
 import Expensesreportstable from "./../../partials/Expensesreportstable/Expensesreportstable.vue"
 
 
