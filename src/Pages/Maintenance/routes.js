@@ -15,7 +15,6 @@ import Maintenancegridin  from "./../../components/partials/Maintenancegridin/Ma
 import Maintenancegridpage  from "./../../components/Pages/Maintenancegridpage/Maintenancegridpage.vue"
 import Maintenancereqcreate  from "./../../components/partials/Maintenancereqcreate/Maintenancereqcreate.vue"
 import Maintenancerequestcreate  from "./../../components/Pages/Maintenancerequestcreate/Maintenancerequestcreate.vue"
-import Maintenanceequipmentsgrid   from "./../../components/partials/Maintenanceequipmentsgrid/Maintenanceequipmentsgrid.vue"
 import Maintenanceequipmentsinner   from "./../../components/partials/Maintenanceequipmentsinner/Maintenanceequipmentsinner.vue"
 import Maintenanceequipmentsinnerpage   from "./../../components/Pages/Maintenanceequipmentsinnerpage/Maintenanceequipmentsinnerpage.vue"
 import Test   from "./../../components/Pages/Test/Test.vue"
