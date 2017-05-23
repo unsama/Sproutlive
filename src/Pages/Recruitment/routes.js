@@ -1,6 +1,5 @@
 import Letters from "./../../components/Pages/Letters/Letters.vue"
 import ReportRecruitment from "./../../components/Pages/ReportRecruitment/ReportRecruitment.vue"
-import Importemp from "./../../components/Pages/Importemp/Importemp.vue"
 import JobPosition from "./../../components/Pages/JobPosition/JobPosition.vue"
 import ReqDep from "./../../components/Pages/ReqDep/ReqDep.vue"
 import JobImport from "./../../components/Pages/JobImport/JobImport.vue"
