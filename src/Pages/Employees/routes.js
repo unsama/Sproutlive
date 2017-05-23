@@ -43,7 +43,6 @@ import EditHr from "./../../components/partials/EditHr/EditHr.vue"
 import Editone from "./../../components/Pages/Editone/Editone.vue"
 import TimeEdit from "./../../components/Pages/TimeEdit/TimeEdit.vue"
 import WorkingTime from "./../../components/Pages/WorkingTime/WorkingTime.vue"
-import CompanyName from "./../../components/Pages/CompanyName/CompanyName.vue"
 import HrCom from "./../../components/partials/HrCom/HrCom.vue"
 import Creatingemp from "./../../components/Pages/Creatingemp/Creatingemp.vue"
 import Editcompany from "./../../components/Pages/Editcompany/Editcompany.vue"
@@ -153,7 +152,6 @@ const routes = [
                     { path: 'Editone', component: Editone},
                     { path: 'TimeEdit', component: TimeEdit},
                     { path: 'WorkingTime', component: WorkingTime},
-                    { path: 'CompanyName', component: CompanyName},
                     { path: 'HrCom', component: HrCom},
                     { path: 'Editcompany', component: Editcompany},
                     { path: 'Creatingemp', component: Creatingemp},
