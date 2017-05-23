@@ -133,8 +133,8 @@ router.get("/manufacturing", function(req, res, next){
 router.get("/leaves", function(req, res, next){
     res.render('modules/leaves', {title: 'Sprout'});
 });
-router.get("/employee", function(req, res, next){
-    res.render('modules/employee', {title: 'Sprout'});
+router.get("/employees", function(req, res, next){
+    res.render('modules/employees', {title: 'Sprout'});
 });
 router.get("/projects", function(req, res, next){
     res.render('modules/projects', {title: 'Sprout'});

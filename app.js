@@ -52,7 +52,7 @@ app.use(history({
     rewrites: [
         { from: /\/sales/, to: '/sales'},
         { from: /\/purchase/, to: '/purchase'},
-        { from: /\/employee/, to: '/employee'},
+        { from: /\/employees/, to: '/employees'},
         { from: /\/accounting/, to: '/accounting'},
         { from: /\/calendar/, to: '/calendar'},
         { from: /\/timesheet/, to: '/timesheet'},
