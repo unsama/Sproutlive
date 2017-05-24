@@ -103,16 +103,12 @@ import EditContract from "./../../components/Pages/EditContract/EditContract.vue
 import Test from "./../../components/Pages/Test/Test.vue"
 import HrImport from "./../../components/Pages/HrImport/HrImport.vue"
 import Employeeslayout from "./../../components/Pages/Employeeslayout/Employeeslayout.vue"
+
 const routes = [
-
-
     { path: '/employees', component: Test,
         children: [
-
-
             { path: '', component: Employeeslayout,
                 children: [
-
                     { path: 'ReportExpense', component: ReportExpense},
                     { path: 'ReportLeaves', component: ReportLeaves},
                     { path: 'ReportAttendanceEmployees', component: ReportAttendanceEmployees},
@@ -216,18 +212,10 @@ const routes = [
                     { path: 'CreateDepone', component: CreateDepone },
                     { path: 'TypeContract', component: TypeContract },
                     { path: 'EditContract', component: EditContract },
-
-
                 ]
             },
-
-
-
         ]
-
     },
-
-
 ];
 
 module.exports = routes

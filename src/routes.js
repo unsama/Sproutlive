@@ -1076,7 +1076,7 @@ const routes = [
 
 
 
-    { path: '/app', component: Test,
+    { path: '/', component: Test,
         children: [
             { path: 'setting', component: SettingLayout,
                 children: [
