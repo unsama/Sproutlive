@@ -107,7 +107,6 @@ router.get("/accounting", function(req, res, next){
 router.get("/calendar", function(req, res, next){
     res.render('modules/calendar', {title: 'Sprout'});
 });
-
 router.get("/dashboards", function(req, res, next){
     res.render('modules/Dashboards', {title: 'Sprout'});
 });

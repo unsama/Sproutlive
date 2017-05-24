@@ -1832,7 +1832,6 @@ const routes = [
 
                 ]
             },
-
             { path: 'Employees', component: Employeeslayout,
                 children: [
                     { path: 'Grids', component: Grids},
@@ -2009,8 +2008,6 @@ const routes = [
                     { path: 'tooltip', component: Tooltip },
                 ]
             },
-
-
         ]
 
     },
