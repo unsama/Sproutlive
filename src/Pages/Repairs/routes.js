@@ -1,10 +1,10 @@
 import Repairs_Layout   from "./../../components/Pages/Repairs_Layout/Repairs_Layout.vue"
 import Repairs_Main   from "./../../components/Pages/Repairs_Main/Repairs_Main.vue"
-import Repairs_Table   from "./../../components/Pages/Repairs_Table/Repairs_Table.vue"
+import Repairs_Table   from "./../../components/Pages/Repairs_table/Repairs_table.vue"
 import Repairs_Edit   from "./../../components/Pages/Repairs_Edit/Repairs_Edit.vue"
 import Repairs_Import   from "./../../components/Pages/Repairs_Import/Repairs_Import.vue"
 import Repairs_Create   from "./../../components/Pages/Repairs_Create/Repairs_Create.vue"
-import Test  from "./../../components/pages/Test/Test.vue"
+import Test  from "./../../components/Pages/Test/Test.vue"
 
 
 
