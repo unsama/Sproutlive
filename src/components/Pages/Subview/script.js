@@ -1,4 +1,6 @@
 import Sidebar from "./../../partials/Sidebar/Sidebar.vue"
+import Dashboardsetting from "./../../partials/Dashboardsetting/Dashboardsetting.vue"
+import Topcontroller from "./../../partials/Topcontroller/Topcontroller.vue"
 
 
 export default{
@@ -42,7 +44,7 @@ export default{
                     },
 
                 ],
-                Reports: { url: "#/",title: "Reports" },
+                Reports: { url: "/",title: "Reports" },
                 Configuration: [
                     {
                         url: "/purchase/setting",
@@ -57,6 +59,8 @@ export default{
     },
     components: {
         Sidebar,
+        Dashboardsetting,
+        Topcontroller,
     }
 
 }
