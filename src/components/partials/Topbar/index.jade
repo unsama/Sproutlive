@@ -7,58 +7,58 @@
             #navbarNavDropdown.collapse.navbar-collapse
                 ul.navbar-nav.samoulnav
                     li.nav-item.active
-                        a.nav-link.samonavlink(href='/purchase') Purchases
+                        router-link.nav-link.samonavlink(to='/purchase') Purchases
                     li.nav-item
-                        a.nav-link.samonavlink(href='/') Settings
+                        router-link.nav-link.samonavlink(to='/') Settings
                     li.nav-item
-                        a.nav-link.samonavlink(href='/sales') Sales
+                        router-link.nav-link.samonavlink(to='/sales') Sales
                     li.nav-item
-                        a.nav-link.samonavlink(href='/calendar') Calendar
+                        router-link.nav-link.samonavlink(to='/calendar') Calendar
                     li.nav-item
-                        a.nav-link.samonavlink(href='/notes') Notes
+                        router-link.nav-link.samonavlink(to='/notes') Notes
                     li.nav-item
-                        a.nav-link.samonavlink(href='/timesheet') Timesheets
+                        router-link.nav-link.samonavlink(to='/timesheet') Timesheets
                     li.nav-item
-                        a.nav-link.samonavlink(href='/pointofsale') PointofSale
+                        router-link.nav-link.samonavlink(to='/pointofsale') PointofSale
                     li.nav-item
-                        a.nav-link.samonavlink(href='/attendance') Attendence
+                        router-link.nav-link.samonavlink(to='/attendance') Attendence
                     li.nav-item
-                        a.nav-link.samonavlink(href='/employees') Employees
+                        router-link.nav-link.samonavlink(to='/employees') Employees
                     li.nav-item
-                        a.nav-link.samonavlink(href='/accounting') Accounting
+                        router-link.nav-link.samonavlink(to='/accounting') Accounting
                     li.nav-item
-                        a.nav-link.samonavlink(href='/inventory') Inventory
+                        router-link.nav-link.samonavlink(to='/inventory') Inventory
                     li.nav-item
-                        a.nav-link.samonavlink(href='/expenses') Expenses
+                        router-link.nav-link.samonavlink(to='/expenses') Expenses
                     li.nav-item
-                        a.nav-link.samonavlink(href='/Manufacturing') Manufacturing
+                        router-link.nav-link.samonavlink(to='/Manufacturing') Manufacturing
                     li.nav-item
-                        a.nav-link.samonavlink(href='/leaves') Leaves
+                        router-link.nav-link.samonavlink(to='/leaves') Leaves
                     li.nav-item
-                        a.nav-link.samonavlink(href='/maintenance') Maintenance
+                        router-link.nav-link.samonavlink(to='/maintenance') Maintenance
                     li.nav-item
-                        a.nav-link.samonavlink(href='/dashboards') Dashboards
+                        router-link.nav-link.samonavlink(to='/dashboards') Dashboards
                     li.nav-item
-                        a.nav-link.samonavlink(href='/repairs') Repairs
+                        router-link.nav-link.samonavlink(to='/repairs') Repairs
                     li.nav-item
-                        a.nav-link.samonavlink(href='/fleets') Fleet
+                        router-link.nav-link.samonavlink(to='/fleets') Fleet
                     li.nav-item
-                        a.nav-link.samonavlink(href='/projects') Project
+                        router-link.nav-link.samonavlink(to='/projects') Project
                     li.samolinav
                         i.fa.fa-at.samoat
                         i.fa.fa-comment.samocomment
                         ul.samouldropdown
                             li.nav-item.dropdown.right
-                                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.samonavlink(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.samonavlink(to='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                                     | Administrators
                                     img.img-circle.oe_topbar_avatar.samoimg(src='images/image.png')
                                 .dropdown-menu.samodropdownmenulink(aria-labelledby='navbarDropdownMenuLink')
-                                    a.dropdown-item(href='#') Documentation
-                                    a.dropdown-item(href='#') Support
-                                    a.dropdown-item(href='#') Preferences
+                                    router-link.dropdown-item(to='#') Documentation
+                                    router-link.dropdown-item(to='#') Support
+                                    router-link.dropdown-item(to='#') Preferences
                                     hr
-                                    a.dropdown-item(href='#') My Odoo.com Account
-                                    a.dropdown-item(href='#') Logout
+                                    router-link.dropdown-item(to='#') My Odoo.com Account
+                                    router-link.dropdown-item(to='#') Logout
 
 
 
@@ -68,20 +68,20 @@
         #navbarNavDropdown.collapse.navbar-collapse
             ul.navbar-nav(style='width: 100%;display: block;')
                 li.nav-item.active
-                    a.nav-link(href='#')
+                    router-link.nav-link(to='#')
                         | Home
                         span.sr-only (current)
                 li.nav-item
-                    a.nav-link(href='#') Features
+                    router-link.nav-link(to='#') Features
                 li.nav-item
-                    a.nav-link(href='#') Pricing
+                    router-link.nav-link(to='#') Pricing
                 li.nav-item.dropdown
-                    a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                    router-link#navbarDropdownMenuLink.nav-link.dropdown-toggle(to='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                         | Dropdown link
                     .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                        a.dropdown-item(href='#') Action
-                        a.dropdown-item(href='#') Another action
-                        a.dropdown-item(href='#') Something else here
+                        a.dropdown-item(to='#') Action
+                        a.dropdown-item(to='#') Another action
+                        a.dropdown-item(to='#') Something else here
 
 
 

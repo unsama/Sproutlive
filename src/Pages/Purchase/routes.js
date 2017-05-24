@@ -57,7 +57,6 @@ import RQImport from "./../../components/Pages/RQImport/RQImport.vue"
 import board from "./../../components/Pages/board/board.vue"
 
 const routes = [
-
     { path: '/purchase', component: Test,
         children: [
             { path: '', component: Subview,
@@ -119,14 +118,8 @@ const routes = [
                     { path: 'InsideHrThree', component: InsideHrThree},
                 ]
             },
-
-
-
         ]
-
     },
-
-
 ];
 
 module.exports = routes
