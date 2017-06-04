@@ -38,6 +38,7 @@ import Usersinedit   from "./../../components/Pages/Usersinedit/Usersinedit.vue"
 import Usersincreate   from "./../../components/Pages/Usersincreate/Usersincreate.vue"
 import Usersoutcreate   from "./../../components/Pages/Usersoutcreate/Usersoutcreate.vue"
 import Test   from "./../../components/Pages/Test/Test.vue"
+import tssignup   from "./../../components/Pages/Signup/Signup.vue"
 
 
 const routes = [
@@ -83,6 +84,7 @@ const routes = [
                     { path: 'templatetableincompo', component: Templatetableincompo},
                     { path: 'templatetablein', component: Templatetablein},
                     { path: 'templatetableedit', component: Templatetableedit},
+                    { path: 'tssignup', component: tssignup},
 
                 ]
             },

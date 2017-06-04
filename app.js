@@ -14,6 +14,7 @@ var history = require("connect-history-api-fallback");
 
 var userRoutes = require('./routes/user');
 var webRoutes = require('./routes/web');
+var webSetting = require('./routes/setting');
 //var apiRoutes = require('./routes/api');
 
 var app = express();
@@ -76,10 +77,12 @@ app.use(history({
         { from: /\/email_temp/, to: '/email_temp'},
         { from: /\/password/, to: '/password'},
         { from: /\/clear/, to: '/clear'},
+        { from: /\/yo/, to: '/yo'},
 
     ]
 }));
 app.use('/', webRoutes);
+app.use('/setting', webSetting);
 //app.use('/api', apiRoutes);
 
 // catch 404 and forward to error handler

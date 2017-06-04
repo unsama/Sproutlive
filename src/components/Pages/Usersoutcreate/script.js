@@ -12,7 +12,8 @@ export default{
             title: 'New - Sprout',
             btnlinks: {
                 discardbtnlink: "#/app/setting/users",
-                savedbtnlink: "#/app/setting/"
+                savebtnlink:"",
+
             },
         }
     },

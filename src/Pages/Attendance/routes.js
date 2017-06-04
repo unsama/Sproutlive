@@ -110,7 +110,6 @@ import ContractNew from "./../../components/partials/ContractNew/ContractNew.vue
 
 
 const routes = [
-
     { path: '/attendance', component: Test,
         children: [
             { path: '', component: Attendancelayout,
@@ -222,20 +221,9 @@ const routes = [
                     { path: 'Attcreate', component: Attcreate },
                     { path: 'AttHrEdit', component: AttHrEdit },
                     { path: 'HrEditone', component: HrEditone },
-
-
-
-
                 ]
             },
-
-
-
         ]
-
     },
-
-
 ];
-
 module.exports = routes                                                                                                                                                                                                                       

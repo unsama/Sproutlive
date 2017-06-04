@@ -20,9 +20,9 @@ var transporter = nodemailer.createTransport({
 
 var mysql = require("mysql");
 var connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "4Slash1234!@#$",
+    host: "46.101.37.156",
+    user: "sprout",
+    password: "sprout12345",
     database: "sprout"
 });
 
@@ -36,12 +36,19 @@ connection.connect(function (err) {
     console.log("connected as id "+ connection.threadId);
 });
 
-router.get("/inviteuser", function(req, res, next){
-    res.render('inviteuser', {title: 'Sprout' });
-
-});
 
 
+// router.post('/add_user', function(req, res, next){
+//     connection.query('INSERT INTO `user`(`username`, `email`,`company_name`,`current_company`) VALUES ("'+req.body.username+'","'+req.body.email+'","'+req.body.company_name+'","'+req.body.current_company+'")', function (error, results, fields) {
+//         if (error) res.json({"status": "failed", "message": error.message});
+//
+//     });
+//     connection.query('INSERT INTO `users_access_rights`(`sales`,`project`,`inventory`,`manufacturing`,`accounting`,`purchases`,`recruitment`,`expenses`,`timesheets`,`attendance`,`fleet`,`massmailing`,`pointofsale`,`administration`) VALUES ("'+req.body.sales+'","'+req.body.project+'","'+req.body.inventory+'","'+req.body.manufacturing+'","'+req.body.accounting+'","'+req.body.purchases+'","'+req.body.recruitment+'","'+req.body.expenses+'","'+req.body.timesheets+'","'+req.body.attendance+'","'+req.body.fleet+'","'+req.body.massmailing+'","'+req.body.pointofsale+'","'+req.body.administration+'")', function (error, results, fields) {
+//         if (error) res.json({"status": "failed", "message": error.message});
+//
+//     });
+//
+// });
 
 module.exports = router;
 

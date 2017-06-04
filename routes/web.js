@@ -28,6 +28,8 @@ var connection = mysql.createConnection({
 });
 
 
+
+
 connection.connect(function (err) {
     if(err){
         console.error('error connecting: ' + err.stack);
@@ -50,6 +52,11 @@ router.get('/clear', function (req, res, next) {
         }
     });
 });
+
+
+
+
+
 
 
 /*router.get('/', function (req, res, next) {
@@ -162,11 +169,39 @@ router.get("/pointofsale", function(req, res, next){
     res.render('modules/Pointofsale', {title: 'Sprout'});
 });
 
+//add users
+router.post('/add_user', function (req, res, next) {
+    // connection.query('INSERT INTO `user`(`username`, `email`,`company_name`,`current_company`) VALUES ("'+req.body.username+'","'+req.body.email+'","'+req.body.company_name+'","'+req.body.current_company+'")', function (error, results, fields) {
+    //     if (error) res.json({"status": "failed", "message": error.message});
+    //
+    //     else {
+    //         console.log(err);
+    //         res.send("query 1 error");
+    //     }
+    // });
+    connection.query('INSERT INTO `users_access_rights`(`sales`,`project`,`inventory`,`manufacturing`,`accounting`,`purchases`,`recruitment`,`expenses`,`timesheets`,`attandance`,`fleet`,`mass_mailing`,`pos`,`administration`) ' +
+        'VALUES ("'+req.body.sales+'","'+req.body.project+'","'+req.body.inventory+'","'+req.body.manufacturing+'","'+req.body.accounting+'","'+req.body.purchases+'","'+req.body.recruitment+'","'+req.body.expenses+'","'+req.body.timesheets+'","'+req.body.attendance+'","'+req.body.fleet+'","'+req.body.massmailing+'","'+req.body.pointofsale+'","'+req.body.administration+'")', function (error, results, fields) {
+        if (!error) {
+            res.json({"status": "ok", "result": results});
+        } else {
+            res.json({"status": "failed", "message": error.message});
+        }
+    });
+});
+// get user
+router.get('/get_user', function (req, res, next) {
+    connection.query('SELECT `username`, `email`, `language`, `timezone` FROM `user`)', function (error, results, fields) {
+        if (!error) {
+            res.json({"status": "ok", "result": results});
+        } else {
+            res.json({"status": "failed", "message": error.message});
+        }
+    });
+});
+
 router.get('/signup', function(req, res, next){
     res.render('registration', {title: 'Sprout', success: req.session.success, errors: req.session.errors});
     req.session.error = null ;
-    // res.render('registration', {title: 'Sprout', success: req.session.success, errors:req.session,errors});
-
 });
 router.post('/check', function(req, res, next){
     var salt = bcrypt.genSaltSync(saltRounds);
@@ -216,6 +251,7 @@ router.post('/check', function(req, res, next){
     }
 
 });
+
 router.post('/check', function(req, res, next){
     var salt = bcrypt.genSaltSync(saltRounds);
     var hash = bcrypt.hashSync(req.body.password, salt);
@@ -246,7 +282,6 @@ router.post('/check', function(req, res, next){
             html: html // html body
         };
         // res.json(req.body);
-       
         //req.session.success = true;
     }
 
