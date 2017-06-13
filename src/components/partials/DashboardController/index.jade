@@ -32,7 +32,7 @@
                     | Edit
                 router-link.btn.btn-primary.disabled.samobuttopcontroller2(style="font-size: 13px;color:white;",v-if='validatebtn', v-bind:to="links.validatebtnlink", id='edit1')
                     | Validate
-                router-link.btn.btn-primary.samobuttopcontroller2#save(style="font-size: 13px;color:white;",v-if='savedbtn', type='submit' , v-bind:to="links.savebtnlink")
+                router-link.btn.btn-primary.samobuttopcontroller2(style="font-size: 13px;color:white;",v-if='savedbtn', v-bind:to="links.savebtnlink", id='submitSaveBtn', type="button")
                     | Save
                 router-link.btn.btn-default.samobuttopcontroller(style="font-size: 13px;color: #4c4c4c;", v-if='discardbtn', v-bind:to="links.discardbtnlink")
                     | Discard

@@ -10,6 +10,15 @@ var router = express.Router();
 var bcrypt   = require('bcrypt-nodejs');
 var saltRounds = 10;
 var nodemailer = require("nodemailer");
+
+var async = require('async')        //azeem ullah's commit
+var multer  = require('multer');
+var path = require('path');
+const fs = require('fs');
+
+
+var dbName = "sprout";
+
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -36,19 +45,112 @@ connection.connect(function (err) {
     console.log("connected as id "+ connection.threadId);
 });
 
+router.get("/inviteuser", function(req, res, next){
+    res.render('inviteuser', {title: 'Sprout' });
 
 
-// router.post('/add_user', function(req, res, next){
-//     connection.query('INSERT INTO `user`(`username`, `email`,`company_name`,`current_company`) VALUES ("'+req.body.username+'","'+req.body.email+'","'+req.body.company_name+'","'+req.body.current_company+'")', function (error, results, fields) {
-//         if (error) res.json({"status": "failed", "message": error.message});
-//
-//     });
-//     connection.query('INSERT INTO `users_access_rights`(`sales`,`project`,`inventory`,`manufacturing`,`accounting`,`purchases`,`recruitment`,`expenses`,`timesheets`,`attendance`,`fleet`,`massmailing`,`pointofsale`,`administration`) VALUES ("'+req.body.sales+'","'+req.body.project+'","'+req.body.inventory+'","'+req.body.manufacturing+'","'+req.body.accounting+'","'+req.body.purchases+'","'+req.body.recruitment+'","'+req.body.expenses+'","'+req.body.timesheets+'","'+req.body.attendance+'","'+req.body.fleet+'","'+req.body.massmailing+'","'+req.body.pointofsale+'","'+req.body.administration+'")', function (error, results, fields) {
-//         if (error) res.json({"status": "failed", "message": error.message});
-//
-//     });
-//
-// });
+});
+
+
+
+//-----Azeem Ullah - Settings/create-company
+
+router.get("/create-company/get-meta", function(req, res, next){
+
+    async.parallel([
+        function(callback){
+            connection.query("select id, country_name from country", function (error, result1) {
+                callback(error,result1)
+            });
+        },
+        function(callback){
+            connection.query("select id, state_name from country_states", function (error, result2) {
+                callback(error,result2)
+            });
+        },
+        function(callback){
+            connection.query("select id, currency from currency", function (error, result3) {
+                callback(error,result3)
+            });
+        },
+        function(callback){
+            connection.query("select id, company_name from users_company", function (error, result4) {
+                callback(error,result4)
+            });
+        },
+
+
+    ],function(err,results){
+        if(err){
+            res.json({"status": "failed", "message": error.message})
+        }else{
+            res.send(JSON.stringify(results));
+        }
+    })
+});
+
+
+
+router.get("/create-company/get-meta/given-country/:country_id", function(req, res, next){
+    console.log("id is:"+req);
+    connection.query("select id, state_name from country_states where country_id = '"+req.params.country_id+"'", function (error, results, fields) {
+        if (error) res.json({"status": "failed", "message": error.message});
+        else res.send(JSON.stringify(results));
+    });
+});
+
+
+router.post("/create-company", function(req, res, next){
+    console.log(req.body.companyStateId);
+    var query = "INSERT INTO `users_company` (`id`, `company_name`, `tag_line`, `street_one`, `street_two`, `city`, `state_id`, `zip`, `country_id`, `website`, `phone`, `fax`, `email`, `tax_id`, `current_registry`, `currency_id`, `type`, `parent_company_id`, `image_url`)" +
+        " VALUES (NULL, '"+req.body.companyName+"', '"+req.body.companyTagline+"', '"+req.body.companyStreetOne+"', '"+req.body.companyStreetTwo+"', '"+req.body.companyCity+"', '"+req.body.companyStateId+"', '"+req.body.companyZip+"', '"+req.body.companyCountryId+"', '"+req.body.companyWebsite+"', '"+req.body.companyPhone+"', '"+req.body.companyFax+"', '"+req.body.companyEmail+"', '"+req.body.companyTaxID+"', '"+req.body.companyRegistry+"', '"+req.body.companyCurrencyId+"', 'branch', '"+req.body.companyParentCompanyId+"', '"+req.body.image_url+"')";
+    connection.query(query, function (error, results, fields) {
+
+        if (error) res.json({"status": "failed", "message": error.message});
+        else res.send(JSON.stringify({ results }));
+    });
+});
+
+
+
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/img/'+dbName+'/company/')
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+});
+
+var upload = multer({ storage: storage });
+
+router.post('/create-company/upload-image', upload.single('image'), (req, res) => {
+    var fileDetails = req.file;
+    return res.send(fileDetails);
+});
+
+
+
+router.post("/create-company/delete-image", function(req, res, next){
+    if (fs.existsSync("public/"+req.body.imagePath)) {
+        fs.unlink("public/"+
+
+            req.body.imagePath, (err) => {
+            if (err) throw err;
+            res.send({status: 'success', error: err, abc: req.body.imagePath});
+        });
+    }
+    else
+        res.send({status:"error", error: "File Not found!", abc: req.body.imagePath});
+
+});
+
+
+
+
+
+//----------------------------------------------
 
 module.exports = router;
 

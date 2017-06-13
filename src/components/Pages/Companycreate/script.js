@@ -12,8 +12,8 @@ export default{
             head: "Companies / New",
             title: "Import a File - Sprout",
             btnlinks: {
-                savedbtnlink:"#/app/setting/",
-                discardbtnlink:"#/app/setting/company"
+                savebtnlink:"",
+                discardbtnlink:"/setting/company"
             },
 
         }
