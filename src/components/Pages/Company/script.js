@@ -13,7 +13,7 @@ export default{
             title: 'Companies - Sprout',
             btnlinks: {
                 createbtnlink: "/setting/companycreate",
-                importbtnlink: "#/app/setting/companyimport",
+                importbtnlink: "/setting/companyimport",
             },
             tableheader: [
                 "Company Name",

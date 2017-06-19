@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var mongoose = require("mongoose");
 var session = require("express-session");
-var passport = require("passport");
-var flash = require("connect-flash");
+//var passport = require("passport");
+//var flash = require("connect-flash");
 var validator = require("express-validator");
 var history = require("connect-history-api-fallback");
 //require("./config/passport");
@@ -15,9 +15,41 @@ var history = require("connect-history-api-fallback");
 var userRoutes = require('./routes/user');
 var webRoutes = require('./routes/web');
 var webSetting = require('./routes/setting');
+var connectRoutes = require('./routes/connect-4Slash');
+var userMetaRoutes = require('./routes/login-user-meta');
 //var apiRoutes = require('./routes/api');
+var bcrypt = require('bcrypt-nodejs');
 
 var app = express();
+
+
+
+
+
+//AZEEM ULLAH's CODE
+var flash    = require('connect-flash');
+var crypto   = require('crypto');
+/* Login script */
+var passport = require('passport');
+var LocalStrategy  = require('passport-local').Strategy;
+
+
+var sess  = require('express-session');
+var Store = require('express-session').Store
+var BetterMemoryStore = require('./config/memory')
+var store = new BetterMemoryStore({ expires: 60 * 60 * 1000, debug: true })
+app.use(sess({
+    name: 'JSESSION',
+    secret: 'MYSECRETISVERYSECRET',
+    store:  store,
+    resave: true,
+    saveUninitialized: true
+}));
+//ENDS HERE
+
+
+
+
 
 
 
@@ -25,6 +57,9 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -46,6 +81,92 @@ app.use(express.static(path.join(__dirname, 'public')));
     }
     next();
 });*/
+
+
+
+//AZEEMS CODE STARTS HERE
+
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
+var mysql = require("mysql");
+var connection = mysql.createConnection({
+    host: "46.101.37.156",
+    user: "sprout",
+    password: "sprout12345",
+    database: "sprout"
+});
+
+
+
+connection.connect(function (err) {
+    if(err){
+        console.error('error connecting: ' + err.stack);
+        return;
+    }
+    console.log("connected as id "+ connection.threadId);
+});
+
+passport.use('local', new LocalStrategy({
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true //passback entire req to call back
+    } , function (req, username, password, done){
+        console.log(username+' = '+ password);
+        if(!username || !password ) { return done(null, false, req.flash('message','All fields are required.')); }
+        var salt = '7fa73b47df808d36c5fe328546ddef8b9011b2c6';
+        connection.query("select * from user where username = ?", [username], function(err, rows){
+            console.log(err);
+            if (err) return done(req.flash('message',err));
+
+            if(!rows.length){ return done(null, false, req.flash('message','Invalid username or password.')); }
+            salt = salt+''+password;
+            //var encPassword = crypto.createHash('sha1').update(salt).digest('hex');
+            var dbPassword  = rows[0].password;
+            console.log(dbPassword);
+            if(!bcrypt.compareSync(password, rows[0].password)){
+                return done(null, false, req.flash('message','Invalid username or password.'));
+            }
+
+            return done(null, rows[0]);
+        });
+    }
+));
+
+passport.serializeUser(function(user, done){
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done){
+    connection.query("select * from user where id = "+ id, function (err, rows){
+        done(err, rows[0]);
+    });
+});
+
+app.get('/signin', function(req, res){
+    res.render('login/index',{'message' :req.flash('message')});
+});
+
+app.post("/signin", passport.authenticate('local', {
+    successRedirect: '/profile',
+    failureRedirect: '/signin',
+    failureFlash: true
+}), function(req, res, info){
+    res.render('login/index',{'message' :req.flash('message')});
+});
+
+app.get('/logout', function(req, res){
+    req.session.destroy();
+    req.logout();
+    res.redirect('/signin');
+});
+
+
+//ENDS HERE
+
+
+
 
 app.use('/user', userRoutes);
 
@@ -77,12 +198,15 @@ app.use(history({
         { from: /\/email_temp/, to: '/email_temp'},
         { from: /\/password/, to: '/password'},
         { from: /\/clear/, to: '/clear'},
-        { from: /\/yo/, to: '/yo'},
+
 
     ]
 }));
 app.use('/', webRoutes);
 app.use('/setting', webSetting);
+app.use('/connect-4slash', connectRoutes);
+app.use('/login-user-meta', userMetaRoutes);
+
 //app.use('/api', apiRoutes);
 
 // catch 404 and forward to error handler
