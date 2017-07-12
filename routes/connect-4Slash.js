@@ -92,7 +92,21 @@ function puts(error, stdout, stderr) {
 }
 
 
-router.get("/", function(req, res){
+
+var authentication = function(req, res, next) {
+    //console.log(req.session.db_name);
+        if (req.token == 'abcdefgh') {
+            next();
+        }
+        else {
+            res.status(401).send({message: 'Unauthorized Access. This attempt will be reported.'});
+        }
+};
+
+
+
+
+router.post("/", function(req, res){
     var companyNamePrefix = 'sprout';
    // var a = exec("ls -la", (err, stdout, stderr));
 
@@ -155,14 +169,15 @@ router.get("/", function(req, res){
                 });
 
 
+
                 ssh.exec('mysql -u sprout -psprout12345 -e "create database '+ db_name +'"; ' +
-                    'mysql -u sprout -psprout12345 '+ db_name +' < ~/db_backups/sprout_11062017.sql', {
+                    'mysql -u sprout -psprout12345 '+ db_name +' < ~/db_backups/sprout_11072017.sql', {
                     exit: function(code) {
                         if (code == 0){
                             callback(null);
                         }
                         else{
-                            console.log("Error Closing the connection!");
+                            res.status(500).send({ error: 'Error closing SSH!' });
                         }
 
                     }
@@ -184,7 +199,7 @@ router.get("/", function(req, res){
 
                 connection.connect(function (err) {
                     if(err){
-                        console.error('error connecting: ' + err.stack);
+                        res.status(500).send({ error: 'Error Connecting to database', details: err});
                         return;
                     }
                     console.log("connected as id "+ connection.threadId);
@@ -201,7 +216,7 @@ router.get("/", function(req, res){
                     "VALUES ( NULL , '"+country+"')"
                     , function (error, result1) {
                         if(error){
-                            console.log("Error while inserting country: " + error);
+                            res.status(500).send({ error: "Error while inserting country: ", details: error});
                         }
 
                         callback(null,result1.insertId,connection);
@@ -212,26 +227,26 @@ router.get("/", function(req, res){
             },
 
             function(countryId, connection, callback) {
-                connection.query("INSERT INTO `"+db_name+"`.`user` " +
-                    "( `id` , `username` , `email` , `password` , `phone_no` , `country_id` , `created_at` , `type`) " +
-                    "VALUES ( NULL , '"+fullName+"', '"+adminEmail+"', '"+password+"', '"+ phoneNumber +"', '"+ countryId +"' , '"+createdAt+"', 'admin')"
-                    , function (error,result2) {
-                        if(error) {
-                            console.log("Error while inserting user: " + error);
-                        }
-                    });
-
-                callback(null,connection);
-
-            },
-
-            function(connection, callback) {
                 connection.query("INSERT INTO `"+db_name+"`.`users_company` " +
                     "( `id` , `company_name` , `email` , `type`) " +
                     "VALUES ( NULL , '"+companyName+"', '"+adminEmail+"', 'base')"
+                    , function (error,result2) {
+                        if(error) {
+                            res.status(500).send({ error: "Error while inserting company: ", details: error});
+                        }
+                    });
+
+                callback(null,countryId,connection);
+
+            },
+
+            function(countryId, connection, callback) {
+                connection.query("INSERT INTO `"+db_name+"`.`user` " +
+                    "( `id` , `username` , `email` , `password` , `phone_no` , `country_id` , `created_at` , `type`, `status`) " +
+                    "VALUES ( NULL , '"+fullName+"', '"+adminEmail+"', '"+password+"', '"+ phoneNumber +"', '"+ countryId +"' , '"+createdAt+"', 'admin','active')"
                     , function (error) {
                         if(error){
-                            console.log("Error while inserting company: " + error);
+                            res.status(500).send({ error: "Error while inserting user: ", details: error});
                         }
                         connection.end();
                         callback(null,"Done!");
@@ -331,6 +346,7 @@ router.get("/", function(req, res){
 // To create dump file; will not be used as we have already created one dump file and will use it every time for the sake of efficiency and speed.
 // How ever if structure of database is changed; dump will also need an update.
 /*
+
 
 
     exec("mysqldump -d -u sprout -psprout12345 sprout > ~/db_backups/"+newFileName+".sql", function (error, stdout, stderr) {

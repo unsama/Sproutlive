@@ -27,54 +27,53 @@ var transporter = nodemailer.createTransport({
     }
 });
 
-var mysql = require("mysql");
-var connection = mysql.createConnection({
+
+/*var connection = mysql.createConnection({
     host: "46.101.37.156",
     user: "sprout",
     password: "sprout12345",
     database: "sprout"
 });
+ connection.connect(function (err) {
+ if(err){
+ console.error('error connecting: ' + err.stack);
+ return;
+ }
+ console.log("connected as id "+ connection.threadId);
+ });
+*/
 
-
-
-connection.connect(function (err) {
-    if(err){
-        console.error('error connecting: ' + err.stack);
-        return;
-    }
-    console.log("connected as id "+ connection.threadId);
-});
+var mysql = require('./db_conn');
+connection = mysql.config("sprout");
+connection = mysql.connect(connection);
+mysql.close(connection);
+//mysql.close(db);
 
 router.get("/inviteuser", function(req, res, next){
     res.render('inviteuser', {title: 'Sprout' });
-
-
 });
-
-
 
 //-----Azeem Ullah - Settings/create-company
 
 router.get("/create-company/get-meta", function(req, res, next){
-
     async.parallel([
         function(callback){
-            connection.query("select id, country_name from country", function (error, result1) {
+            global.connection.query("select id, country_name from country", function (error, result1) {
                 callback(error,result1)
             });
         },
         function(callback){
-            connection.query("select id, state_name from country_states", function (error, result2) {
+            global.connection.query("select id, state_name from country_states", function (error, result2) {
                 callback(error,result2)
             });
         },
         function(callback){
-            connection.query("select id, currency from currency", function (error, result3) {
+            global.connection.query("select id, currency from currency", function (error, result3) {
                 callback(error,result3)
             });
         },
         function(callback){
-            connection.query("select id, company_name from users_company", function (error, result4) {
+            global.connection.query("select id, company_name from users_company", function (error, result4) {
                 callback(error,result4)
             });
         },
@@ -82,10 +81,12 @@ router.get("/create-company/get-meta", function(req, res, next){
 
     ],function(err,results){
         if(err){
-            res.json({"status": "failed", "message": error.message})
+            console.log(err);
+            res.json({"status": "failed", "message": error.message});
         }else{
             res.send(JSON.stringify(results));
         }
+
     })
 });
 
@@ -178,3 +179,4 @@ function getDateTime() {
     return year + ":" + month + ":" + day + ":" + hour + ":" + min + ":" + sec;
 
 }
+

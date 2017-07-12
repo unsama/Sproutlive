@@ -1,5 +1,6 @@
 var express = require("express");
 var func = require("./../config/func");
+
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require("express-session");
@@ -20,6 +21,8 @@ var transporter = nodemailer.createTransport({
 });
 
 var mysql = require("mysql");
+var database_connection = require('./db_conn');
+
 var connection = mysql.createConnection({
     host: "46.101.37.156",
     user: "sprout",
@@ -28,6 +31,7 @@ var connection = mysql.createConnection({
 });
 
 
+require("./../config/passport");
 
 
 connection.connect(function (err) {
@@ -37,9 +41,10 @@ connection.connect(function (err) {
     }
     console.log("connected as id "+ connection.threadId);
 });
+
+
 router.post('/yo', function(req, res, next){
     connection.query("INSERT INTO test (name, age, email) VALUES ('Company Inc','545', 'Highway 37')") ;
-
 });
 
 router.get('/clear', function (req, res, next) {
@@ -52,10 +57,40 @@ router.get('/clear', function (req, res, next) {
         }
     });
 });
+var csrf = require('csurf');
+router.use(csrf());
 
 
+router.get('/signin', function(req, res){
+    res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
+});
 
+router.post('/signin',function(req, res, next) {
+    passport.authenticate('local', function(error, user, info) {
+        if(error) {
+            return res.status(500).json("an error occured");
+        }
+        if(!user) {
+            return res.status(401).json("Crediantials Invalid");
+        }
+        req.session.user_details = user;
+        req.session.username = req.body.username;
+        res.status(200).json(user.id);
+    })(req, res, next);
 
+});
+
+router.get('/logout', function(req, res){
+    req.session.destroy();
+    req.logout();
+    res.redirect('/signin');
+});
+
+router.post('/create-session', function(req, res){
+    req.session.db_name = req.body.db_name;
+    global.connection = database_connection.connection(req.session.db_name);
+    res.status(200).json("ok");
+});
 
 
 
@@ -105,70 +140,137 @@ router.get('/forgot_password', function (req, res, next) {
     //  res.render('user/forgot_password', {title: 'Forgot Password', csrfToken: req.csrfToken(), emailSend: true});
 });
 
-router.get("/sales", function(req, res, next){
+
+var privilegeAuthentication = function(req, res, next) {
+    //console.log(req.session.db_name);
+
+    if(typeof req.session.db_name == 'undefined')
+        return res.render('./../views/errors/503.jade');    // 'Service Unavailable 503
+    else {
+        global.connection.query("select * from user where email= '"+req.session.user_details.email+"' and password= '"+req.session.user_details.password+"'", function (error, results) {
+            if (error) {
+                console.log(error);
+                return res.render('./../views/errors/503.jade');
+            }
+            else{
+                if(results.length > 0) {
+                    console.log(results);
+                    global.connection.query("select database_name from sprout_users.users_companies where user_id = (select id from sprout_users.users where email = '"+req.session.user_details.email+"' and password = '"+req.session.user_details.password+"') and status='active'", function (error2, results2) {
+                        if (error2) {
+                            console.log(error2);
+                            return res.render('./../views/errors/503.jade');
+                        }
+                        else{
+                            if(results2.length > 0) {
+                                var str = JSON.stringify(results2);
+                                rows = JSON.parse(str);
+                                toReturn = false;
+                                rows.forEach(function(element) {
+                                    if(element.database_name === req.session.db_name && toReturn === false){
+                                        toReturn = true;
+                                    }
+                                });
+
+                                //if(results2.indexOf(req.session.db_name) > -1){
+                                    //console.log(rows[0].database_name);
+                                    //console.log(rows.indexOf((req.session.db_name)));
+                                if(toReturn == true){
+                                next();
+                                }
+                                else return res.render('./../views/errors/503.jade');
+                                //}
+                            }
+                            else return res.render('./../views/errors/503.jade');
+                        }
+                    });
+                    //next();
+                }
+                else return res.render('./../views/errors/503.jade');
+            }
+        });
+    }
+    /*else{
+        if(req.route.path.replace('/','') === "setting"){
+            console.log("abc");
+            // either do next() if allowed or do return res.render('./../views/errors/503.jade');
+        }
+        else if(req.route.path.replace('/','')){
+            console.log("abcd");
+        }else {
+            next();
+        }
+    }
+*/
+
+};
+
+
+router.get("/sales",privilegeAuthentication, function(req, res, next){
     res.render('modules/sales', {title: 'Sprout'});
 });
-router.get("/accounting", function(req, res, next){
+router.get("/accounting", privilegeAuthentication,function(req, res, next){
     res.render('modules/accounting', {title: 'Sprout'});
 });
-router.get("/calendar", function(req, res, next){
+router.get("/calendar", privilegeAuthentication,function(req, res, next){
     res.render('modules/calendar', {title: 'Sprout'});
 });
-router.get("/dashboards", function(req, res, next){
+router.get("/dashboards", privilegeAuthentication,function(req, res, next){
     res.render('modules/Dashboards', {title: 'Sprout'});
 });
-router.get("/expenses", function(req, res, next){
+router.get("/expenses", privilegeAuthentication,function(req, res, next){
     res.render('modules/Expenses', {title: 'Sprout'});
 });
-router.get("/maintenance", function(req, res, next){
+router.get("/maintenance", privilegeAuthentication,function(req, res, next){
     res.render('modules/Maintenance', {title: 'Sprout'});
 });
-router.get("/timesheet", function(req, res, next){
+router.get("/timesheet", privilegeAuthentication,function(req, res, next){
     res.render('modules/timesheet', {title: 'Sprout'});
 });
-router.get("/notes", function(req, res, next){
+router.get("/notes", privilegeAuthentication, function(req, res, next){
     res.render('modules/notes', {title: 'Sprout'});
 });
-router.get("/repairs", function(req, res, next){
+router.get("/repairs", privilegeAuthentication,function(req, res, next){
     res.render('modules/repairs', {title: 'Sprout'});
 });
-router.get("/inventory", function(req, res, next){
+router.get("/inventory", privilegeAuthentication,function(req, res, next){
     res.render('modules/inventory', {title: 'Sprout'});
 });
-router.get("/manufacturing", function(req, res, next){
+router.get("/manufacturing",privilegeAuthentication, function(req, res, next){
     res.render('modules/manufacturing', {title: 'Sprout'});
 });
-router.get("/leaves", function(req, res, next){
+router.get("/leaves",privilegeAuthentication, function(req, res, next){
     res.render('modules/leaves', {title: 'Sprout'});
 });
-router.get("/employees", function(req, res, next){
+router.get("/employees", privilegeAuthentication,function(req, res, next){
     res.render('modules/employees', {title: 'Sprout'});
 });
-router.get("/projects", function(req, res, next){
+router.get("/projects",privilegeAuthentication, function(req, res, next){
     res.render('modules/projects', {title: 'Sprout'});
 });
-router.get("/attendance", function(req, res, next){
+router.get("/attendance", privilegeAuthentication,function(req, res, next){
     res.render('modules/attendance', {title: 'Sprout'});
 });
-router.get("/test", function(req, res, next){
+router.get("/test",privilegeAuthentication, function(req, res, next){
     res.render('modules/test', {title: 'Sprout'});
 });
-router.get("/recruitment", function(req, res, next){
+router.get("/recruitment",privilegeAuthentication, function(req, res, next){
     res.render('modules/recruitment', {title: 'Sprout'});
 });
-router.get("/setting", function(req, res, next){
+router.get("/setting",privilegeAuthentication, function(req, res, next){
     res.render('modules/Setting', {title: 'Sprout'});
 });
-router.get("/discuess", function(req, res, next){
+router.get("/discuess", privilegeAuthentication, function(req, res, next){
     res.render('modules/discuess', {title: 'Sprout'});
 });
-router.get("/purchase", function(req, res, next){
+router.get("/purchase", privilegeAuthentication, function(req, res, next){
     res.render('modules/purchase', {title: 'Sprout'});
 });
-router.get("/pointofsale", function(req, res, next){
+router.get("/pointofsale", privilegeAuthentication, function(req, res, next){
     res.render('modules/Pointofsale', {title: 'Sprout'});
 });
-
+router.get("/welcome", privilegeAuthentication, function(req, res, next){
+    res.render('modules/welcome', {title: 'Sprout'});
+});
 //add users
 router.post('/add_user', function (req, res, next) {
     // connection.query('INSERT INTO `user`(`username`, `email`,`company_name`,`current_company`) VALUES ("'+req.body.username+'","'+req.body.email+'","'+req.body.company_name+'","'+req.body.current_company+'")', function (error, results, fields) {
