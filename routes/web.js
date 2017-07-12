@@ -399,12 +399,6 @@ router.get('/dashboard', func.isLoggedIn, function(req, res, next){
     res.render('dashboard', {title: 'Sprout'});
 });
 
-router.get('/',function (req , res ) {
-        res.render('dashboard', {
-            isAuthenticated: false,
-            users: req.user
-        });
-});
 router.get('/login',func.notLoggedIn, function(req, res, next){
     // if(req["sessions"].hasOwnProperty("flash"))
         console.log(req);
