@@ -13,11 +13,12 @@ var history = require("connect-history-api-fallback");
 //require("./config/passport");
 
 var userRoutes = require('./routes/user');
-var webRoutes = require('./routes/web');
+
 var webSetting = require('./routes/setting');
 var connectRoutes = require('./routes/connect-4Slash');
 var userMetaRoutes = require('./routes/login-user-meta');
 var getCompanies = require('./routes/get_companies');
+var webRoutes = require('./routes/web');
 //var apiRoutes = require('./routes/api');
 var bcrypt = require('bcrypt-nodejs');
 

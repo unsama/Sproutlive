@@ -105,11 +105,6 @@ var authentication = function(req, res, next) {
 
 
 
-var csrf = require('csurf');
-router.get('/abc', csrf(), function(req, res){
-    res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
-});
-
 
 router.post("/", function(req, res){
     //console.log(req);
