@@ -63,7 +63,7 @@ router.get('/signin', csrf(), function(req, res){
     res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
 });
 
-router.post('/signin',csrf(), function(req, res, next) {
+router.post('/signin', csrf(), function(req, res, next) {
     passport.authenticate('local', function(error, user, info) {
         if(error) {
             return res.status(500).json("an error occured");
@@ -141,7 +141,7 @@ router.get('/forgot_password', function (req, res, next) {
 
 var privilegeAuthentication = function(req, res, next) {
     //console.log(req.session.db_name);
-
+    //console.log(req.session.db_name);
     if(typeof req.session.db_name == 'undefined')
         return res.render('./../views/errors/503.jade');    // 'Service Unavailable 503
     else {
@@ -151,14 +151,16 @@ var privilegeAuthentication = function(req, res, next) {
                 return res.render('./../views/errors/503.jade');
             }
             else{
+
                 if(results.length > 0) {
-                    console.log(results);
+
                     global.connection.query("select database_name from sprout_users.users_companies where user_id = (select id from sprout_users.users where email = '"+req.session.user_details.email+"' and password = '"+req.session.user_details.password+"') and status='active'", function (error2, results2) {
                         if (error2) {
                             console.log(error2);
                             return res.render('./../views/errors/503.jade');
                         }
                         else{
+                            console.log(results2);
                             if(results2.length > 0) {
                                 var str = JSON.stringify(results2);
                                 rows = JSON.parse(str);
