@@ -58,25 +58,7 @@ router.get('/clear', function (req, res, next) {
     });
 });
 
-var csrf = require('csurf');
-router.get('/signin', csrf(), function(req, res){
-    res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
-});
 
-router.post('/signin', csrf(), function(req, res, next) {
-    passport.authenticate('local', function(error, user, info) {
-        if(error) {
-            return res.status(500).json("an error occured");
-        }
-        if(!user) {
-            return res.status(401).json("Crediantials Invalid");
-        }
-        req.session.user_details = user;
-        req.session.username = req.body.username;
-        res.status(200).json(user.id);
-    })(req, res, next);
-
-});
 
 router.get('/logout', function(req, res){
     req.session.destroy();
@@ -444,6 +426,25 @@ router.post('/password', function(req, res, next){
 
 });
 
+var csrf = require('csurf');
+router.get('/signin', csrf(), function(req, res){
+    res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
+});
+
+router.post('/signin', csrf(), function(req, res, next) {
+    passport.authenticate('local', function(error, user, info) {
+        if(error) {
+            return res.status(500).json("an error occured");
+        }
+        if(!user) {
+            return res.status(401).json("Crediantials Invalid");
+        }
+        req.session.user_details = user;
+        req.session.username = req.body.username;
+        res.status(200).json(user.id);
+    })(req, res, next);
+
+});
 
 module.exports = router;
 

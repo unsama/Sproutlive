@@ -9,7 +9,7 @@ var passport = require("passport");
 var validator = require("express-validator");
 var passportlocal = require("passport-local");
 
-var router = express.Router();
+var router = new express.Router();
 var bcrypt   = require('bcrypt-nodejs');
 var saltRounds = 10;
 var nodemailer = require("nodemailer");
@@ -106,7 +106,11 @@ var authentication = function(req, res, next) {
 
 
 
-router.post("/", function(req, res, next){
+router.post("/", function(req, res){
+    //console.log(req);
+//    console.log(req);
+
+
 
     var companyNamePrefix = 'sprout';
    // var a = exec("ls -la", (err, stdout, stderr));
@@ -157,9 +161,9 @@ router.post("/", function(req, res, next){
                 req.assert('full_name', "Name is invalid!").notEmpty().isAlpha();
                 req.assert('password', "Password is invalid!").notEmpty();
                 req.assert('admin_email', "Email is invalid!").notEmpty().isEmail();
-                req.assert('company_name', "Email is invalid!").notEmpty().isAlphanumeric();
+                req.assert('company_name', "Company name is invalid!").notEmpty().isAlphanumeric();
                 req.assert('country', "Country is invalid!").notEmpty().isAlpha();
-                req.assert('country', "Country is invalid!").notEmpty().isAlpha();
+                //req.assert('country', "Country is invalid!").notEmpty().isAlpha();
                 req.assert('phone_number', "Phone Number is invalid!").notEmpty().isAlphanumeric();
                 req.assert('created_at', "Created at is invalid!").notEmpty().isDate();
 
