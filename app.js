@@ -229,11 +229,11 @@ app.get('/logout', function(req, res){
 
 
 app.use('/user', userRoutes);
-app.use('/', webRoutes);
 app.use('/setting', webSetting);
 app.use('/connect-4slash', connectRoutes);
 app.use('/login-user-meta', userMetaRoutes);
 app.use('/get-companies', getCompanies);
+app.use('/', webRoutes);
 
 app.use(history({
     rewrites: [
