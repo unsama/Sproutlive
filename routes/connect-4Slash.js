@@ -106,19 +106,21 @@ var authentication = function(req, res, next) {
 
 
 
-router.post("/", function(req, res){
+router.post("/", function(req, res, next){
+
     var companyNamePrefix = 'sprout';
    // var a = exec("ls -la", (err, stdout, stderr));
 
-    var fullName = req.body.full_name ="a";
-    var password = req.body.password="a";
-    var adminEmail = req.body.admin_email="a";
-    var companyName = req.body.company_name="a";
-    var country = req.body.country="a";
-    var userNumber = req.body.user_number="a";
-    var phoneNumber = req.body.phone_number="a";
-    var pakageType = req.body.pakage_type="a";
+    var fullName = req.body.full_name;
+    var password = req.body.password;
+    var adminEmail = req.body.admin_email;
+    var companyName = req.body.company_name;
+    var country = req.body.country;
+  //  var userNumber = req.body.user_number;
+    var phoneNumber = req.body.phone_number;
+  //  var pakageType = req.body.pakage_type;
     var createdAt = req.body.created_at;
+    var allowed_apps = req.body.allowed_apps;
 
     // --- NOT OF OUR USE ---
     // var totalAmount = req.body.total_amount;
@@ -152,10 +154,37 @@ router.post("/", function(req, res){
     async.waterfall(
         [
             function(callback) {
+                req.assert('full_name', "Name is invalid!").notEmpty().isAlpha();
+                req.assert('password', "Password is invalid!").notEmpty();
+                req.assert('admin_email', "Email is invalid!").notEmpty().isEmail();
+                req.assert('company_name', "Email is invalid!").notEmpty().isAlphanumeric();
+                req.assert('country', "Country is invalid!").notEmpty().isAlpha();
+                req.assert('country', "Country is invalid!").notEmpty().isAlpha();
+                req.assert('phone_number', "Phone Number is invalid!").notEmpty().isAlphanumeric();
+                req.assert('created_at', "Created at is invalid!").notEmpty().isDate();
+
+
+                req.getValidationResult().then(function(result){
+                    if (!result.isEmpty()) {
+                        return res.status(400).json({
+                            status: "error",
+                            msg: "validation errors",
+                            details: util.inspect(result.array()).replace(/\n/g, "")
+                        });
+                    }
+                    else{
+                        callback(null);
+                    }
+                    //return res.json(util.inspect(result.array()));
+                });
+
+
+            },
+
+            function(callback) {
                 newFileName = getDateTime() + "_" + randomstring.generate(10);
                 db_name = companyNamePrefix + "_" + companyName + newFileName;
-                console.log(db_name);
-
+               // console.log(db_name);
                 callback(null);
 
             },
@@ -168,7 +197,7 @@ router.post("/", function(req, res){
                     pass: '4slash1234'
                 });
 
-
+                //console.log("1");
 
                 ssh.exec('mysql -u sprout -psprout12345 -e "create database '+ db_name +'"; ' +
                     'mysql -u sprout -psprout12345 '+ db_name +' < ~/db_backups/sprout_11072017.sql', {
@@ -176,10 +205,12 @@ router.post("/", function(req, res){
                         if (code == 0){
                             callback(null);
                         }
-                        else{
-                            res.status(500).send({ error: 'Error closing SSH!' });
+                        else if(code == 1){
+                            callback(null);
                         }
-
+                        else if(code == 2){
+                            return res.status(500).json({ status: 'Error', message: 'Error while connecting to physical server via SSH.'});
+                        }
                     }
 
                 }).start();
@@ -189,6 +220,7 @@ router.post("/", function(req, res){
             },
 
             function(callback) {
+            //console.log("2");
                 //db_name = "sprout_a20170617140919_FcVgMUhLIA";
                 var connection = mysql.createConnection({
                     host: "46.101.37.156",
@@ -199,26 +231,23 @@ router.post("/", function(req, res){
 
                 connection.connect(function (err) {
                     if(err){
-                        res.status(500).send({ error: 'Error Connecting to database', details: err});
-                        return;
+                        return res.status(500).json({ status: 'Error', message: 'Error connecting to database.'});
                     }
-                    console.log("connected as id "+ connection.threadId);
-
-
+                    console.log("connected as id "+ connection.threadId + " for sprout 4slash connection." );
                 });
 
                 callback(null,connection);
             },
 
             function(connection,callback) {
+            //console.log("3");
                 connection.query("INSERT INTO `"+db_name+"`.`country` " +
                     "( `id` , `country_name`) " +
                     "VALUES ( NULL , '"+country+"')"
                     , function (error, result1) {
                         if(error){
-                            res.status(500).send({ error: "Error while inserting country: ", details: error});
+                            return res.json({ status: 'Error', message: 'Error inserting into database. '});
                         }
-
                         callback(null,result1.insertId,connection);
                     });
 
@@ -227,12 +256,13 @@ router.post("/", function(req, res){
             },
 
             function(countryId, connection, callback) {
+               // console.log("4");
                 connection.query("INSERT INTO `"+db_name+"`.`users_company` " +
                     "( `id` , `company_name` , `email` , `type`) " +
                     "VALUES ( NULL , '"+companyName+"', '"+adminEmail+"', 'base')"
                     , function (error,result2) {
                         if(error) {
-                            res.status(500).send({ error: "Error while inserting company: ", details: error});
+                            return res.status(500).json({ status: 'Error', message: 'Error inserting into database. '});
                         }
                     });
 
@@ -246,19 +276,39 @@ router.post("/", function(req, res){
                     "VALUES ( NULL , '"+fullName+"', '"+adminEmail+"', '"+password+"', '"+ phoneNumber +"', '"+ countryId +"' , '"+createdAt+"', 'admin','active')"
                     , function (error) {
                         if(error){
-                            res.status(500).send({ error: "Error while inserting user: ", details: error});
+                            return res.status(500).json({ status: 'Error', message: 'Error inserting into database. '});
                         }
-                        connection.end();
-                        callback(null,"Done!");
+
+                        callback(null,connection);
                     });
 
                 //callback(null, "Done!");
 
-            }
+            },
 
+            function(connection, callback) {
+                allowed_apps.forEach(function(entry) {
+                    connection.query("INSERT INTO `sprout_users`.`companies_allowed_apps` (`database_name`, `application_name`) VALUES ('"+db_name+"', '"+entry+"');" , function (error) {
+                        if(error){
+                            res.status(500).send({ error: "Error while inserting user: ", details: error});
+                        }
+
+                    });
+                    //console.log(entry);
+                });
+                connection.end();
+                callback(null,"Done!");
+            }
+            //callback(null, "Done!");
         ],
-        function (err, responsa) {
-            console.log(responsa);
+        function (err, results) {
+            //console.log("error:" +err);
+            if(results == "Done!") {
+                return res.status(200).json({status: 'ok', message: 'Database Created.'});
+            }
+            else{
+                return res.status(500).json({ status: 'Error', message: 'An unidentified error occured.'});
+            }
         }
     );
 

@@ -58,14 +58,12 @@ router.get('/clear', function (req, res, next) {
     });
 });
 var csrf = require('csurf');
-router.use(csrf());
 
-
-router.get('/signin', function(req, res){
+router.get('/signin', csrf(), function(req, res){
     res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
 });
 
-router.post('/signin',function(req, res, next) {
+router.post('/signin',csrf(), function(req, res, next) {
     passport.authenticate('local', function(error, user, info) {
         if(error) {
             return res.status(500).json("an error occured");
@@ -391,6 +389,8 @@ router.post('/check', function(req, res, next){
 /*router.get('/', function(req, res, next){
     res.render('index', {title: 'Sprout'});
 });*/
+
+
 
 router.get('/email_temp', function(req, res, next){
     res.render('email_template', {title: 'Sprout'});

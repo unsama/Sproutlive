@@ -127,9 +127,7 @@ $(document).ready(function(){
         });*/
     });
 
-    $.ajaxSetup({
-        headers: {"X-CSRF-Token": $("#_csrf").val()}
-    });
+
 
     // Wizard Initialization
   	$('.wizard-card').bootstrapWizard({
@@ -138,6 +136,10 @@ $(document).ready(function(){
         'previousSelector': '.btn-previous',
 
         onNext: function(tab, navigation, index) {
+
+            $.ajaxSetup({
+                headers: {"X-CSRF-Token": $("#_csrf").val()}
+            });
 
             $("input[id=password]").rules("add", "required");
         	var $valid = $('.wizard-card form').valid();
@@ -148,7 +150,6 @@ $(document).ready(function(){
         		return false;
         	}
         	else{
-
                 $("#content").addClass("blur");
                 $("#loaderDiv").show();
                 var return_val = false;
@@ -209,6 +210,11 @@ $(document).ready(function(){
                                         showNotification('top','right','primary',"Error: <b>500</b> - Database is Down.");
                                         //console.log("Database is down!");
                                     }
+                                    else if (xhr.status == "403"){
+                                        return_val = false;
+                                        showNotification('top','right','info',"Error: <b>unauthorized</b> - CSRF failed. Please Refresh the page.");
+                                        //console.log("Database is down!");
+                                    }
                                     else{
                                         return_val = false;
                                         showNotification('top','right','warning',"Error: <b>Unidentified</b> - An unidentified error occured. We are looking into this.");
@@ -234,6 +240,11 @@ $(document).ready(function(){
                             return_val = false;
                             //console.log("Database is down!");
                             showNotification('top','right','primary',"Error: <b>500</b> - Database is Down.");
+                        }
+                        else if (xhr.status == "403"){
+                            return_val = false;
+                            showNotification('top','right','info',"Error: <b>unauthorized</b> - CSRF failed. Please Refresh the page.");
+                            //console.log("Database is down!");
                         }
                         else{
                             return_val = false;
