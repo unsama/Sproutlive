@@ -294,7 +294,7 @@ router.get("/pointofsale", privilegeAuthentication, function(req, res, next){
     res.render('modules/Pointofsale', {title: 'Sprout'});
 });
 router.get("/welcome", privilegeAuthentication, function(req, res, next){
-    res.render('modules/welcome', {title: 'Sprout' , app_list: app_list});
+    res.render('modules/welcome', {title: 'Sprout' , app_list: ['notes', 'welcome']});
 });
 //add users
 router.post('/add_user', function (req, res, next) {
