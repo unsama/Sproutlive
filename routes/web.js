@@ -139,7 +139,8 @@ var app_list = [];
 
 var privilegeAuthentication = function(req, res, next) {
     //console.log(req.session.db_name);
-    //console.log(req.session.db_name);
+    //console.log(req.session);
+
     if(typeof req.session.db_name == 'undefined')
         return res.render('./../views/errors/503.jade');    // 'Service Unavailable 503
     else {
