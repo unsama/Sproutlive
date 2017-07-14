@@ -6,8 +6,9 @@ html(lang='en')
     title= title
     link(rel="shortcut icon" href="/images/icon.ico" type="image/x-icon")
   body
-    h1 Kay baat krtay hain app.
-    - for (var i = 0; i < 10; ++i) {
-      a(href='setting') link text
+    h1 Dashboard
+    p Direct Redirection with allowed companies data will be here.
+    - for (var i = 0; i <= !{app_list}.length; ++i) {
+        if app_list[i] != 'welcome'
+          a(href='/' + app_list[i]) !{app_list[i]}
     - }
-

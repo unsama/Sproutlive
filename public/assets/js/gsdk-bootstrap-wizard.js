@@ -92,6 +92,11 @@ $(document).ready(function(){
                         showNotification('top','right','primary',"Error: <b>500</b> - Database is Down.");
                         //console.log("Database is down!");
                     }
+                    else if (xhr.status == "110"){
+                        return_val = false;
+                        showNotification('top','right','rose',"Error: <b>110</b> - You do not have any app regestered to this company.");
+                        //console.log("Database is down!");
+                    }
                     else{
                         return_val = false;
                         showNotification('top','right','warning',"Error: <b>Unidentified</b> - An unidentified error occured. We are looking into this.");

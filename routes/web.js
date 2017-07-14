@@ -69,7 +69,23 @@ router.get('/logout', function(req, res){
 router.post('/create-session', function(req, res){
     req.session.db_name = req.body.db_name;
     global.connection = database_connection.connection(req.session.db_name);
-    res.status(200).json("ok");
+    global.connection.query("select application_name from sprout_users.companies_allowed_apps where database_name ='"+req.session.db_name+"'", function (error, results) {
+        if (error) {
+            res.status(500).json({status: "error", message: "Error in database query while creating session."});
+        }
+        else{
+            if(results.length > 0){
+                req.session.allowed_apps = results;
+               // console.log(req.session.allowed_apps[1].application_name);
+               // console.log(req.session.allowed_apps.length);
+                res.status(200).json("ok");
+            }
+            else{
+                res.status(110).json({status: "error", message: "No applications registered found."});
+            }
+        }
+        //res.json({status: "error", message: "An unidentidied error occured."});
+    });
 });
 
 
@@ -119,7 +135,7 @@ router.get('/forgot_password', function (req, res, next) {
     });
     //  res.render('user/forgot_password', {title: 'Forgot Password', csrfToken: req.csrfToken(), emailSend: true});
 });
-
+var app_list = [];
 
 var privilegeAuthentication = function(req, res, next) {
     //console.log(req.session.db_name);
@@ -142,7 +158,7 @@ var privilegeAuthentication = function(req, res, next) {
                             return res.render('./../views/errors/503.jade');
                         }
                         else{
-                            console.log(results2);
+                            //console.log(results2);
                             if(results2.length > 0) {
                                 var str = JSON.stringify(results2);
                                 rows = JSON.parse(str);
@@ -152,12 +168,38 @@ var privilegeAuthentication = function(req, res, next) {
                                         toReturn = true;
                                     }
                                 });
+                                if(toReturn == true){
+                                    //console.log("Check notes in privilegeAuthentication");
+                                    // create-session k route ma uth k aye ga data from central database and req.session.allowed_apps ma jaye ga.
+                                    //request ko process krna hai-- js link pe ja raha hai user wo nikalo
+                                    //session sa uthao allowed_apps
+                                    // match kro k allowed hai k nahe wo link jahan use jana hai
+                                    // agar nahe allow toh toReturn will be false else true.
+                                    //all cleared
 
+                                    /*req.session.allowed_apps.forEach(function(entry) {
+                                        if(req.originalUrl)
+                                    });*/
+                                    var str = JSON.stringify(req.session.allowed_apps);
+                                    rows = JSON.parse(str);
+                                    rows.forEach(function(element) {
+                                        app_list.push(element.application_name);
+                                    });
+                                    if(app_list.includes(req.originalUrl.replace('/', ''))){
+                                        toReturn = true;
+                                    }
+                                    else{
+                                        toReturn = false;
+                                    }
+                                    //console.log(req.originalUrl.replace('/', ''));
+                                    //console.log(req.session.allowed_apps);
+                                    //console.log("Found: " + found);
+                                }
                                 //if(results2.indexOf(req.session.db_name) > -1){
                                     //console.log(rows[0].database_name);
                                     //console.log(rows.indexOf((req.session.db_name)));
                                 if(toReturn == true){
-                                next();
+                                    next();
                                 }
                                 else return res.render('./../views/errors/503.jade');
                                 //}
@@ -251,7 +293,7 @@ router.get("/pointofsale", privilegeAuthentication, function(req, res, next){
     res.render('modules/Pointofsale', {title: 'Sprout'});
 });
 router.get("/welcome", privilegeAuthentication, function(req, res, next){
-    res.render('modules/welcome', {title: 'Sprout'});
+    res.render('modules/welcome', {title: 'Sprout' , app_list: app_list});
 });
 //add users
 router.post('/add_user', function (req, res, next) {
@@ -426,12 +468,12 @@ router.post('/password', function(req, res, next){
 
 });
 
-var csrf = require('csurf');
-router.get('/signin', csrf(), function(req, res){
+//var csrf = require('csurf');
+router.get('/signin', function(req, res){
     res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
 });
 
-router.post('/signin', csrf(), function(req, res, next) {
+router.post('/signin', function(req, res, next) {
     passport.authenticate('local', function(error, user, info) {
         if(error) {
             return res.status(500).json("an error occured");
