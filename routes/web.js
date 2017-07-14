@@ -470,7 +470,7 @@ router.post('/password', function(req, res, next){
 
 //var csrf = require('csurf');
 router.get('/signin', function(req, res){
-    res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
+    res.render('login/index',{'message' :req.flash('message')});
 });
 
 router.post('/signin', function(req, res, next) {
@@ -485,7 +485,6 @@ router.post('/signin', function(req, res, next) {
         req.session.username = req.body.username;
         res.status(200).json(user.id);
     })(req, res, next);
-
 });
 
 module.exports = router;
