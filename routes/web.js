@@ -156,11 +156,12 @@ var privilegeAuthentication = function(req, res, next) {
                     global.connection.query("select database_name from sprout_users.users_companies where user_id = (select id from sprout_users.users where email = '"+req.session.user_details.email+"' and password = '"+req.session.user_details.password+"') and status='active'", function (error2, results2) {
                         if (error2) {
                             console.log(error2);
-                            return res.render('./../views/errors/503.jade');
+                            return res.render('./../views/errors/503.jade', {error: error2});
                         }
                         else{
                             //console.log(results2);
                             if(results2.length > 0) {
+                                return res.render('./../views/errors/503.jade', {error: results2});
                                 var str = JSON.stringify(results2);
                                 rows = JSON.parse(str);
                                 toReturn = false;
