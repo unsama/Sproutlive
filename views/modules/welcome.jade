@@ -8,4 +8,7 @@ html(lang='en')
   body
     h1 Dashboard
     p Direct Redirection with allowed companies data will be here.
-    !{app_list}
+    - for (var i = 0; i <= !{app_list}.length; ++i) {
+        if app_list[i] != 'welcome'
+          a(href='/' + app_list[i]) !{app_list[i]}
+    - }
