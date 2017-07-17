@@ -298,6 +298,9 @@ router.get("/pointofsale", privilegeAuthentication, function(req, res, next){
 router.get("/welcome", privilegeAuthentication, function(req, res, next){
     res.render('modules/welcome', {title: 'Sprout' , app_list: app_list});
 });
+router.get("/fileupload", function(req, res, next){
+    res.render('modules/fileupload', {title: 'Sprout'});
+});
 //add users
 router.post('/add_user', function (req, res, next) {
     // connection.query('INSERT INTO `user`(`username`, `email`,`company_name`,`current_company`) VALUES ("'+req.body.username+'","'+req.body.email+'","'+req.body.company_name+'","'+req.body.current_company+'")', function (error, results, fields) {

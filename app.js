@@ -269,6 +269,10 @@ app.use(history({
 }));
 
 
+
+
+
+
 //app.use('/api', apiRoutes);
 
 // catch 404 and forward to error handler
