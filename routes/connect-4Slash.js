@@ -108,7 +108,7 @@ var authentication = function(req, res, next) {
 
 router.post("/", function(req, res){
     //console.log(req);
-    console.log(req);
+   // console.log(req);
 
 
 
@@ -158,13 +158,13 @@ router.post("/", function(req, res){
     async.waterfall(
         [
             function(callback) {
-                req.assert('full_name', "Name is invalid!").notEmpty().isAlpha();
+                req.assert('full_name', "Name is invalid!").notEmpty();
                 req.assert('password', "Password is invalid!").notEmpty();
                 req.assert('admin_email', "Email is invalid!").notEmpty().isEmail();
                 req.assert('company_name', "Company name is invalid!").notEmpty().isAlphanumeric();
                 req.assert('country', "Country is invalid!").notEmpty().isAlpha();
                 //req.assert('country', "Country is invalid!").notEmpty().isAlpha();
-                req.assert('phone_number', "Phone Number is invalid!").notEmpty().isAlphanumeric();
+                req.assert('phone_number', "Phone Number is invalid!").notEmpty();
                 req.assert('created_at', "Created at is invalid!").notEmpty().isDate();
 
 
