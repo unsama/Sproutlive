@@ -6,6 +6,7 @@ var passport = require("passport");
 // load up the user model
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
+var twinBcrypt = require('twin-bcrypt')
 // var dbconfig = require('./database');
 // var connection = mysql.createConnection(dbconfig.connection);
 //
@@ -143,7 +144,7 @@ var bcrypt = require('bcrypt-nodejs');
                 //var encPassword = crypto.createHash('sha1').update(salt).digest('hex');
                 //var dbPassword  = rows[0].password;
                 //console.log("a" + dbPassword);
-                if(!bcrypt.compareSync(password, rows[0].password)){
+                if(!twinBcrypt.compareSync(password, rows[0].password)){
                     return done(null, false, req.flash('message','Invalid username or password.'));
                 }
                 return done(null, rows[0]);
