@@ -26,9 +26,9 @@ export default{
         return {
             activityimport: "Leaves Request / Import a File",
             btnlinks: {
-                createbtnlink: "/sales/salescustomercreate",
-                discardbtnlink: "/sales/salescustomeredit",
-                importbtnlink: "/sales/salesnextactivityimport",
+                createbtnlink: "/Sales/salescustomercreate",
+                discardbtnlink: "/Sales/salescustomeredit",
+                importbtnlink: "/Sales/salesnextactivityimport",
                 cancelbtnlink:"/leaves/leaves_request"
             },
         }

@@ -73,7 +73,7 @@ export default{
             nextactivity: "Attendances/Hans Anders from 2017-03-14 12:53:47 to 2017-03-23 12:53:50/Hans Anders/Research & Development",
             btnlinks: {
                 createbtnlink: "#/app/attendance/InsideHrTwo",
-                discardbtnlink: "#/app/sales/customers",
+                discardbtnlink: "#/app/Sales/customers",
                 editbtnlink:"#/app/attendance/InsideHrTwo",
                 importbtnlink: "#/app/imported"
             },

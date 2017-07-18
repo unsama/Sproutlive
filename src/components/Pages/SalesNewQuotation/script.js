@@ -10,9 +10,9 @@ export default{
         return {
             salesnextactivities: "Next Activities / Need to customize the solution / New",
             btnlinks: {
-                createbtnlink: "/sales/salescustomeredit",
-                discardbtnlink: "/sales/Salesnextactivityview",
-                importbtnlink: "/sales//imported"
+                createbtnlink: "/Sales/salescustomeredit",
+                discardbtnlink: "/Sales/Salesnextactivityview",
+                importbtnlink: "/Sales//imported"
             },
         }
     },

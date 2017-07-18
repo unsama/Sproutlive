@@ -10,8 +10,8 @@ export default{
             salesofinvoices: "Sales to Invoice",
             title: "Sales to Invoice -sprout",
             btnlinks: {
-                createbtnlink:"/sales/salesofinvoicecreate",
-                importbtnlink:"/sales/salesofinvoiceimport"
+                createbtnlink:"/Sales/salesofinvoicecreate",
+                importbtnlink:"/Sales/salesofinvoiceimport"
             },
             tableheader: [
                 "Quotations Number",
@@ -40,7 +40,7 @@ export default{
                         "$ 0.00",
                         "Cancelled"
                     ],
-                    "url": "/sales/saleofinvoiceview"
+                    "url": "/Sales/saleofinvoiceview"
 
                 },
                 "row1": {
@@ -52,7 +52,7 @@ export default{
                         "$ 0.00",
                         "Quotation"
                     ],
-                    "url": "/sales/saleofinvoiceview"
+                    "url": "/Sales/saleofinvoiceview"
 
                 },
                 "row2": {
@@ -64,7 +64,7 @@ export default{
                         "$ 0.00",
                         "Cancelled"
                     ],
-                    "url": "/sales/saleofinvoiceview"
+                    "url": "/Sales/saleofinvoiceview"
 
                 },
 

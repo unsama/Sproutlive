@@ -141,12 +141,11 @@ var app_list = [];
 
 var privilegeAuthentication = function(req, res, next) {
     //console.log(req.session.db_name);
-    //console.log(req.session);
-
+//return true;
     if(typeof req.session.db_name == 'undefined')
         return res.render('./../views/errors/503.jade');    // 'Service Unavailable 503
     else {
-        global.connection.query("select * from user where email= '"+req.session.user_details.email+"' and password= '"+req.session.user_details.password+"'", function (error, results) {
+        global.connection.query("select * from user where email= '"+req.session.user_details.email+"'", function (error, results) {
             if (error) {
                 console.log(error);
                 return res.render('./../views/errors/503.jade');
@@ -155,6 +154,7 @@ var privilegeAuthentication = function(req, res, next) {
 
                 if(results.length > 0) {
 
+                    console.log("results:" + results.length);
                     global.connection.query("select database_name from sprout_users.users_companies where user_id = (select id from sprout_users.users where email = '"+req.session.user_details.email+"' and password = '"+req.session.user_details.password+"') and status='active'", function (error2, results2) {
                         if (error2) {
                             console.log(error2);
@@ -208,12 +208,16 @@ var privilegeAuthentication = function(req, res, next) {
                                 else return res.render('./../views/errors/503.jade');
                                 //}
                             }
-                            else return res.render('./../views/errors/503.jade');
+                            else {console.log("no database found.");
+                                return res.render('./../views/errors/503.jade');}
                         }
                     });
                     //next();
                 }
-                else return res.render('./../views/errors/503.jade');
+                else {
+                    console.log("i am here");
+                    return res.render('./../views/errors/503.jade');
+                }
             }
         });
     }
@@ -233,8 +237,8 @@ var privilegeAuthentication = function(req, res, next) {
 };
 
 
-router.get("/sales",privilegeAuthentication, function(req, res, next){
-    res.render('modules/sales', {title: 'Sprout'});
+router.get("/Sales",privilegeAuthentication, function(req, res, next){
+    res.render('modules/Sales', {title: 'Sprout'});
 });
 router.get("/accounting", privilegeAuthentication,function(req, res, next){
     res.render('modules/accounting', {title: 'Sprout'});
@@ -269,7 +273,7 @@ router.get("/manufacturing",privilegeAuthentication, function(req, res, next){
 router.get("/leaves",privilegeAuthentication, function(req, res, next){
     res.render('modules/leaves', {title: 'Sprout'});
 });
-router.get("/employees", privilegeAuthentication,function(req, res, next){
+router.get("/employees",function(req, res, next){
     res.render('modules/employees', {title: 'Sprout'});
 });
 router.get("/projects",privilegeAuthentication, function(req, res, next){
@@ -312,7 +316,7 @@ router.post('/add_user', function (req, res, next) {
     //         res.send("query 1 error");
     //     }
     // });
-    connection.query('INSERT INTO `users_access_rights`(`sales`,`project`,`inventory`,`manufacturing`,`accounting`,`purchases`,`recruitment`,`expenses`,`timesheets`,`attandance`,`fleet`,`mass_mailing`,`pos`,`administration`) ' +
+    connection.query('INSERT INTO `users_access_rights`(`Sales`,`project`,`inventory`,`manufacturing`,`accounting`,`purchases`,`recruitment`,`expenses`,`timesheets`,`attandance`,`fleet`,`mass_mailing`,`pos`,`administration`) ' +
         'VALUES ("'+req.body.sales+'","'+req.body.project+'","'+req.body.inventory+'","'+req.body.manufacturing+'","'+req.body.accounting+'","'+req.body.purchases+'","'+req.body.recruitment+'","'+req.body.expenses+'","'+req.body.timesheets+'","'+req.body.attendance+'","'+req.body.fleet+'","'+req.body.massmailing+'","'+req.body.pointofsale+'","'+req.body.administration+'")', function (error, results, fields) {
         if (!error) {
             res.json({"status": "ok", "result": results});
@@ -419,9 +423,24 @@ router.post('/check', function(req, res, next){
     }
 
 });
-/*router.get('/', function(req, res, next){
-    res.render('index', {title: 'Sprout'});
-});*/
+router.get('/', function(req, res, next){
+    if(typeof req.session.db_name == 'undefined'){
+        res.writeHead(302, {
+            'Location': 'signin'
+            //add other headers here...
+        });
+        res.end();
+        //window.location = "signin";
+    }
+    else{
+        res.writeHead(302, {
+            'Location': 'setting'
+            //add other headers here...
+        });
+        res.end();
+    }
+        //res.render('modules/setting', {title: 'Sprout'});
+});
 
 
 

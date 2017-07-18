@@ -16,9 +16,9 @@ export default{
             activities: "Activities / Email",
             modal: "Open: Contacts",
             btnlinks: {
-                createbtnlink:"/sales/newuser",
-                importbtnlink:"/sales/imported",
-                discardbtnlink:"/sales/Salesnextactivityview"
+                createbtnlink:"/Sales/newuser",
+                importbtnlink:"/Sales/imported",
+                discardbtnlink:"/Sales/Salesnextactivityview"
             },
             tableheader: [
                 "Pricelist Name",
@@ -31,7 +31,7 @@ export default{
                         "Public Pricelist",
                         "USD"
                     ],
-                    "url": "/sales/salesactivityview"
+                    "url": "/Sales/salesactivityview"
 
                 },
                 "row1": {
@@ -39,7 +39,7 @@ export default{
                         " Sales",
                         ""
                     ],
-                    "url": "/sales/salesactivityview"
+                    "url": "/Sales/salesactivityview"
 
                 },
                 "row2": {
@@ -48,7 +48,7 @@ export default{
                         ""
 
                     ],
-                    "url": "/sales/salesactivityview"
+                    "url": "/Sales/salesactivityview"
 
                 },
 

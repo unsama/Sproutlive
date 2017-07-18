@@ -10,11 +10,11 @@ export default{
             quotation: "Quotations",
             title: "Quotations - Sprout",
             btnlinks: {
-                createbtnlink:"/sales/salesquotationcreate",
-                importbtnlink:"/sales/salesquotationimport",
-                cancelbtnlink:"/sales/quotation",
-                firstbtnlink:"/sales/quotation",
-                secondbtnlink:"/sales/salesquotationgridview",
+                createbtnlink:"/Sales/salesquotationcreate",
+                importbtnlink:"/Sales/salesquotationimport",
+                cancelbtnlink:"/Sales/quotation",
+                firstbtnlink:"/Sales/quotation",
+                secondbtnlink:"/Sales/salesquotationgridview",
             },
             tableheader: [
                 "Quotations Number",
@@ -44,7 +44,7 @@ export default{
                         "$ 0.00",
                         "Cancelled"
                     ],
-                    "url": "/sales/salesquotationview"
+                    "url": "/Sales/salesquotationview"
 
                 },
                 "row1": {
@@ -56,7 +56,7 @@ export default{
                         "$ 0.00",
                         "Quotation"
                     ],
-                    "url": "/sales/salesquotationview"
+                    "url": "/Sales/salesquotationview"
 
                 },
                 "row2": {
@@ -68,7 +68,7 @@ export default{
                         "$ 0.00",
                         "Cancelled"
                     ],
-                    "url": "/sales/salesquotationview"
+                    "url": "/Sales/salesquotationview"
 
                 },
 

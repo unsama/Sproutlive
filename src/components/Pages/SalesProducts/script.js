@@ -12,10 +12,10 @@ export default{
             salesproducts: "Products",
             title: "Products - Sprout",
             btnlinks: {
-                createbtnlink: "/sales/salesproductcreate",
-                importbtnlink: "/sales/imported",
-                firstbtnlink:"/sales/products",
-                secondbtnlink:"/sales/salesproductlistview"
+                createbtnlink: "/Sales/salesproductcreate",
+                importbtnlink: "/Sales/imported",
+                firstbtnlink:"/Sales/products",
+                secondbtnlink:"/Sales/salesproductlistview"
             },
         }
     },

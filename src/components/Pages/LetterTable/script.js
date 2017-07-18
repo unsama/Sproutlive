@@ -22,7 +22,7 @@ export default{
             dashboard: "Dashboard",
             btnlinks: {
                 createbtnlink: "#/app/Employees/Dep",
-                discardbtnlink: "#/app/sales/Salesnextactivityview",
+                discardbtnlink: "#/app/Sales/Salesnextactivityview",
                 importbtnlink: "#/app/imported",
                 secondbtnlink: "#/app/Employees/TableDep",
                 firstbtnlink: "#/app/Recruitment/Letters",

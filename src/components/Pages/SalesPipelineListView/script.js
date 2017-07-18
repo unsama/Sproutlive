@@ -25,10 +25,10 @@ export default{
             customers: "Your Pipeline",
             title: "Your Pipeline",
             btnlinks: {
-                createbtnlink:"/sales/newuser",
-                importbtnlink: "/sales/salescustomerimport",
-                firstbtnlink:"/sales/pipeline",
-                secondbtnlink:"/sales/salespipelinelistview"
+                createbtnlink:"/Sales/newuser",
+                importbtnlink: "/Sales/salescustomerimport",
+                firstbtnlink:"/Sales/pipeline",
+                secondbtnlink:"/Sales/salespipelinelistview"
             },
             tableheader: [
                 "Create Date",
@@ -73,7 +73,7 @@ export default{
                         "Direct Sales",
                         "Administrators",
                     ],
-                    "url": "/sales/salesactivityview"
+                    "url": "/Sales/salesactivityview"
 
                 },
                 "row1": {
@@ -90,7 +90,7 @@ export default{
                         "Direct Sales",
                         "Administrators",
                     ],
-                    "url": "/sales/salesactivityview"
+                    "url": "/Sales/salesactivityview"
 
                 },
                 "row2": {
@@ -107,7 +107,7 @@ export default{
                         "Direct Sales",
                         "Administrators",
                     ],
-                    "url": "/sales/salesactivityview"
+                    "url": "/Sales/salesactivityview"
 
                 },
 

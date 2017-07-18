@@ -9,9 +9,9 @@ export default{
         return {
             nextactivity: "Products / New",
             btnlinks: {
-                createbtnlink: "/sales/salescustomeredit",
-                discardbtnlink: "/sales/products",
-                importbtnlink: "/sales/imported"
+                createbtnlink: "/Sales/salescustomeredit",
+                discardbtnlink: "/Sales/products",
+                importbtnlink: "/Sales/imported"
             },
         }
     },

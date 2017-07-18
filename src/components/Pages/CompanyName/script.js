@@ -21,9 +21,9 @@
 //             modal: "Open: Contacts",
 //             btnlinks: {
 //                 createbtnlink: "/attendance/salescustomercreate",
-//                 discardbtnlink: "#/app/sales/salescustomeredit",
+//                 discardbtnlink: "#/app/Sales/salescustomeredit",
 //                 importbtnlink: "#/app/imported",
-//                 editbtnlink: "#/app/sales/salescustomeredit",
+//                 editbtnlink: "#/app/Sales/salescustomeredit",
 //             },
 //         }
 //     },

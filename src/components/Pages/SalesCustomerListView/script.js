@@ -23,10 +23,10 @@ export default{
         return {
             customers: "Customers",
             btnlinks: {
-                createbtnlink:"/sales/newuser",
-                importbtnlink: "/sales/salescustomerimport",
-                firstbtnlink:"/sales/customers",
-                secondbtnlink:"/sales/salescustomerlistview"
+                createbtnlink:"/Sales/newuser",
+                importbtnlink: "/Sales/salescustomerimport",
+                firstbtnlink:"/Sales/customers",
+                secondbtnlink:"/Sales/salescustomerlistview"
             },
             tableheader: [
                 "Name",
@@ -47,7 +47,7 @@ export default{
                         "+32 10 588 558",
                         "agrolait@yourcompany.example.com",
                     ],
-                    "url": "/sales/salescustomerview"
+                    "url": "/Sales/salescustomerview"
 
                 },
                 "row1": {
@@ -56,7 +56,7 @@ export default{
                         "+32 10 588 558",
                         "agrolait@yourcompany.example.com",
                     ],
-                    "url": "/sales/salescustomerview"
+                    "url": "/Sales/salescustomerview"
 
                 },
                 "row2": {
@@ -65,7 +65,7 @@ export default{
                         "+32 10 588 558",
                         "agrolait@yourcompany.example.com",
                     ],
-                    "url": "/sales/salescustomerview"
+                    "url": "/Sales/salescustomerview"
 
                 },
 

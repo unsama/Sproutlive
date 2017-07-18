@@ -11,10 +11,10 @@ export default{
         return {
             quotation: "Calendar",
             btnlinks: {
-                createbtnlink:"#/app/sales/salesnextactivitiescreate",
-                importbtnlink:"#/app/sales/salesnextactivityimport",
-                firstbtnlink:"#/app/sales/nextactivities",
-                secondbtnlink:"#/app/sales/salesnextactivitylistview",
+                createbtnlink:"#/app/Sales/salesnextactivitiescreate",
+                importbtnlink:"#/app/Sales/salesnextactivityimport",
+                firstbtnlink:"#/app/Sales/nextactivities",
+                secondbtnlink:"#/app/Sales/salesnextactivitylistview",
             },
         }
     },

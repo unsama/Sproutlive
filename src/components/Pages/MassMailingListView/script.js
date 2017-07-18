@@ -21,8 +21,8 @@ export default{
             modal: "Open: Contacts",
             btnlinks: {
                 createbtnlink: "#/app/massmailing/massmailinglistcreate",
-                discardbtnlink: "#/app/sales/salescustomeredit",
-                importbtnlink: "#/app/sales/salescustomerimport",
+                discardbtnlink: "#/app/Sales/salescustomeredit",
+                importbtnlink: "#/app/Sales/salescustomerimport",
                 editbtnlink: "#/app/massmailing/massmailinglistedit",
             },
         }

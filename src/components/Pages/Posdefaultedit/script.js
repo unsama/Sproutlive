@@ -26,7 +26,7 @@ export default{
                         "EAN-13",
                         "23.....{NNNDD}",
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
                 },
                 "row1": {
                     "data": [
@@ -35,7 +35,7 @@ export default{
                         "EAN-14",
                         "24.....{NNNDD}",
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
                 },
                 "row2": {
                     "data": [
@@ -44,7 +44,7 @@ export default{
                         "EAN-15",
                         "25.....{NNNDD}",
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
                 },
                 "row3": {
                     "data": [
@@ -53,7 +53,7 @@ export default{
                         "EAN-16",
                         "26.....{NNNDD}",
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
                 },
 
             }

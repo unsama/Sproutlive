@@ -48,8 +48,8 @@ export default{
             btnlinks: {
                 createbtnlink: "#/app/projects/project_dashboard_create",
                 importbtnlink: "#/app/imported",
-                firstbtnlink: "#/app/sales/pipeline",
-                secondbtnlink: "#/app/sales/salespipelinelistview"
+                firstbtnlink: "#/app/Sales/pipeline",
+                secondbtnlink: "#/app/Sales/salespipelinelistview"
             },
         }
     },

@@ -28,8 +28,8 @@ export default{
             modal: "Open: Salesperson",
             modal1: "Open: Sales Team",
             btnlinks: {
-                createbtnlink:"/sales/salesproductcreate",
-                editbtnlink:"/sales/salesproductedit",
+                createbtnlink:"/Sales/salesproductcreate",
+                editbtnlink:"/Sales/salesproductedit",
             },
             tableheader: [
                 "Product",

@@ -11,9 +11,9 @@ export default{
             activityimport: "Department Leaves / Import a File",
             title: "Import a File - Sprout",
             btnlinks: {
-                createbtnlink: "#/app/sales/salescustomercreate",
-                discardbtnlink: "#/app/sales/salescustomeredit",
-                importbtnlink: "#/app/sales/salesnextactivityimport",
+                createbtnlink: "#/app/Sales/salescustomercreate",
+                discardbtnlink: "#/app/Sales/salescustomeredit",
+                importbtnlink: "#/app/Sales/salesnextactivityimport",
                 cancelbtnlink:"#/app/manufacturing/manufacturing_order"
             },
         }

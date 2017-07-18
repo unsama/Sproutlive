@@ -20,9 +20,9 @@ export default{
         return {
             dashboard: "Dashboard",
             btnlinks: {
-                createbtnlink: "/sales/salescustomeredit",
-                discardbtnlink: "/sales/Salesnextactivityview",
-                importbtnlink: "/sales/imported"
+                createbtnlink: "/Sales/salescustomeredit",
+                discardbtnlink: "/Sales/Salesnextactivityview",
+                importbtnlink: "/Sales/imported"
             },
         }
     },

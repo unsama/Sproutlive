@@ -49,8 +49,8 @@ export default{
             btnlinks: {
                 createbtnlink: "#/app/newuser",
                 importbtnlink: "#/app/massmailing/massmailinglistimport",
-                firstbtnlink: "#/app/sales/pipeline",
-                secondbtnlink: "#/app/sales/salespipelinelistview"
+                firstbtnlink: "#/app/Sales/pipeline",
+                secondbtnlink: "#/app/Sales/salespipelinelistview"
             },
         }
     },

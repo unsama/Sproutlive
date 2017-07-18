@@ -55,7 +55,7 @@ const routes = [
                     { path: 'generalsetting', component: Generalsetting},
                     { path: 'Tabs', component: Tabs},
                     { path: 'panel5', component: Panel5},
-                    { path: 'setting', component: Setting},
+                    { path: '', component: Setting},
                     { path: 'Formview', component: Formview},
                     { path: 'Partner', component: Partner},
                     { path: 'templatetable', component: Templatetable},

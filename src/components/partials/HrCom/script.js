@@ -21,7 +21,7 @@ export default{
             modal: "Open: Contacts",
             btnlinks: {
                 createbtnlink: "#/app/attendance/Creatingemp",
-                discardbtnlink: "#/app/sales/salescustomeredit",
+                discardbtnlink: "#/app/Sales/salescustomeredit",
                 importbtnlink: "#/app/imported",
                 editbtnlink: "#/app/attendance/Editcompany",
             },

@@ -289,6 +289,21 @@ router.post("/", function(req, res){
             },
 
             function(connection, callback) {
+                connection.query("INSERT INTO `sprout_users`.`companies_data` " +
+                    "( `company_name` , `data_allowed` , `data_consumed`)" +
+                    "VALUES ( '"+db_name+"', '1000000000', '0')" , function (error) {
+                        if(error){
+                            return res.status(500).json({ status: 'Error', message: 'Error inserting into database. '});
+                        }
+
+                        callback(null,connection);
+                    });
+
+                //callback(null, "Done!");
+
+            },
+
+            function(connection, callback) {
                 allowed_apps.forEach(function(entry) {
                     connection.query("INSERT INTO `sprout_users`.`companies_allowed_apps` (`database_name`, `application_name`) VALUES ('"+db_name+"', '"+entry+"');" , function (error) {
                         if(error){

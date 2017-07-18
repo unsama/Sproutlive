@@ -26,9 +26,9 @@ export default{
     return {
         activityimport: "Procurement Exceptions / Import a File",
         btnlinks: {
-            createbtnlink: "#/app/sales/salescustomercreate",
-            discardbtnlink: "#/app/sales/salescustomeredit",
-            importbtnlink: "#/app/sales/salesnextactivityimport",
+            createbtnlink: "#/app/Sales/salescustomercreate",
+            discardbtnlink: "#/app/Sales/salescustomeredit",
+            importbtnlink: "#/app/Sales/salesnextactivityimport",
             cancelbtnlink:"#/app/inventory/all_transfers"
         },
     }

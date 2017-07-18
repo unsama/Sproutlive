@@ -26,9 +26,9 @@ export default{
             modal1: "Open: Sales Team",
             modal2: "Open: Company",
             btnlinks: {
-                createbtnlink:"/sales/salesnextactivitiescreate",
-                importbtnlink:"/sales/salesorderimport",
-                discardbtnlink:"/sales/order"
+                createbtnlink:"/Sales/salesnextactivitiescreate",
+                importbtnlink:"/Sales/salesorderimport",
+                discardbtnlink:"/Sales/order"
             },
             tableheader: [
                 "Product",

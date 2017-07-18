@@ -26,9 +26,9 @@ export default{
         return {
             activityimport: "Allocation Request / Import a File",
             btnlinks: {
-                createbtnlink: "#/app/sales/salescustomercreate",
-                discardbtnlink: "#/app/sales/salescustomeredit",
-                importbtnlink: "#/app/sales/salesnextactivityimport",
+                createbtnlink: "#/app/Sales/salescustomercreate",
+                discardbtnlink: "#/app/Sales/salescustomeredit",
+                importbtnlink: "#/app/Sales/salesnextactivityimport",
                 cancelbtnlink:"" +
                 "/leaves/leaves_allocation"
             },

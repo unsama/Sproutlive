@@ -42,8 +42,8 @@ export default{
             modal60: "Open:Manager",
             modal61: "Open:Manager",
             btnlinks: {
-                createbtnlink: "#/app/sales/salescustomeredit",
-                discardbtnlink: "#/app/sales/customers",
+                createbtnlink: "#/app/Sales/salescustomeredit",
+                discardbtnlink: "#/app/Sales/customers",
                 importbtnlink: "#/app/imported"
             },
         }

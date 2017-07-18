@@ -10,9 +10,9 @@ export default{
         quotation: "Stock Operations",
         title: "Stock Operations - Sprout",
         btnlinks: {
-            createbtnlink:"/sales/salesquotationcreate",
-            importbtnlink:"/sales/salesquotationimport",
-            cancelbtnlink:"/sales/quotation",
+            createbtnlink:"/Sales/salesquotationcreate",
+            importbtnlink:"/Sales/salesquotationimport",
+            cancelbtnlink:"/Sales/quotation",
             firstbtnlink:"/inventory/all_transfer_grid",
             secondbtnlink:"/inventory/all_transfers",
         },
@@ -44,7 +44,7 @@ export default{
                     "$ 0.00",
                     "Cancelled"
                 ],
-                "url": "/#/app/sales/salesquotationview"
+                "url": "/#/app/Sales/salesquotationview"
 
             },
             "row1": {
@@ -56,7 +56,7 @@ export default{
                     "$ 0.00",
                     "Quotation"
                 ],
-                "url": "/#/app/sales/salesquotationview"
+                "url": "/#/app/Sales/salesquotationview"
 
             },
             "row2": {
@@ -68,7 +68,7 @@ export default{
                     "$ 0.00",
                     "Cancelled"
                 ],
-                "url": "/#/app/sales/salesquotationview"
+                "url": "/#/app/Sales/salesquotationview"
 
             },
 

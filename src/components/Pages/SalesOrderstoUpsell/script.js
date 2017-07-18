@@ -12,8 +12,8 @@ export default{
             salesorder: "Orders to Upsell",
             title: "Orders to Upsell - Sprout",
             btnlinks: {
-                createbtnlink: "/sales/ordertoupsellcreate",
-                importbtnlink: "/sales/salesordertoupsellimport"
+                createbtnlink: "/Sales/ordertoupsellcreate",
+                importbtnlink: "/Sales/salesordertoupsellimport"
             },
         }
     },

@@ -49,7 +49,7 @@ export default{
             btnlinks: {
                 createbtnlink: "#/app/Recruitment/ReqpipeCreate",
                 importbtnlink: "#/app/imported",
-                firstbtnlink: "#/app/sales/pipeline",
+                firstbtnlink: "#/app/Sales/pipeline",
                 secondbtnlink: "#/app/Recruitment/ReqpipeTable"
             },
         }

@@ -28,8 +28,8 @@ export default{
             activityimport: "Mailing Lists / Import a File",
             title: "Import a File - Sprout",
             btnlinks: {
-                createbtnlink: "#/app/sales/salescustomercreate",
-                discardbtnlink: "#/app/sales/salescustomeredit",
+                createbtnlink: "#/app/Sales/salescustomercreate",
+                discardbtnlink: "#/app/Sales/salescustomeredit",
                 importbtnlink: "#/app/massmailing/massmailinglistimport",
                 cancelbtnlink: "#/app/massmailing/massmailinglist",
             },

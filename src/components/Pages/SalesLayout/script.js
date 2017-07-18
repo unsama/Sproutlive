@@ -10,60 +10,60 @@ export default{
         return{
             title: 'Discuss',
             sidebarData: {
-                Dashboard: "/sales",
+                Dashboard: "/Sales",
                 Sales: [
                     {
-                        url: "/sales/customers",
+                        url: "/Sales/customers",
                         title: "Customer"
                     },
                     {
-                        url: "/sales/pipeline",
+                        url: "/Sales/pipeline",
                         title: "My Pipeline"
                     },
                     {
-                        url: "/sales/nextactivities",
+                        url: "/Sales/nextactivities",
                         title: "Next Activities"
                     },
                     {
-                        url: "/sales/quotation",
+                        url: "/Sales/quotation",
                         title: "Quotations"
                     },
                     {
-                        url: "/sales/order",
+                        url: "/Sales/order",
                         title: "Sales Orders"
                     },
                     {
-                        url: "/sales/products",
+                        url: "/Sales/products",
                         title: "Products"
                     }
                 ],
                 Invoicing:[
                     {
-                        url: "/sales/salesofinvoices",
+                        url: "/Sales/salesofinvoices",
                         title: "Sales of Invoice"
                     },
                     {
-                        url: "/sales/orderstoupsell",
+                        url: "/Sales/orderstoupsell",
                         title: "Orders to Upsell"
                     }
                 ],
                 Reports:[
                     {
-                        url: "/sales/salespipelinereport",
+                        url: "/Sales/salespipelinereport",
                         title: "Pipeline"
                     },
                     {
-                        url: "/sales/salesreportactivity",
+                        url: "/Sales/salesreportactivity",
                         title: "Activities"
                     },
                     {
-                        url: "/sales/salesreport",
+                        url: "/Sales/salesreport",
                         title: "Sales"
                     }
                 ],
                 Configuration:[
                     {
-                        url: "/sales/salessettings",
+                        url: "/Sales/salessettings",
                         title: "Settings"
                     },
                     {
@@ -71,7 +71,7 @@ export default{
                         title: "Pricelists",
                         childrens:[
                             {
-                                url: "/sales/salespricelists",
+                                url: "/Sales/salespricelists",
                                 title: "Pricelists"
                             }
                         ]
@@ -81,13 +81,13 @@ export default{
                         title: "Lead & Opportunities",
                         childrens:[
                             {
-                                url: "/sales/salesactivity",
+                                url: "/Sales/salesactivity",
                                 title: "Activities"
                             }
                         ]
                     },
                     {
-                        url: "/sales/salesteams",
+                        url: "/Sales/salesteams",
                         title: "Sales Teams"
                     }
                 ],

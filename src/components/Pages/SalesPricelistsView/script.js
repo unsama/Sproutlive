@@ -25,10 +25,10 @@ export default{
         return {
             pricelists: "Pricelists / Public Pricelist (USD)",
             btnlinks: {
-                createbtnlink:"/sales/salespricelistscreate",
-                importbtnlink:"/sales/imported",
-                editbtnlink:"/sales/salespricelistedit",
-                discardbtnlink:"/sales/salespricelists"
+                createbtnlink:"/Sales/salespricelistscreate",
+                importbtnlink:"/Sales/imported",
+                editbtnlink:"/Sales/salespricelistedit",
+                discardbtnlink:"/Sales/salespricelists"
             },
             tableheader: [
                 "Name"
@@ -41,7 +41,7 @@ export default{
                         "Add an Items",
 
                     ],
-                    "url": "/sales/request_quotation_inner"
+                    "url": "/Sales/request_quotation_inner"
 
                 },
                 "row1": {
@@ -49,7 +49,7 @@ export default{
                         "",
 
                     ],
-                    "url": "/sales/request_quotation_inner"
+                    "url": "/Sales/request_quotation_inner"
 
                 },
                 "row2": {
@@ -58,7 +58,7 @@ export default{
 
 
                     ],
-                    "url": "/sales/request_quotation_inner"
+                    "url": "/Sales/request_quotation_inner"
 
                 },
 

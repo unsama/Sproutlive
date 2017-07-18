@@ -26,10 +26,10 @@ export default{
         return {
             activityimport: "Quotations / Import a File",
             btnlinks: {
-                createbtnlink: "/sales/salescustomercreate",
-                discardbtnlink: "/sales/salescustomeredit",
-                importbtnlink: "/sales/salesnextactivityimport",
-                cancelbtnlink:"/sales/quotation"
+                createbtnlink: "/Sales/salescustomercreate",
+                discardbtnlink: "/Sales/salescustomeredit",
+                importbtnlink: "/Sales/salesnextactivityimport",
+                cancelbtnlink:"/Sales/quotation"
             },
         }
     },

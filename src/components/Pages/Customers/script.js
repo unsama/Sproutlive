@@ -10,10 +10,10 @@ export default{
             customers: "Customers",
             title : "Customers - Sprout",
             btnlinks: {
-                createbtnlink: "/sales/salescustomercreate",
-                importbtnlink: "/sales/imported",
-                firstbtnlink: "/sales/customers",
-                secondbtnlink: "/sales/salescustomerlistview"
+                createbtnlink: "/Sales/salescustomercreate",
+                importbtnlink: "/Sales/imported",
+                firstbtnlink: "/Sales/customers",
+                secondbtnlink: "/Sales/salescustomerlistview"
             },
         }
     },

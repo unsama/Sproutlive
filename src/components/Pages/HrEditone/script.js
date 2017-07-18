@@ -41,7 +41,7 @@ export default{
 
             nextactivity: "Employees/Enrique Jones",
             btnlinks: {
-                createbtnlink: "#/app/sales/salescustomeredit",
+                createbtnlink: "#/app/Sales/salescustomeredit",
                 discardbtnlink: "#/app/attendance/AttHr",
                 importbtnlink: "#/app/imported",
                 editbtnlink:""

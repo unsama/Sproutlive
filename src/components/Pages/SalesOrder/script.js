@@ -10,10 +10,10 @@ export default{
             salesorder: "Sales Orders",
             title: "Sales Orders -Sprout",
             btnlinks: {
-                createbtnlink:"/sales/salesordercreate",
-                importbtnlink:"/sales/salesorderimport",
-                firstbtnlink:"/sales/order",
-                secondbtnlink:"/sales/salesordergridview",
+                createbtnlink:"/Sales/salesordercreate",
+                importbtnlink:"/Sales/salesorderimport",
+                firstbtnlink:"/Sales/order",
+                secondbtnlink:"/Sales/salesordergridview",
             },
             tableheader: [
                 "Quotations Number",
@@ -43,7 +43,7 @@ export default{
                         "$ 0.00",
                         "Cancelled"
                     ],
-                    "url": "/sales/salesorderview"
+                    "url": "/Sales/salesorderview"
 
                 },
                 "row1": {
@@ -55,7 +55,7 @@ export default{
                         "$ 0.00",
                         "Quotation"
                     ],
-                    "url": "/sales/salesorderview"
+                    "url": "/Sales/salesorderview"
 
                 },
                 "row2": {
@@ -67,7 +67,7 @@ export default{
                         "$ 0.00",
                         "Cancelled"
                     ],
-                    "url": "/sales/salesorderview"
+                    "url": "/Sales/salesorderview"
 
                 },
 

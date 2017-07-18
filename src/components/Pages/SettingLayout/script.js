@@ -10,7 +10,7 @@ export default{
         return{
             title: 'Setting',
             sidebarData: {
-                Dashboard: "/setting/setting",
+                Dashboard: "/setting/",
                 Users: [
                     {
                         url: "/setting/users",

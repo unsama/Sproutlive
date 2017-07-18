@@ -9,8 +9,8 @@ export default{
         return {
             activities: "Customers / Invoices",
             btnlinks: {
-                createbtnlink:"/sales/salesactivitycreate",
-                importbtnlink:"/sales/salesactivityimport"
+                createbtnlink:"/Sales/salesactivitycreate",
+                importbtnlink:"/Sales/salesactivityimport"
             },
             tableheader: [
                 "Customer",
@@ -39,7 +39,7 @@ export default{
                         "$ 0.00",
                         "Paid",
                     ],
-                    "url": "/sales/salesactivityview"
+                    "url": "/Sales/salesactivityview"
 
                 },
                 "row1": {
@@ -55,7 +55,7 @@ export default{
                         "$ 0.00",
                         "Paid",
                     ],
-                    "url": "/sales/salesactivityview"
+                    "url": "/Sales/salesactivityview"
 
                 },
                 "row2": {
@@ -72,7 +72,7 @@ export default{
                         "Paid",
 
                     ],
-                    "url": "/sales/salesactivityview"
+                    "url": "/Sales/salesactivityview"
 
                 },
 

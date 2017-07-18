@@ -22,10 +22,10 @@ export default{
             title: "Users - Sprout",
             modal: "Open: Contacts",
             btnlinks: {
-                createbtnlink: "/sales/salescustomercreate",
-                discardbtnlink: "/sales/salescustomeredit",
-                importbtnlink: "/sales/salescustomerimport",
-                editbtnlink: "/sales/salescustomeredit",
+                createbtnlink: "/Sales/salescustomercreate",
+                discardbtnlink: "/Sales/salescustomeredit",
+                importbtnlink: "/Sales/salescustomerimport",
+                editbtnlink: "/Sales/salescustomeredit",
             },
         }
     },

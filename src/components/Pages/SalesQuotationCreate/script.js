@@ -30,9 +30,9 @@ export default{
         return {
             quotation: "Quotations / SO014",
             btnlinks: {
-                createbtnlink:"/sales/salesnextactivitiescreate",
-                importbtnlink:"/sales/imported",
-                discardbtnlink:"/sales/quotation"
+                createbtnlink:"/Sales/salesnextactivitiescreate",
+                importbtnlink:"/Sales/imported",
+                discardbtnlink:"/Sales/quotation"
             },
             tableheader: [
                 "Product",

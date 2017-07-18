@@ -38,7 +38,7 @@ export default{
 
             nextactivity: "Employees/New",
             btnlinks: {
-                createbtnlink: "#/app/sales/salescustomeredit",
+                createbtnlink: "#/app/Sales/salescustomeredit",
                 discardbtnlink: "#/app/Employees/TableHr",
                 importbtnlink: "#/app/imported",
                 editbtnlink:""

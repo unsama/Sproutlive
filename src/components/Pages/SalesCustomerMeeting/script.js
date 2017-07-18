@@ -19,10 +19,10 @@ export default{
             vendormenu: "Customers / Agrolait",
             modal: "Open: Contacts",
             btnlinks: {
-                createbtnlink: "/sales/salescustomercreate",
-                discardbtnlink: "/sales/salescustomeredit",
-                importbtnlink: "/sales/imported",
-                editbtnlink: "/sales/salescustomeredit",
+                createbtnlink: "/Sales/salescustomercreate",
+                discardbtnlink: "/Sales/salescustomeredit",
+                importbtnlink: "/Sales/imported",
+                editbtnlink: "/Sales/salescustomeredit",
             },
         }
     },

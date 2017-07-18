@@ -59,7 +59,7 @@ export default{
                         "EAN-13",
                         "23.....{NNNDD}",
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
                 },
                 "row2": {
                     "data": [
@@ -68,7 +68,7 @@ export default{
                         "EAN-13",
                         "23.....{NNNDD}",
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
                 },
                 "row3": {
                     "data": [
@@ -77,7 +77,7 @@ export default{
                         "EAN-13",
                         "23.....{NNNDD}",
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
                 },
 
             }

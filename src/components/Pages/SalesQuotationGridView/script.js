@@ -9,10 +9,10 @@ export default{
         return {
             nextactivity: "Quotation",
             btnlinks: {
-                createbtnlink:"/sales/salesnextactivitiescreate",
-                importbtnlink:"/sales/salesnextactivityimport",
-                firstbtnlink:"/sales/quotation",
-                secondbtnlink:"/sales/salesnextactivitylistview",
+                createbtnlink:"/Sales/salesnextactivitiescreate",
+                importbtnlink:"/Sales/salesnextactivityimport",
+                firstbtnlink:"/Sales/quotation",
+                secondbtnlink:"/Sales/salesnextactivitylistview",
             },
             tableheader: [
                 "Opportunity",
@@ -31,7 +31,7 @@ export default{
                         "Chic/IN/00004",
 
                     ],
-                    "url": "/sales/salesquotationview"
+                    "url": "/Sales/salesquotationview"
 
 
                 },

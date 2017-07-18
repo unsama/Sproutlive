@@ -103,7 +103,7 @@ export default{
         return {
             nextactivity: "Next Activity",
             btnlinks: {
-                createbtnlink:"#/app/sales/nextactivitiescreate",
+                createbtnlink:"#/app/Sales/nextactivitiescreate",
                 importbtnlink:"#/app/imported"
             },
             tableheader: [
@@ -123,7 +123,7 @@ export default{
                         "Need of tancy",
                         "testt"
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
                 "row1": {
@@ -134,7 +134,7 @@ export default{
                         "Need 20 Days of Consultancy",
                         "test"
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
                 "row2": {
@@ -145,7 +145,7 @@ export default{
                         "Need 20 Days of Consultancy",
                         "test"
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
 
@@ -162,7 +162,7 @@ export default{
                         " ",
                         " "
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
                 "row1": {
@@ -170,7 +170,7 @@ export default{
                         " ",
                         " "
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
                 "row2": {
@@ -178,7 +178,7 @@ export default{
                         " ",
                         " "
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
 

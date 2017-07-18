@@ -21,7 +21,7 @@ export default{
             dashboard: "Dashboard",
             btnlinks: {
                 createbtnlink: "#/app/Recruitment/ReqCreateTable",
-                discardbtnlink: "#/app/sales/Salesnextactivityview",
+                discardbtnlink: "#/app/Sales/Salesnextactivityview",
                 importbtnlink: "#/app/Recruitment/ReqAppDocImport",
                 firstbtnlink: "#/app/Recruitment/ReqAppDoc",
             },

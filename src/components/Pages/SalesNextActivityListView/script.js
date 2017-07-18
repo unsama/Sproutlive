@@ -23,10 +23,10 @@ export default{
         return {
             nextactivity: "Next Activity",
             btnlinks: {
-                createbtnlink:"/sales/newuser",
-                importbtnlink: "/sales/salesproductsimport",
-                firstbtnlink:"/sales/nextactivities",
-                secondbtnlink:"/sales/salesnextactivitylistview",
+                createbtnlink:"/Sales/newuser",
+                importbtnlink: "/Sales/salesproductsimport",
+                firstbtnlink:"/Sales/nextactivities",
+                secondbtnlink:"/Sales/salesnextactivitylistview",
             },
             tableheader: [
                 "Internal Refrence",
@@ -51,7 +51,7 @@ export default{
                         "18.000	",
                         "18.000	",
                     ],
-                    "url": "/sales/salesproductview"
+                    "url": "/Sales/salesproductview"
 
                 },
                 "row1": {
@@ -65,7 +65,7 @@ export default{
                         "18.000	",
                         "18.000	",
                     ],
-                    "url": "/sales/salesproductview"
+                    "url": "/Sales/salesproductview"
 
                 },
                 "row2": {
@@ -79,7 +79,7 @@ export default{
                         "18.000	",
                         "18.000	",
                     ],
-                    "url": "/sales/salesproductview"
+                    "url": "/Sales/salesproductview"
 
                 },
 

@@ -10,8 +10,8 @@ export default{
             pricelists: "Pricelists",
             title: "Pricelists -Sprout",
             btnlinks: {
-                createbtnlink:"/sales/salespricelistscreate",
-                importbtnlink:"/sales/salespricelistsimport"
+                createbtnlink:"/Sales/salespricelistscreate",
+                importbtnlink:"/Sales/salespricelistsimport"
             },
             tableheader: [
                 "Message Type",
@@ -33,7 +33,7 @@ export default{
                         "",
                         "0"
                     ],
-                    "url": "/sales/salespricelistsview"
+                    "url": "/Sales/salespricelistsview"
 
                 },
                 "row1": {
@@ -42,7 +42,7 @@ export default{
                         "",
                         "30"
                     ],
-                    "url": "/sales/salespricelistsview"
+                    "url": "/Sales/salespricelistsview"
 
                 },
                 "row2": {
@@ -52,7 +52,7 @@ export default{
                         "50"
 
                     ],
-                    "url": "/sales/salespricelistsview"
+                    "url": "/Sales/salespricelistsview"
 
                 },
 

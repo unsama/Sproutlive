@@ -10,10 +10,10 @@ export default{
             nextactivity: "Next Activity",
             title: "Next Activity - Sprout",
             btnlinks: {
-                createbtnlink:"/sales/salesnextactivitiescreate",
-                importbtnlink:"/sales/salesnextactivityimport",
-                firstbtnlink:"/sales/nextactivities",
-                secondbtnlink:"/sales/salesnextactivitylistview",
+                createbtnlink:"/Sales/salesnextactivitiescreate",
+                importbtnlink:"/Sales/salesnextactivityimport",
+                firstbtnlink:"/Sales/nextactivities",
+                secondbtnlink:"/Sales/salesnextactivitylistview",
             },
             tableheader: [
                 "Opportunity",
@@ -49,7 +49,7 @@ export default{
                         "60,000.00",
                         "30,23"
                     ],
-                    "url": "/sales/Salesnextactivityview"
+                    "url": "/Sales/Salesnextactivityview"
 
                 },
                 "row1": {
@@ -63,7 +63,7 @@ export default{
                         "60,000.00",
                         "30,23"
                     ],
-                    "url": "/sales/Salesnextactivityview"
+                    "url": "/Sales/Salesnextactivityview"
 
                 },
                 "row2": {
@@ -77,7 +77,7 @@ export default{
                         "60,000.00",
                         "30,23"
                     ],
-                    "url": "/sales/Salesnextactivityview"
+                    "url": "/Sales/Salesnextactivityview"
 
                 },
 

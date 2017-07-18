@@ -74,7 +74,7 @@ $(document).ready(function(){
                 success: function(data){
                     if(!(data.length == 0)){
                         console.log(data);
-                        window.location.href = "welcome";
+                        window.location.href = "setting";
                     }
                     else{
                         showNotification('top','right','rose',"Error: <b>Session Can't be Started</b> - Report to administrator.");

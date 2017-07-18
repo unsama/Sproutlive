@@ -62,7 +62,7 @@ export default{
                         "Paid",
                         "POS 20176354"
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
 

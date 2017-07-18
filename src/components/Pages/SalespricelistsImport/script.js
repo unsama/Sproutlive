@@ -26,10 +26,10 @@ export default{
         return {
             activityimport: "Pricelists / Import a File",
             btnlinks: {
-                createbtnlink: "/sales/salescustomercreate",
-                discardbtnlink: "/sales/salescustomeredit",
-                importbtnlink: "/sales/salespricelistsimport",
-                cancelbtnlink: "/sales/salespricelists",
+                createbtnlink: "/Sales/salescustomercreate",
+                discardbtnlink: "/Sales/salescustomeredit",
+                importbtnlink: "/Sales/salespricelistsimport",
+                cancelbtnlink: "/Sales/salespricelists",
             },
         }
     },

@@ -49,7 +49,7 @@ export default{
                         "Available",
 
                     ],
-                    "url": "/sales/request_quotation_inner"
+                    "url": "/Sales/request_quotation_inner"
 
                 },
                 "row1": {
@@ -63,7 +63,7 @@ export default{
                         "Available",
 
                     ],
-                    "url": "/sales/request_quotation_inner"
+                    "url": "/Sales/request_quotation_inner"
 
                 },
                 "row2": {
@@ -77,7 +77,7 @@ export default{
                         "Available",
 
                     ],
-                    "url": "/sales/request_quotation_inner"
+                    "url": "/Sales/request_quotation_inner"
 
                 },
 

@@ -29,10 +29,10 @@ export default{
         nextactivity: "Manufacturing Orders",
         title: "Manufacturing Orders - Sprout",
         btnlinks: {
-            createbtnlink: "#/app/sales/salescustomercreate",
-            discardbtnlink: "#/app/sales/salescustomeredit",
-            importbtnlink: "#/app/sales/salesofinvoiceimport",
-            cancelbtnlink: "#/app/sales/salesofinvoices",
+            createbtnlink: "#/app/Sales/salescustomercreate",
+            discardbtnlink: "#/app/Sales/salescustomeredit",
+            importbtnlink: "#/app/Sales/salesofinvoiceimport",
+            cancelbtnlink: "#/app/Sales/salesofinvoices",
         },
     }
 },

@@ -47,8 +47,8 @@ export default{
             btnlinks: {
                 createbtnlink: "#/app/Employees/NewApp",
                 importbtnlink: "#/app/imported",
-                firstbtnlink: "#/app/sales/pipeline",
-                secondbtnlink: "#/app/sales/salespipelinelistview"
+                firstbtnlink: "#/app/Sales/pipeline",
+                secondbtnlink: "#/app/Sales/salespipelinelistview"
             },
         }
     },

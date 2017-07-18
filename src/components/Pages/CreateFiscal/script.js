@@ -81,7 +81,7 @@ export default{
                         " ",
                         " "
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
                 "row1": {
@@ -89,7 +89,7 @@ export default{
                         " ",
                         " "
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
                 "row2": {
@@ -97,7 +97,7 @@ export default{
                         " ",
                         " "
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
 
@@ -114,7 +114,7 @@ export default{
                         " ",
                         " "
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
                 "row1": {
@@ -122,7 +122,7 @@ export default{
                         " ",
                         " "
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
                 "row2": {
@@ -130,7 +130,7 @@ export default{
                         " ",
                         " "
                     ],
-                    "url": "/#/app/sales/request_quotation_inner"
+                    "url": "/#/app/Sales/request_quotation_inner"
 
                 },
 
