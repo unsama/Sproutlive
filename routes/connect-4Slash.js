@@ -161,7 +161,7 @@ router.post("/", function(req, res){
                 req.assert('full_name', "Name is invalid!").notEmpty();
                 req.assert('password', "Password is invalid!").notEmpty();
                 req.assert('admin_email', "Email is invalid!").notEmpty().isEmail();
-                req.assert('company_name', "Company name is invalid!").notEmpty().isAlphanumeric();
+                req.assert('company_name', "Company name is invalid!").notEmpty();
                 req.assert('country', "Country is invalid!").notEmpty().isAlpha();
                 //req.assert('country', "Country is invalid!").notEmpty().isAlpha();
                 req.assert('phone_number', "Phone Number is invalid!").notEmpty();

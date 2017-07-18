@@ -184,6 +184,7 @@ var privilegeAuthentication = function(req, res, next) {
                                         if(req.originalUrl)
                                     });*/
                                     var str = JSON.stringify(req.session.allowed_apps);
+                                    app_list = [];
                                     rows = JSON.parse(str);
                                     rows.forEach(function(element) {
                                         app_list.push(element.application_name);
@@ -195,7 +196,7 @@ var privilegeAuthentication = function(req, res, next) {
                                         toReturn = false;
                                     }
                                     //console.log(req.originalUrl.replace('/', ''));
-                                    //console.log(req.session.allowed_apps);
+                                    //console.log(app_list);
                                     //console.log("Found: " + found);
                                 }
                                 //if(results2.indexOf(req.session.db_name) > -1){
