@@ -125,7 +125,7 @@ router.post("/", function(req, res){
   //  var pakageType = req.body.pakage_type;
     var createdAt = req.body.created_at;
     var allowed_apps = req.body.allowed_apps;
-
+    companyName = companyName.replace(' ', '');
     // --- NOT OF OUR USE ---
     // var totalAmount = req.body.total_amount;
     // var createdAt = req.body.created_at;
