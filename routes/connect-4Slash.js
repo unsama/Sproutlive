@@ -247,8 +247,7 @@ router.post("/", function(req, res){
             //console.log("3");
                 connection.query("INSERT INTO `"+db_name+"`.`country` " +
                     "( `id` , `country_name`) " +
-                    "VALUES ( NULL , '"+country+"')"
-                    , function (error, result1) {
+                    "VALUES ( NULL , '"+country+"')" , function (error, result1) {
                         if(error){
                             return res.json({ status: 'Error', message: 'Error inserting into database. '});
                         }
@@ -293,7 +292,7 @@ router.post("/", function(req, res){
                 allowed_apps.forEach(function(entry) {
                     connection.query("INSERT INTO `sprout_users`.`companies_allowed_apps` (`database_name`, `application_name`) VALUES ('"+db_name+"', '"+entry+"');" , function (error) {
                         if(error){
-                            res.status(500).send({ error: "Error while inserting user: ", details: error});
+                            return res.status(500).send({ error: "Error while inserting user: ", details: error});
                         }
 
                     });
