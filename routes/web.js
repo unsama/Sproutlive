@@ -1,15 +1,15 @@
 var express = require("express");
 var func = require("./../config/func");
-
+var csrf = require('csurf');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require("express-session");
 var passport = require("passport");
 var validator = require("express-validator");
 var passportlocal = require("passport-local");
-
+require("./../config/passport");
 var randomstring = require("randomstring");
-
+var database_connection = require('./db_conn');
 var router = express.Router();
 var bcrypt   = require('bcrypt-nodejs');
 var saltRounds = 10;
@@ -23,7 +23,6 @@ var transporter = nodemailer.createTransport({
 });
 
 var mysql = require("mysql");
-var database_connection = require('./db_conn');
 
 var connection = mysql.createConnection({
     host: "46.101.37.156",
@@ -33,7 +32,7 @@ var connection = mysql.createConnection({
 });
 
 
-require("./../config/passport");
+
 
 
 connection.connect(function (err) {
@@ -60,35 +59,6 @@ router.get('/clear', function (req, res, next) {
     });
 });
 
-
-
-router.get('/logout', function(req, res){
-    req.session.destroy();
-    req.logout();
-    res.redirect('/signin');
-});
-
-router.post('/create-session', function(req, res){
-    req.session.db_name = req.body.db_name;
-    global.connection = database_connection.connection(req.session.db_name);
-    global.connection.query("select application_name from sprout_users.companies_allowed_apps where database_name ='"+req.session.db_name+"'", function (error, results) {
-        if (error) {
-            res.status(500).json({status: "error", message: "Error in database query while creating session."});
-        }
-        else{
-            if(results.length > 0){
-                req.session.allowed_apps = results;
-               // console.log(req.session.allowed_apps[1].application_name);
-               // console.log(req.session.allowed_apps.length);
-                res.status(200).json("ok");
-            }
-            else{
-                res.status(110).json({status: "error", message: "No applications registered found."});
-            }
-        }
-        //res.json({status: "error", message: "An unidentidied error occured."});
-    });
-});
 
 
 
@@ -137,6 +107,78 @@ router.get('/forgot_password', function (req, res, next) {
     });
     //  res.render('user/forgot_password', {title: 'Forgot Password', csrfToken: req.csrfToken(), emailSend: true});
 });
+
+//Azeem Ullah's Code to:
+// 1. signin
+// 2. session
+// 3. privilege authentication
+// 4. root redirect
+
+router.get('/logout', function(req, res){
+    req.session.destroy();
+    req.logout();
+    res.redirect('/signin');
+});
+
+router.post('/create-session', function(req, res){
+    req.session.db_name = req.body.db_name;
+    global.connection = database_connection.connection(req.session.db_name);
+    global.connection.query("select application_name from sprout_users.companies_allowed_apps where database_name ='"+req.session.db_name+"'", function (error, results) {
+        if (error) {
+            res.status(500).json({status: "error", message: "Error in database query while creating session."});
+        }
+        else{
+            if(results.length > 0){
+                req.session.allowed_apps = results;
+                // console.log(req.session.allowed_apps[1].application_name);
+                // console.log(req.session.allowed_apps.length);
+                res.status(200).json("ok");
+            }
+            else{
+                res.status(110).json({status: "error", message: "No applications registered found."});
+            }
+        }
+        //res.json({status: "error", message: "An unidentidied error occured."});
+    });
+});
+
+router.get('/signin', csrf(), function(req, res){
+    res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
+});
+
+router.post('/signin', csrf(), function(req, res, next) {
+    passport.authenticate('local', function(error, user, info) {
+        if(error) {
+            return res.status(500).json("an error occured");
+        }
+        if(!user) {
+            return res.status(401).json("Crediantials Invalid");
+        }
+        req.session.user_details = user;
+        req.session.username = req.body.username;
+        res.status(200).json(user.id);
+    })(req, res, next);
+});
+
+router.get('/', function(req, res, next){
+    if(typeof req.session.db_name == 'undefined'){
+        res.writeHead(302, {
+            'Location': 'signin'
+            //add other headers here...
+        });
+        res.end();
+        //window.location = "signin";
+    }
+    else{
+        res.writeHead(302, {
+            'Location': 'setting'
+            //add other headers here...
+        });
+        res.end();
+    }
+    //res.render('modules/setting', {title: 'Sprout'});
+});
+
 var app_list = [];
 
 var privilegeAuthentication = function(req, res, next) {
@@ -273,7 +315,7 @@ router.get("/manufacturing",privilegeAuthentication, function(req, res, next){
 router.get("/leaves",privilegeAuthentication, function(req, res, next){
     res.render('modules/leaves', {title: 'Sprout'});
 });
-router.get("/employees",function(req, res, next){
+router.get("/employees",privilegeAuthentication,function(req, res, next){
     res.render('modules/employees', {title: 'Sprout'});
 });
 router.get("/projects",privilegeAuthentication, function(req, res, next){
@@ -303,9 +345,12 @@ router.get("/pointofsale", privilegeAuthentication, function(req, res, next){
 router.get("/welcome", privilegeAuthentication, function(req, res, next){
     res.render('modules/welcome', {title: 'Sprout' , app_list: app_list});
 });
-router.get("/fileupload", function(req, res, next){
-    res.render('modules/fileupload', {title: 'Sprout'});
-});
+
+
+
+// AZEEM ULLAH'S CODE ENDS HERE
+
+
 //add users
 router.post('/add_user', function (req, res, next) {
     // connection.query('INSERT INTO `user`(`username`, `email`,`company_name`,`current_company`) VALUES ("'+req.body.username+'","'+req.body.email+'","'+req.body.company_name+'","'+req.body.current_company+'")', function (error, results, fields) {
@@ -423,24 +468,7 @@ router.post('/check', function(req, res, next){
     }
 
 });
-router.get('/', function(req, res, next){
-    if(typeof req.session.db_name == 'undefined'){
-        res.writeHead(302, {
-            'Location': 'signin'
-            //add other headers here...
-        });
-        res.end();
-        //window.location = "signin";
-    }
-    else{
-        res.writeHead(302, {
-            'Location': 'setting'
-            //add other headers here...
-        });
-        res.end();
-    }
-        //res.render('modules/setting', {title: 'Sprout'});
-});
+
 
 
 
@@ -494,26 +522,10 @@ router.post('/password', function(req, res, next){
 
 });
 
-var csrf = require('csurf');
 
 
-router.get('/signin', csrf(), function(req, res){
-    res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
-});
 
-router.post('/signin', csrf(), function(req, res, next) {
-    passport.authenticate('local', function(error, user, info) {
-        if(error) {
-            return res.status(500).json("an error occured");
-        }
-        if(!user) {
-            return res.status(401).json("Crediantials Invalid");
-        }
-        req.session.user_details = user;
-        req.session.username = req.body.username;
-        res.status(200).json(user.id);
-    })(req, res, next);
-});
+
 
 module.exports = router;
 
