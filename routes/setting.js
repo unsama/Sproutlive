@@ -14,6 +14,7 @@ var nodemailer = require("nodemailer");
 var async = require('async')        //azeem ullah's commit
 var multer  = require('multer');
 var path = require('path');
+//var conversion = require("phantom-html-to-pdf")();
 const fs = require('fs');
 
 
@@ -52,7 +53,17 @@ mysql.close(connection);
 router.get("/inviteuser", function(req, res, next){
     res.render('inviteuser', {title: 'Sprout' });
 });
-
+/* WAHIDS WORK TO PASS
+router.get("/abc", function(req, res, next){
+    conversion({ html: "<h1>Hello World</h1>" }, function(err, pdf) {
+        //console.log(pdf);
+        console.log(pdf.numberOfPages);
+        res.setHeader('content-type', 'application/pdf');
+        pdf.stream.pipe(res);
+        console.log(res);
+    });
+});
+*/
 //-----Azeem Ullah - Settings/create-company
 
 router.get("/create-company/get-meta", function(req, res, next){
