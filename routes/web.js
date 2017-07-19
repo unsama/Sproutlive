@@ -108,18 +108,23 @@ router.get('/forgot_password', function (req, res, next) {
     //  res.render('user/forgot_password', {title: 'Forgot Password', csrfToken: req.csrfToken(), emailSend: true});
 });
 
-//Azeem Ullah's Code to:
+// Azeem Ullah's Code to:
 // 1. signin
 // 2. session
 // 3. privilege authentication
 // 4. root redirect
 
+
+
+// Destroys session
 router.get('/logout', function(req, res){
     req.session.destroy();
     req.logout();
     res.redirect('/signin');
 });
 
+// Creates session and do the following:
+// checks allowed apps of requested company
 router.post('/create-session', function(req, res){
     req.session.db_name = req.body.db_name;
     global.connection = database_connection.connection(req.session.db_name);
@@ -142,10 +147,17 @@ router.post('/create-session', function(req, res){
     });
 });
 
+
+// signin page render
+// uses csurf npm pakage and passes a csrf value generated at random
 router.get('/signin', csrf(), function(req, res){
     res.render('login/index',{'message' :req.flash('message'), csrf: req.csrfToken()});
 });
 
+// signin varification
+// csrf varification
+// passport.js npm pakage is used
+// local starategy is used in passport.js
 router.post('/signin', csrf(), function(req, res, next) {
     passport.authenticate('local', function(error, user, info) {
         if(error) {
@@ -160,6 +172,9 @@ router.post('/signin', csrf(), function(req, res, next) {
     })(req, res, next);
 });
 
+// route directory redirect
+// if user is signed in ie. session is created then redirect to settings dashboard
+// if user is not signed in then redirect to signin page
 router.get('/', function(req, res, next){
     if(typeof req.session.db_name == 'undefined'){
         res.writeHead(302, {
@@ -179,8 +194,11 @@ router.get('/', function(req, res, next){
     //res.render('modules/setting', {title: 'Sprout'});
 });
 
+//global temp variable to store allowed apps list
 var app_list = [];
 
+
+// middleware to check all rules and authenticate user or block user.
 var privilegeAuthentication = function(req, res, next) {
     //console.log(req.session.db_name);
 //return true;
@@ -346,9 +364,10 @@ router.get("/welcome", privilegeAuthentication, function(req, res, next){
     res.render('modules/welcome', {title: 'Sprout' , app_list: app_list});
 });
 
-
-
 // AZEEM ULLAH'S CODE ENDS HERE
+
+
+
 
 
 //add users
