@@ -24,8 +24,8 @@ var bcrypt = require('bcrypt-nodejs');
 
 var app = express();
 
-
-
+var https = require('https');
+var fs = require('fs');
 
 
 //AZEEM ULLAH's CODE
@@ -269,6 +269,10 @@ app.use(history({
 }));
 
 
+var options = {
+    key: fs.readFileSync('key.pem'),
+    cert: fs.readFileSync('cert.pem')
+};
 
 
 

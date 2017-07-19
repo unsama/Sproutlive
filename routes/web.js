@@ -108,12 +108,14 @@ router.get('/forgot_password', function (req, res, next) {
     //  res.render('user/forgot_password', {title: 'Forgot Password', csrfToken: req.csrfToken(), emailSend: true});
 });
 
+
+
+// ---------------- ******************* ------------------------------ ************************** ------------------------------
 // Azeem Ullah's Code to:
 // 1. signin
 // 2. session
 // 3. privilege authentication
 // 4. root redirect
-
 
 
 // Destroys session
@@ -122,6 +124,7 @@ router.get('/logout', function(req, res){
     req.logout();
     res.redirect('/signin');
 });
+
 
 // Creates session and do the following:
 // checks allowed apps of requested company
@@ -365,6 +368,8 @@ router.get("/welcome", privilegeAuthentication, function(req, res, next){
 });
 
 // AZEEM ULLAH'S CODE ENDS HERE
+// ---------------- ******************* ------------------------------ ************************** ------------------------------
+
 
 
 
