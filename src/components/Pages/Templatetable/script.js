@@ -12,8 +12,13 @@ export default{
             head: "Templates",
             title: 'Templates - Sprout',
             btnlinks: {
+<<<<<<< HEAD
+                createbtnlink: "/setting/templatetablecreate",
+                importbtnlink: "/setting/templatetableimport",
+=======
                 createbtnlink: "#/app/setting/templatetablecreate",
                 importbtnlink: "#/app/setting/templatetableimport",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Template Name",
@@ -36,7 +41,11 @@ export default{
                         "",
 
                     ],
+<<<<<<< HEAD
+                    "url": "/setting/templatetablein"
+=======
                     "url": "/#/app/setting/templatetablein"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 },
                 "row1": {
                     "data": [
@@ -45,7 +54,11 @@ export default{
                         "",
 
                     ],
+<<<<<<< HEAD
+                    "url": "/setting/templatetablein"
+=======
                     "url": "/#/app/setting/templatetablein"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 },
             }
         }

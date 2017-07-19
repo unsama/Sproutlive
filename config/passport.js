@@ -2,22 +2,42 @@
 
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
+<<<<<<< HEAD
+
+// load up the user model
+var mysql = require('mysql');
+var bcrypt = require('bcrypt-nodejs');
+=======
 var passport = require("passport");
 // load up the user model
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 var twinBcrypt = require('twin-bcrypt')
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 // var dbconfig = require('./database');
 // var connection = mysql.createConnection(dbconfig.connection);
 //
 // connection.query('USE ' + dbconfig.database);
 // var mysql = require("mysql");
+<<<<<<< HEAD
+// var connection = mysql.createConnection({
+//     host: "46.101.37.156",
+//     port: "81",
+//     user: "root",
+//     password: "4Slash1234",
+//     database: "sprout"
+// });
+// expose this function to our app using module.exports
+module.exports = function(passport) {
+
+=======
 //var mysql = require("mysql");
 
 
 // expose this function to our app using module.exports
 
 /*
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
     // =========================================================================
     // passport session setup ==================================================
     // =========================================================================
@@ -110,6 +130,9 @@ var twinBcrypt = require('twin-bcrypt')
                 });
             })
     );
+<<<<<<< HEAD
+};
+=======
     */
 
     passport.use('local', new LocalStrategy({
@@ -165,3 +188,4 @@ var twinBcrypt = require('twin-bcrypt')
     });
 
 
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83

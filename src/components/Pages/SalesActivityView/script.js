@@ -23,9 +23,15 @@ export default{
         return {
             activities: "Activities / Email",
             btnlinks: {
+<<<<<<< HEAD
+                createbtnlink:"/sales/salesactivitycreate",
+                importbtnlink:"/sales/app/imported",
+                editbtnlink:"/sales/salesactivityedit",
+=======
                 createbtnlink:"/Sales/salesactivitycreate",
                 importbtnlink:"/Sales/app/imported",
                 editbtnlink:"/Sales/salesactivityedit",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Pricelist Name",
@@ -38,7 +44,11 @@ export default{
                         "Public Pricelist",
                         "USD"
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/salesactivityview"
+=======
                     "url": "/Sales/salesactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -46,7 +56,11 @@ export default{
                         " Sales",
                         ""
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/salesactivityview"
+=======
                     "url": "/Sales/salesactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -55,7 +69,11 @@ export default{
                         ""
 
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/salesactivityview"
+=======
                     "url": "/Sales/salesactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

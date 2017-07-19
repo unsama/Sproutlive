@@ -26,10 +26,17 @@ export default{
         return {
             activityimport: "Orders to Upsell / Import a File",
             btnlinks: {
+<<<<<<< HEAD
+                createbtnlink: "/sales/salescustomercreate",
+                discardbtnlink: "/sales/salescustomeredit",
+                importbtnlink: "/sales/salesordertoupsellimport",
+                cancelbtnlink: "/sales/orderstoupsell",
+=======
                 createbtnlink: "/Sales/salescustomercreate",
                 discardbtnlink: "/Sales/salescustomeredit",
                 importbtnlink: "/Sales/salesordertoupsellimport",
                 cancelbtnlink: "/Sales/orderstoupsell",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
         }
     },

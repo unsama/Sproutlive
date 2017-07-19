@@ -101,7 +101,11 @@ export default{
                         "Available",
 
                     ],
+<<<<<<< HEAD
+                    "url": "/#/app/sales/request_quotation_inner"
+=======
                     "url": "/#/app/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -115,7 +119,11 @@ export default{
                         "Available",
 
                     ],
+<<<<<<< HEAD
+                    "url": "/#/app/sales/request_quotation_inner"
+=======
                     "url": "/#/app/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -129,7 +137,11 @@ export default{
                         "Available",
 
                     ],
+<<<<<<< HEAD
+                    "url": "/#/app/sales/request_quotation_inner"
+=======
                     "url": "/#/app/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

@@ -6,13 +6,23 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var mongoose = require("mongoose");
 var session = require("express-session");
+<<<<<<< HEAD
+var passport = require("passport");
+var flash = require("connect-flash");
+=======
 //var passport = require("passport");
 //var flash = require("connect-flash");
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 var validator = require("express-validator");
 var history = require("connect-history-api-fallback");
 //require("./config/passport");
 
 var userRoutes = require('./routes/user');
+<<<<<<< HEAD
+var webRoutes = require('./routes/web');
+var webSetting = require('./routes/setting');
+//var apiRoutes = require('./routes/api');
+=======
 
 var webSetting = require('./routes/setting');
 var connectRoutes = require('./routes/connect-4Slash');
@@ -21,11 +31,14 @@ var getCompanies = require('./routes/get_companies');
 var webRoutes = require('./routes/web');
 //var apiRoutes = require('./routes/api');
 var bcrypt = require('bcrypt-nodejs');
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 var app = express();
 
 
 
+<<<<<<< HEAD
+=======
 //AZEEM ULLAH's CODE
 var flash    = require('connect-flash');
 var crypto   = require('crypto');
@@ -53,11 +66,19 @@ app.use(sess({
 
 
 
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+<<<<<<< HEAD
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+=======
 
 
 
@@ -67,6 +88,7 @@ app.use(logger('dev'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 app.use(validator());
 app.use(cookieParser());
 app.use(session({secret: "This is Sprout Secret!", resave: false, saveUninitialized: false}));
@@ -83,6 +105,9 @@ app.use(express.static(path.join(__dirname, 'public')));
     next();
 });*/
 
+<<<<<<< HEAD
+app.use('/user', userRoutes);
+=======
 
 
 //AZEEMS CODE STARTS HERE
@@ -233,6 +258,7 @@ app.use('/connect-4slash', connectRoutes);
 app.use('/login-user-meta', userMetaRoutes);
 app.use('/get-companies', getCompanies);
 app.use('/', webRoutes);
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 app.use(history({
     rewrites: [
@@ -262,6 +288,14 @@ app.use(history({
         { from: /\/email_temp/, to: '/email_temp'},
         { from: /\/password/, to: '/password'},
         { from: /\/clear/, to: '/clear'},
+<<<<<<< HEAD
+        { from: /\/login/, to: '/login'},
+
+    ]
+}));
+app.use('/', webRoutes);
+app.use('/setting', webSetting);
+=======
         //{ from: /\/dashboard/, to: '/dashboard'},
     ]
 }));
@@ -269,6 +303,7 @@ app.use(history({
 
 
 
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 //app.use('/api', apiRoutes);
 
 // catch 404 and forward to error handler

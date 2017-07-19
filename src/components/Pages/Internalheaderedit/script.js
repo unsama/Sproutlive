@@ -1,26 +1,24 @@
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
-import Newuser from "./../../Pages/Newuser/Newuser.vue"
 
 
 export default{
     created: function () {
         document.title = this.title;
+        $(function(){
+            CKEDITOR.replace('editor1');
+        });
+
     },
-    data(){
+    data () {
         return {
-            head: "Users / New",
-            title: 'New - Sprout',
+            activityimport: "",
             btnlinks: {
-                discardbtnlink: "#/app/setting/users",
-                savedbtnlink: "#/app/setting/"
+                savebtnlink: "/setting/",
+                discardbtnlink: "/setting/internalheader",
             },
         }
     },
-
-
     components: {
         DashboardController,
-        Newuser
-
     }
 }

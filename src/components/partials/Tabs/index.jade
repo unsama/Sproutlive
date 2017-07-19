@@ -1,6 +1,19 @@
 .o_content(style='margin-left:-15px;margin-right:-15px;')
     .o_view_manager_content
         .o_form_view.o_form_readonly
+<<<<<<< HEAD
+            slot(name="header_bar")
+            .o_form_sheet_bg
+                .o_form_sheet
+                    span.o_form_field.o_form_invisible 1
+                    slot(name='activebtn')
+                    .alert.alert-success.text-center.o_form_header.o_form_invisible
+                        a.close(data-dismiss='alert', href='#', aria-hidden='true') x
+                        div
+                            strong
+                                | A password reset has been requested for this user. An email containing the following link has been sent:
+                        .o_form_invisible
+=======
             header
                 button.btn.btn-sm(type='button', data-original-title='', title='')
                     span Change Password
@@ -32,6 +45,7 @@
                             strong
                                 | A password reset has been requested for this user. An email containing the following link has been sent:
                         .o_form_invisible(attrs="{'invisible': [('state', '!=', 'new')]}")
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                             strong An invitation email containing the following subscription link has been sent:
                         div
                             a.o_form_uri.o_text_overflow.o_form_field(href='http://192.168.25.104:8069/web/login?login=rajaunleashed%40gmail.com&db=odoo', target='_blank') http://192.168.25.104:8069/web/login?login=rajaunleashed%40gmail.com&db=odoo
@@ -41,6 +55,17 @@
                     .o_form_field_image.oe_avatar.o_form_field(data-original-title='', title='')
                         img(border='1', name='image', src='/web/static/src/img/placeholder.png')
                     .oe_title
+<<<<<<< HEAD
+                        label.o_form_label.oe_edit_only
+                            | Name
+                        h1
+                            slot(name='username')
+
+                        label.o_form_label.o_form_label_help.oe_edit_only
+                            | Email Address
+                        h2
+                            slot(name='email')
+=======
                         label.o_form_label.oe_edit_only(for='o_field_input_98')
                             | Name
                         h1
@@ -50,11 +75,16 @@
                             | Email Address
                         h2
                             span.o_form_field.o_form_required rajaunleashed@gmail.com
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                         table.o_group.o_inner_group
                             tbody
                                 tr
                                     td.o_td_label(colspan='1')
+<<<<<<< HEAD
+                                        label.o_form_label.o_form_label_help.o_form_invisible
+=======
                                         label.o_form_label.o_form_label_help.o_form_invisible(for='o_field_input_100', data-original-title='', title='')
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                                             | Related Partner
                                     td(colspan='1', style='width: 100%;')
                                         a.o_form_uri.o_form_field.o_form_invisible(href='#') YourCompany, Administrators
@@ -64,13 +94,67 @@
                                 a.nav-link.active(href='#profile', role='tab', data-toggle='tab') Access Rights
                             li.nav-item
                                 a.nav-link(href='#buzz', role='tab', data-toggle='tab') Preferences
+<<<<<<< HEAD
+                            //li.nav-item
+                            //    a.nav-link(href='#references', role='tab', data-toggle='tab') Calendar
+=======
                             li.nav-item
                                 a.nav-link(href='#references', role='tab', data-toggle='tab') Calendar
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                             li.nav-item
                                 a.nav-link(href='#point', role='tab', data-toggle='tab') Point of Sale
                         // Tab panes
                         .tab-content
                             #profile.tab-pane.fade.in.active(role='tabpanel')
+<<<<<<< HEAD
+                                slot(name='mulicompany')
+                                slot(name='tableuser')
+
+                                slot(name='checkbox')
+                            #buzz.tab-pane.fade.in(role='tabpanel')
+                                .o_group
+                                    slot(name='localization')
+                                    slot(name='messaging')
+
+
+                            //#references.tab-pane.fade.in(role='tabpanel')
+                            //    table.o_group.o_inner_group
+                            //        tbody
+                            //            tr
+                            //                td.o_td_label(colspan='1')
+                            //                    label.o_form_label.o_form_label_empty.o_form_label_false
+                            //                        | Refresh Token
+                            //                td(colspan='1', style='width: 100%;')
+                            //                    span.o_form_field.o_form_field_empty
+                            //            tr
+                            //                td.o_td_label(colspan='1')
+                            //                    label.o_form_label.o_form_label_empty.o_form_label_false
+                            //                        | User token
+                            //                td(colspan='1', style='width: 100%;')
+                            //                    span.o_form_field.o_form_field_empty
+                            //            tr
+                            //                td.o_td_label(colspan='1')
+                            //                    label.o_form_label.o_form_label_empty.o_form_label_false
+                            //                        | Token Validity
+                            //                td(colspan='1', style='width: 100%;')
+                            //                    span.o_form_field_date.o_form_field.o_form_field_empty
+                            //            tr
+                            //                td.o_td_label(colspan='1')
+                            //                    label.o_form_label.o_form_label_empty.o_form_label_false
+                            //                        | Last synchro date
+                            //                td(colspan='1', style='width: 100%;')
+                            //                    span.o_form_field_date.o_form_field.o_form_field_empty
+                            //            tr
+                            //                td.o_td_label(colspan='1')
+                            //                    label.o_form_label.o_form_label_help.o_form_label_empty.o_form_label_false(data-original-title='', title='')
+                            //                        | Calendar ID
+                            //                td(colspan='1', style='width: 100%;')
+                            //                    span.o_form_field.o_form_field_empty
+
+                            #point.tab-pane.fade.in(role='tabpanel')
+                                slot(name='pos')
+
+=======
                                 table.o_group.o_inner_group
                                     tbody
                                         tr
@@ -270,6 +354,7 @@
                                                     | Security PIN
                                             td(colspan='1', style='width: 100%;')
                                                 span
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 
 

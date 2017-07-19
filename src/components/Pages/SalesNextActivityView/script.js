@@ -18,10 +18,17 @@ export default{
             nextactivity: "Next ActivitiesNeed / to customize the solution",
             modal: "Log an Activity",
             btnlinks: {
+<<<<<<< HEAD
+                createbtnlink: "/sales/salesnextactivitiescreate",
+                discardbtnlink: "/sales/customers",
+                importbtnlink: "/sales/imported",
+                editbtnlink: "/sales/salesnextactivityedit"
+=======
                 createbtnlink: "/Sales/salesnextactivitiescreate",
                 discardbtnlink: "/Sales/customers",
                 importbtnlink: "/Sales/imported",
                 editbtnlink: "/Sales/salesnextactivityedit"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
         }
     },

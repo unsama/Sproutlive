@@ -26,10 +26,17 @@ export default{
         return {
             activityimport: "Sales Orders / Import a File",
             btnlinks: {
+<<<<<<< HEAD
+                createbtnlink: "/sales/salescustomercreate",
+                discardbtnlink: "/sales/salescustomeredit",
+                importbtnlink: "/sales/salesorderimport",
+                cancelbtnlink: "/sales/order",
+=======
                 createbtnlink: "/Sales/salescustomercreate",
                 discardbtnlink: "/Sales/salescustomeredit",
                 importbtnlink: "/Sales/salesorderimport",
                 cancelbtnlink: "/Sales/order",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
         }
     },

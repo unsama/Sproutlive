@@ -23,10 +23,17 @@ export default{
         return {
             customers: "Customers",
             btnlinks: {
+<<<<<<< HEAD
+                createbtnlink:"/sales/newuser",
+                importbtnlink: "/sales/salescustomerimport",
+                firstbtnlink:"/sales/customers",
+                secondbtnlink:"/sales/salescustomerlistview"
+=======
                 createbtnlink:"/Sales/newuser",
                 importbtnlink: "/Sales/salescustomerimport",
                 firstbtnlink:"/Sales/customers",
                 secondbtnlink:"/Sales/salescustomerlistview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Name",
@@ -47,7 +54,11 @@ export default{
                         "+32 10 588 558",
                         "agrolait@yourcompany.example.com",
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/salescustomerview"
+=======
                     "url": "/Sales/salescustomerview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -56,7 +67,11 @@ export default{
                         "+32 10 588 558",
                         "agrolait@yourcompany.example.com",
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/salescustomerview"
+=======
                     "url": "/Sales/salescustomerview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -65,7 +80,11 @@ export default{
                         "+32 10 588 558",
                         "agrolait@yourcompany.example.com",
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/salescustomerview"
+=======
                     "url": "/Sales/salescustomerview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

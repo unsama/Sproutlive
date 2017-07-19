@@ -3,7 +3,11 @@ export default{
     created: function () {
         var self = this;
         $(function () {
+<<<<<<< HEAD
+            $('#save').on("click",function(){
+=======
             $('#submitSaveBtn').on("click",function(){
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 document.getElementById('submitButton').click();
             });
         });
@@ -67,6 +71,63 @@ export default{
 
         submit: function () {
             var self = this;
+<<<<<<< HEAD
+            // self.$http.post('/setting/create-company/upload-image', self.imageData, {headers: { 'Content-Type': 'multipart/form-data' } }).
+            // then(function (response) {
+            //     console.log(response.data.path);
+            //     console.log(response.data);
+            //     this.imageSrc = response.data.path.replace('public','');
+            //
+            //
+            //
+            //     console.log(this.imageSrc);
+            //
+            //
+            //
+            //
+            //          CODE CUT------ AZEEM ULLAH
+            //
+            //
+            //
+            //
+            // }).catch(function (error) {
+            //     console.log(error) // catch your error
+            // });
+            //
+            //
+
+
+
+
+            self.$http.post("/setting/create-company", {
+                "companyName": self.companyName,
+                "companyTagline": self.companyTagline,
+                "companyStreetOne": self.companyStreetOne,
+                "companyStreetTwo": self.companyStreetTwo,
+                "companyCity": self.companyCity,
+                "companyStateId": self.companyStateId,
+                "companyZip": self.companyZip,
+                "companyCountryId": self.companyCountryId,
+                "companyWebsite": self.companyWebsite,
+                "companyPhone": self.companyPhone,
+                "companyFax": self.companyFax,
+                "companyEmail": self.companyEmail,
+                "companyTaxID": self.companyTaxID,
+                "companyRegistry": self.companyRegistry,
+                "companyCurrencyId": self.companyCurrencyId,
+                "companyParentCompanyId": self.companyParentCompanyId,
+                "image_url": self.imageSrc,
+
+
+            }).then(function(res){
+                if(res.data.status){
+                    console.log("Submission Failed! \nReason: " + res.data.message);
+                    console.log(res);}
+                else
+                    console.log("Submission Sucessful!");
+            },function(err){
+                alert(err);
+=======
             self.$http.post('/setting/create-company/upload-image', self.imageData, {headers: { 'Content-Type': 'multipart/form-data' } }).
             then(function (response) {
                 console.log(response.data.path);
@@ -115,14 +176,18 @@ export default{
 
             }).catch(function (error) {
                 console.log(error) // catch your error
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             });
 
 
 
+<<<<<<< HEAD
+=======
 
 
 
 
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
         },
 
 

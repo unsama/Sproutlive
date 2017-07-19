@@ -23,9 +23,15 @@ export default{
             modal2: "Open: Account Receivable",
             modal3: "Open: Account Payable",
             btnlinks: {
+<<<<<<< HEAD
+                createbtnlink: "/sales/salescustomercreate",
+                discardbtnlink: "/sales/salescustomerview",
+                importbtnlink: "/sales/app/imported",
+=======
                 createbtnlink: "/Sales/salescustomercreate",
                 discardbtnlink: "/Sales/salescustomerview",
                 importbtnlink: "/Sales/app/imported",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Name"
@@ -36,7 +42,11 @@ export default{
                         "Add an Items",
 
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/request_quotation_inner"
+=======
                     "url": "/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -44,7 +54,11 @@ export default{
                         "",
 
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/request_quotation_inner"
+=======
                     "url": "/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -53,7 +67,11 @@ export default{
 
 
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/request_quotation_inner"
+=======
                     "url": "/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

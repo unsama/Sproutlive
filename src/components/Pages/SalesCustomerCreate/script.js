@@ -10,9 +10,15 @@ export default{
             nextactivity: "Customers",
             title : "New - Sprout",
             btnlinks: {
+<<<<<<< HEAD
+                createbtnlink: "/sales/salescustomeredit",
+                discardbtnlink: "/sales/customers",
+                importbtnlink: "/sales/imported"
+=======
                 createbtnlink: "/Sales/salescustomeredit",
                 discardbtnlink: "/Sales/customers",
                 importbtnlink: "/Sales/imported"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
         }
     },

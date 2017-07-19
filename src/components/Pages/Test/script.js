@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+export default{
+    created: function () {
+        $(".navbar-toggler").click(function(){
+            $(".samoulnav").toggle();
+            $("#navbarNavDropdown").toggle();
+        });
+
+    },
+    data(){
+        return {
+
+            counter: 0,
+            m: 'Log an internal note which will not be sent to followers, but which can be read by users accessing this document.',
+            message: 'To: Followers of "PO00007: 637.50 Rs."',
+            v: false,
+            v1: false
+        }
+    },
+ 
+}
+=======
 function calcWidth() {
     var navwidth = 0;
     var morewidth = $('#main .more').outerWidth(true);
@@ -37,3 +59,4 @@ $(function() {
         calcWidth();
     });
 });
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83

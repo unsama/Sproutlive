@@ -23,10 +23,17 @@ export default{
         return {
             nextactivity: "Next Activity",
             btnlinks: {
+<<<<<<< HEAD
+                createbtnlink:"/sales/newuser",
+                importbtnlink: "/sales/salesproductsimport",
+                firstbtnlink:"/sales/nextactivities",
+                secondbtnlink:"/sales/salesnextactivitylistview",
+=======
                 createbtnlink:"/Sales/newuser",
                 importbtnlink: "/Sales/salesproductsimport",
                 firstbtnlink:"/Sales/nextactivities",
                 secondbtnlink:"/Sales/salesnextactivitylistview",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Internal Refrence",
@@ -51,7 +58,11 @@ export default{
                         "18.000	",
                         "18.000	",
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/salesproductview"
+=======
                     "url": "/Sales/salesproductview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -65,7 +76,11 @@ export default{
                         "18.000	",
                         "18.000	",
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/salesproductview"
+=======
                     "url": "/Sales/salesproductview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -79,7 +94,11 @@ export default{
                         "18.000	",
                         "18.000	",
                     ],
+<<<<<<< HEAD
+                    "url": "/sales/salesproductview"
+=======
                     "url": "/Sales/salesproductview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 
