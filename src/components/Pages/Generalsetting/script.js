@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 export default{
@@ -124,3 +125,16 @@ export default{
 
 
 }
+=======
+export default{
+    created: function(){
+        document.title = this.title;
+    },
+    data(){
+        return{
+            title: 'Generalsetting - sprout'
+        }
+    },
+
+}
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83

@@ -25,10 +25,17 @@ export default{
             customers: "Your Pipeline",
             title: "Your Pipeline",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink:"/sales/newuser",
                 importbtnlink: "/sales/salescustomerimport",
                 firstbtnlink:"/sales/pipeline",
                 secondbtnlink:"/sales/salespipelinelistview"
+=======
+                createbtnlink:"/Sales/newuser",
+                importbtnlink: "/Sales/salescustomerimport",
+                firstbtnlink:"/Sales/pipeline",
+                secondbtnlink:"/Sales/salespipelinelistview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Create Date",
@@ -73,7 +80,11 @@ export default{
                         "Direct Sales",
                         "Administrators",
                     ],
+<<<<<<< HEAD
                     "url": "/sales/salesactivityview"
+=======
+                    "url": "/Sales/salesactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -90,7 +101,11 @@ export default{
                         "Direct Sales",
                         "Administrators",
                     ],
+<<<<<<< HEAD
                     "url": "/sales/salesactivityview"
+=======
+                    "url": "/Sales/salesactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -107,7 +122,11 @@ export default{
                         "Direct Sales",
                         "Administrators",
                     ],
+<<<<<<< HEAD
                     "url": "/sales/salesactivityview"
+=======
+                    "url": "/Sales/salesactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

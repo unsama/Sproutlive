@@ -9,10 +9,17 @@ export default{
         return {
             nextactivity: "Quotations",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink:"/sales/salesnextactivitiescreate",
                 importbtnlink:"/sales/salesnextactivityimport",
                 firstbtnlink:"/sales/order",
                 secondbtnlink:"/sales/salesordergridview",
+=======
+                createbtnlink:"/Sales/salesnextactivitiescreate",
+                importbtnlink:"/Sales/salesnextactivityimport",
+                firstbtnlink:"/Sales/order",
+                secondbtnlink:"/Sales/salesordergridview",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Opportunity",
@@ -37,7 +44,11 @@ export default{
                         "60,000.00",
                         "30,23"
                     ],
+<<<<<<< HEAD
                     "url": "/sales/Salesnextactivityview"
+=======
+                    "url": "/Sales/Salesnextactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -51,7 +62,11 @@ export default{
                         "60,000.00",
                         "30,23"
                     ],
+<<<<<<< HEAD
                     "url": "/sales/Salesnextactivityview"
+=======
+                    "url": "/Sales/Salesnextactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -65,7 +80,11 @@ export default{
                         "60,000.00",
                         "30,23"
                     ],
+<<<<<<< HEAD
                     "url": "/sales/Salesnextactivityview"
+=======
+                    "url": "/Sales/Salesnextactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

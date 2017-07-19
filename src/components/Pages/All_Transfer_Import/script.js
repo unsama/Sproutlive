@@ -28,9 +28,15 @@ export default{
         activityimport: "Quotations / Import a File",
         title: "Import a File - Sprout",
         btnlinks: {
+<<<<<<< HEAD
             createbtnlink: "/sales/salescustomercreate",
             discardbtnlink: "/sales/salescustomeredit",
             importbtnlink: "/sales/salesnextactivityimport",
+=======
+            createbtnlink: "/Sales/salescustomercreate",
+            discardbtnlink: "/Sales/salescustomeredit",
+            importbtnlink: "/Sales/salesnextactivityimport",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             cancelbtnlink:"/inventory/all_transfers"
         },
     }

@@ -22,7 +22,11 @@ export default{
             dashboard: "Dashboard",
             btnlinks: {
                 createbtnlink: "#/app/purchase/RQcreate",
+<<<<<<< HEAD
                 discardbtnlink: "#/app/sales/Salesnextactivityview",
+=======
+                discardbtnlink: "#/app/Sales/Salesnextactivityview",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 importbtnlink: "#/app/purchase/RQImport",
                 secondbtnlink: "",
                 firstbtnlink: "",

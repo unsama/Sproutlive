@@ -10,9 +10,15 @@ export default{
         return {
             pricelists: "Pricelists / New",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink:"/sales/newuser",
                 importbtnlink:"/sales/imported",
                 discardbtnlink:"/sales/salespricelists"
+=======
+                createbtnlink:"/Sales/newuser",
+                importbtnlink:"/Sales/imported",
+                discardbtnlink:"/Sales/salespricelists"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Name"
@@ -29,7 +35,11 @@ export default{
                         "Add an Items",
 
                     ],
+<<<<<<< HEAD
                     "url": "/sales/request_quotation_inner"
+=======
+                    "url": "/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -37,7 +47,11 @@ export default{
                         "",
 
                     ],
+<<<<<<< HEAD
                     "url": "/sales/request_quotation_inner"
+=======
+                    "url": "/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -46,7 +60,11 @@ export default{
 
 
                     ],
+<<<<<<< HEAD
                     "url": "/sales/request_quotation_inner"
+=======
+                    "url": "/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

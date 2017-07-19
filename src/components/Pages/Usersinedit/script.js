@@ -4,6 +4,7 @@ import Newuser from "./../../Pages/Newuser/Newuser.vue"
 
 export default{
     created: function () {
+<<<<<<< HEAD
         var self = this;
         document.title = this.title;
 
@@ -18,11 +19,16 @@ export default{
         });
     },
 
+=======
+        document.title = this.title;
+    },
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
     data(){
         return {
             head: "Users / Administrators",
             title: 'Administrators - Sprout',
             btnlinks: {
+<<<<<<< HEAD
                 discardbtnlink: "",
                 savebtnlink: ""
             },
@@ -112,6 +118,11 @@ export default{
                 // eslint-disable-next-line
                 alert('Correct them errors!');
             });
+=======
+                discardbtnlink: "#/app/setting/usersin",
+                savedbtnlink: "#/app/setting/"
+            },
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
         }
     },
 

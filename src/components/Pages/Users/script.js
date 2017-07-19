@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue";
 import TableMain from "./../../partials/TableMain/TableMain.vue";
+=======
+import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
+import TableMain from "./../../partials/TableMain/TableMain.vue"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 
 export default{
     created: function () {
+<<<<<<< HEAD
         var self = this;
         var del = []; // initialize empty array
         document.title = this.title;
@@ -42,11 +48,16 @@ export default{
                 alert(del);
             });
         });
+=======
+        document.title = this.title;
+
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
     },
     data(){
         return {
             head: "Users",
             title: 'Users - Sprout',
+<<<<<<< HEAD
             options: '',
             username: '',
             v: true,
@@ -62,6 +73,13 @@ export default{
             },
             tableheader: [
                 "ID",
+=======
+            btnlinks: {
+                createbtnlink: "/setting/usersoutcreate",
+                importbtnlink: "/setting/usersimport",
+            },
+            tableheader: [
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 "Name",
                 "Login",
                 "Language",
@@ -74,11 +92,15 @@ export default{
                 "",
                 "",
                 "",
+<<<<<<< HEAD
                 "",
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             ],
             tabledata: {
                 "row": {
                     "data": [
+<<<<<<< HEAD
 
                     ],
                     "url": "/recruitment/ReqDep"
@@ -145,10 +167,28 @@ export default{
 
 
 
+=======
+                        "Administrators",
+                        "rajaunleashed@gmail.com",
+                        "Pushto",
+                        "12/6/19",
+                    ],
+                    "url": "/setting/usersin"
+                },
+            }
+        }
+    },
+
+
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
     components: {
         DashboardController,
         TableMain
 
     }
+<<<<<<< HEAD
 };
 
+=======
+}
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83

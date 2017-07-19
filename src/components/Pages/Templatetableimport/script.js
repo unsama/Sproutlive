@@ -9,8 +9,13 @@ export default{
         return{
             nextactivity: "Templates / Import a File",
             btnlinks: {
+<<<<<<< HEAD
                 importbtnlink: "/setting/Manage",
                 cancelbtnlink:"/setting/Templatetable"
+=======
+                importbtnlink: "#app/setting/Manage",
+                cancelbtnlink:"#app/setting/Templatetable"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
             },
         }

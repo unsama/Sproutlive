@@ -3,6 +3,7 @@ import Templatetablecreatecompo from "./../../partials/Templatetablecreatecompo/
 
 export default{
     created: function () {
+<<<<<<< HEAD
         var self = this;
         document.title = this.title;
         $(function() {
@@ -11,10 +12,14 @@ export default{
 
             });
         });
+=======
+        document.title = this.title;
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
     },
     data(){
         return {
+<<<<<<< HEAD
             formstatus: false,
             head: "Templates / New",
             title: 'New - Sprout',
@@ -63,6 +68,17 @@ export default{
 
 
     },
+=======
+            head: "Templates / New",
+            title: 'New - Sprout',
+            btnlinks: {
+                savedbtnlink: "#/app/setting/",
+                discardbtnlink: "#/app/setting/Templatetable",
+            },
+        }
+    },
+
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
     components: {
         DashboardController,
@@ -70,6 +86,7 @@ export default{
 
     }
 }
+<<<<<<< HEAD
 
 
 // export default{
@@ -139,3 +156,5 @@ export default{
 //     }
 //
 // }
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83

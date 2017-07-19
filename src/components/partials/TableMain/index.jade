@@ -4,18 +4,33 @@
             thead.samotablehead
                 tr
                     th.o_list_record_selector.samotableheadborder(width='1')
+<<<<<<< HEAD
                         .o_checkbox()
+=======
+                        .o_checkbox
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                             input#ckbCheckAll1(type='checkbox')
                             span
 
                     th.samotableheadborder(v-for='head in tableheader') {{ head }}
                     th
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             tbody.samotbody
                 tr(v-for='tr in tabledata')
                     th.o_list_record_selector.samotableheadborder(width='1')
                         .o_checkbox
+<<<<<<< HEAD
                             input.checkBoxClass(type='checkbox' v-bind:value="tr.data[0]")
+=======
+                            input.checkBoxClass(type='checkbox')
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                             span
 
                     td.samotablepadd(v-for='td in tr.data')

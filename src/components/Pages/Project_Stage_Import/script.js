@@ -26,9 +26,15 @@ export default{
         return {
             activityimport: "Stages /  Import a File",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink: "#/app/sales/salescustomercreate",
                 discardbtnlink: "#/app/sales/salescustomeredit",
                 importbtnlink: "#/app/sales/salesnextactivityimport",
+=======
+                createbtnlink: "#/app/Sales/salescustomercreate",
+                discardbtnlink: "#/app/Sales/salescustomeredit",
+                importbtnlink: "#/app/Sales/salesnextactivityimport",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 cancelbtnlink:"#/app/projects/project_stages"
             },
         }

@@ -9,8 +9,13 @@ export default{
         return {
             activities: "Customers / Invoices",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink:"/sales/salesactivitycreate",
                 importbtnlink:"/sales/salesactivityimport"
+=======
+                createbtnlink:"/Sales/salesactivitycreate",
+                importbtnlink:"/Sales/salesactivityimport"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Customer",
@@ -39,7 +44,11 @@ export default{
                         "$ 0.00",
                         "Paid",
                     ],
+<<<<<<< HEAD
                     "url": "/sales/salesactivityview"
+=======
+                    "url": "/Sales/salesactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -55,7 +64,11 @@ export default{
                         "$ 0.00",
                         "Paid",
                     ],
+<<<<<<< HEAD
                     "url": "/sales/salesactivityview"
+=======
+                    "url": "/Sales/salesactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -72,7 +85,11 @@ export default{
                         "Paid",
 
                     ],
+<<<<<<< HEAD
                     "url": "/sales/salesactivityview"
+=======
+                    "url": "/Sales/salesactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

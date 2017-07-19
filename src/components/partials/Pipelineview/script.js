@@ -27,8 +27,13 @@ export default{
         return {
             nextactivity: "Next ActivitiesNeed / to customize the solution",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink: "#/app/sales/salescustomeredit",
                 discardbtnlink: "#/app/sales/customers",
+=======
+                createbtnlink: "#/app/Sales/salescustomeredit",
+                discardbtnlink: "#/app/Sales/customers",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 importbtnlink: "#/app/imported"
             },
         }

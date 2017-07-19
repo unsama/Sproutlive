@@ -17,7 +17,10 @@ export default{
         "Ok",
         "create",
         "select",
+<<<<<<< HEAD
         "password",
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
     ],
     data(){
         return {

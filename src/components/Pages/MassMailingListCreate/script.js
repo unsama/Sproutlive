@@ -22,7 +22,11 @@ export default{
             btnlinks: {
                 createbtnlink: "#/app/accounting/customercreate",
                 discardbtnlink: "#/app/massmailing/massmailinglistview",
+<<<<<<< HEAD
                 importbtnlink: "#/app/sales/salescustomerimport",
+=======
+                importbtnlink: "#/app/Sales/salescustomerimport",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 editbtnlink: "#/app/massmailing/massmailingedit",
             },
         }

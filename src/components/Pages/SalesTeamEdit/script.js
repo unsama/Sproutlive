@@ -26,8 +26,13 @@ export default{
             modal1: "Open: Sales Team",
             modal2: "Open: Company",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink:"/sales/salesteamcreate",
                 discardbtnlink:"/sales/salesteamview"
+=======
+                createbtnlink:"/Sales/salesteamcreate",
+                discardbtnlink:"/Sales/salesteamview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Name",

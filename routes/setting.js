@@ -14,6 +14,10 @@ var nodemailer = require("nodemailer");
 var async = require('async')        //azeem ullah's commit
 var multer  = require('multer');
 var path = require('path');
+<<<<<<< HEAD
+=======
+//var conversion = require("phantom-html-to-pdf")();
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 const fs = require('fs');
 
 
@@ -27,13 +31,19 @@ var transporter = nodemailer.createTransport({
     }
 });
 
+<<<<<<< HEAD
 var mysql = require("mysql");
 var connection = mysql.createConnection({
+=======
+
+/*var connection = mysql.createConnection({
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
     host: "46.101.37.156",
     user: "sprout",
     password: "sprout12345",
     database: "sprout"
 });
+<<<<<<< HEAD
 
 
 
@@ -99,21 +109,70 @@ router.get("/create-company/get-meta", function(req, res, next){
     async.parallel([
         function(callback){
             connection.query("select id, country_name from country", function (error, result1) {
+=======
+ connection.connect(function (err) {
+ if(err){
+ console.error('error connecting: ' + err.stack);
+ return;
+ }
+ console.log("connected as id "+ connection.threadId);
+ });
+*/
+
+var mysql = require('./db_conn');
+connection = mysql.config("sprout");
+connection = mysql.connect(connection);
+mysql.close(connection);
+//mysql.close(db);
+
+router.get("/inviteuser", function(req, res, next){
+    res.render('inviteuser', {title: 'Sprout' });
+});
+/* WAHIDS WORK TO PASS
+router.get("/abc", function(req, res, next){
+    conversion({ html: "<h1>Hello World</h1>" }, function(err, pdf) {
+        //console.log(pdf);
+        console.log(pdf.numberOfPages);
+        res.setHeader('content-type', 'application/pdf');
+        pdf.stream.pipe(res);
+        console.log(res);
+    });
+});
+*/
+//-----Azeem Ullah - Settings/create-company
+
+router.get("/create-company/get-meta", function(req, res, next){
+    async.parallel([
+        function(callback){
+            global.connection.query("select id, country_name from country", function (error, result1) {
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 callback(error,result1)
             });
         },
         function(callback){
+<<<<<<< HEAD
             connection.query("select id, state_name from country_states", function (error, result2) {
+=======
+            global.connection.query("select id, state_name from country_states", function (error, result2) {
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 callback(error,result2)
             });
         },
         function(callback){
+<<<<<<< HEAD
             connection.query("select id, currency from currency", function (error, result3) {
+=======
+            global.connection.query("select id, currency from currency", function (error, result3) {
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 callback(error,result3)
             });
         },
         function(callback){
+<<<<<<< HEAD
             connection.query("select id, company_name from users_company", function (error, result4) {
+=======
+            global.connection.query("select id, company_name from users_company", function (error, result4) {
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 callback(error,result4)
             });
         },
@@ -121,10 +180,19 @@ router.get("/create-company/get-meta", function(req, res, next){
 
     ],function(err,results){
         if(err){
+<<<<<<< HEAD
             res.json({"status": "failed", "message": error.message})
         }else{
             res.send(JSON.stringify(results));
         }
+=======
+            console.log(err);
+            res.json({"status": "failed", "message": error.message});
+        }else{
+            res.send(JSON.stringify(results));
+        }
+
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
     })
 });
 
@@ -150,6 +218,7 @@ router.post("/create-company", function(req, res, next){
     });
 });
 
+<<<<<<< HEAD
 /**************************************************company and generalSettings work******************************/
 
 //companyinfo
@@ -1017,6 +1086,48 @@ router.post('/user_pagination_previous', function (req, res, next) {
 /**************************************************user work******************************/
 
 
+=======
+
+
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/img/'+dbName+'/company/')
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+});
+
+var upload = multer({ storage: storage });
+
+router.post('/create-company/upload-image', upload.single('image'), (req, res) => {
+    var fileDetails = req.file;
+    return res.send(fileDetails);
+});
+
+
+
+router.post("/create-company/delete-image", function(req, res, next){
+    if (fs.existsSync("public/"+req.body.imagePath)) {
+        fs.unlink("public/"+
+
+            req.body.imagePath, (err) => {
+            if (err) throw err;
+            res.send({status: 'success', error: err, abc: req.body.imagePath});
+        });
+    }
+    else
+        res.send({status:"error", error: "File Not found!", abc: req.body.imagePath});
+
+});
+
+
+
+
+
+//----------------------------------------------
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 module.exports = router;
 
@@ -1043,4 +1154,9 @@ function getDateTime() {
 
     return year + ":" + month + ":" + day + ":" + hour + ":" + min + ":" + sec;
 
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83

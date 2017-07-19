@@ -1,11 +1,15 @@
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
 import Tabs from "./../../partials/Tabs/Tabs.vue"
+<<<<<<< HEAD
 import Modal from "./../../partials/Modal/Modal.vue"
 import TableMain from "./../../partials/TableMain/TableMain.vue"
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 
 export default{
     created: function () {
+<<<<<<< HEAD
         var self = this;
         $(function () {
             $("#delete").click(function () {
@@ -78,10 +82,15 @@ export default{
         document.title = this.title;
     },
 
+=======
+        document.title = this.title;
+    },
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
     data(){
         return {
             head: "Users / Administrators",
             title: 'Administrators - Sprout',
+<<<<<<< HEAD
             modalhead: 'Change Password',
             btnlinks: {
                 createbtnlink: "/setting/usersincreate",
@@ -347,6 +356,19 @@ export default{
         Tabs,
         Modal,
         TableMain
+=======
+            btnlinks: {
+                createbtnlink: "#/app/setting/usersincreate",
+                editbtnlink: "#/app/setting/usersinedit"
+            },
+        }
+    },
+
+
+    components: {
+        DashboardController,
+        Tabs
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
     }
 }

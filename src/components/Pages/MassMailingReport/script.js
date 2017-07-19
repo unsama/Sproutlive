@@ -27,10 +27,17 @@ export default{
         return {
             activityimport: "Report",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink: "#/app/sales/salescustomercreate",
                 discardbtnlink: "#/app/sales/salescustomeredit",
                 importbtnlink: "#/app/sales/salesofinvoiceimport",
                 cancelbtnlink: "#/app/sales/salesofinvoices",
+=======
+                createbtnlink: "#/app/Sales/salescustomercreate",
+                discardbtnlink: "#/app/Sales/salescustomeredit",
+                importbtnlink: "#/app/Sales/salesofinvoiceimport",
+                cancelbtnlink: "#/app/Sales/salesofinvoices",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
         }
     },

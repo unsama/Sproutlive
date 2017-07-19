@@ -39,6 +39,7 @@ import Usersincreate   from "./../../components/Pages/Usersincreate/Usersincreat
 import Usersoutcreate   from "./../../components/Pages/Usersoutcreate/Usersoutcreate.vue"
 import Test   from "./../../components/Pages/Test/Test.vue"
 import tssignup   from "./../../components/Pages/Signup/Signup.vue"
+<<<<<<< HEAD
 import Companiesin   from "./../../components/Pages/Companiesin/Companiesin.vue"
 import Companiesincompo   from "./../../components/partials/Companiesincompo/Companiesincompo.vue"
 import Companiesinedit   from "./../../components/Pages/Companiesinedit/Companiesinedit.vue"
@@ -68,6 +69,8 @@ import Internalheadercreate  from "./../../components/Pages/Internalheadercreate
 import Internalheaderedit  from "./../../components/Pages/Internalheaderedit/Internalheaderedit.vue"
 import Externallayoutfooter  from "./../../components/Pages/Externallayoutfooter/Externallayoutfooter.vue"
 import Externallayoutfootercreate  from "./../../components/Pages/Externallayoutfootercreate/Externallayoutfootercreate.vue"
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 
 const routes = [
@@ -84,7 +87,11 @@ const routes = [
                     { path: 'generalsetting', component: Generalsetting},
                     { path: 'Tabs', component: Tabs},
                     { path: 'panel5', component: Panel5},
+<<<<<<< HEAD
                     { path: 'setting', component: Setting},
+=======
+                    { path: '', component: Setting},
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                     { path: 'Formview', component: Formview},
                     { path: 'Partner', component: Partner},
                     { path: 'templatetable', component: Templatetable},
@@ -98,9 +105,15 @@ const routes = [
                     { path: 'Buttonsgroup', component: Buttonsgroup},
                     { path: 'Producting', component: Producting},
                     { path: 'usersimport', component: Usersimport},
+<<<<<<< HEAD
                     { path: 'usersin/:id', component: Usersin},
                     { path: 'usersincreate', component: Usersincreate},
                     { path: 'usersinedit/:id', component: Usersinedit},
+=======
+                    { path: 'usersin', component: Usersin},
+                    { path: 'usersincreate', component: Usersincreate},
+                    { path: 'usersinedit', component: Usersinedit},
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                     { path: 'usersoutcreate', component: Usersoutcreate},
                     { path: 'companyimport', component: Companyimport},
                     { path: 'companycreate', component: Companycreate},
@@ -114,6 +127,7 @@ const routes = [
                     { path: 'templatetablein', component: Templatetablein},
                     { path: 'templatetableedit', component: Templatetableedit},
                     { path: 'tssignup', component: tssignup},
+<<<<<<< HEAD
                     { path: 'companiesin/:id', component: Companiesin},
                     { path: 'companiesincompo', component: Companiesincompo},
                     { path: 'companiesinedit/:id', component: Companiesinedit},
@@ -143,6 +157,8 @@ const routes = [
                     { path: 'internalheaderedit', component: Internalheaderedit},
                     { path: 'externallayoutfooter', component: Externallayoutfooter},
                     { path: 'externallayoutfootercreate', component: Externallayoutfootercreate},
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 ]
             },

@@ -1,6 +1,7 @@
 .o_content(style='margin-left:-15px;margin-right:-15px;')
     .o_view_manager_content
         .o_form_view.o_form_readonly
+<<<<<<< HEAD
             slot(name="header_bar")
             .o_form_sheet_bg
                 .o_form_sheet
@@ -12,6 +13,39 @@
                             strong
                                 | A password reset has been requested for this user. An email containing the following link has been sent:
                         .o_form_invisible
+=======
+            header
+                button.btn.btn-sm(type='button', data-original-title='', title='')
+                    span Change Password
+                button.btn.btn-sm(type='button')
+                    span Send Reset Password Instructions
+                button.btn.btn-sm.o_form_invisible(type='button')
+                    span Send an Invitation Email
+                ul.oe_form_field_status.oe_form_status.o_form_field
+                    li(data-id='new')
+                        span.label Never Connected
+                        span.arrow
+                            span
+                    li.oe_active(data-id='active')
+                        span.label Confirmed
+                        span.arrow
+                            span
+            .o_form_sheet_bg
+                .o_form_sheet
+                    span.o_form_field.o_form_invisible 1
+                    .oe_button_box(name='button_box')
+                        button.btn.btn-sm.oe_stat_button(type='button')
+                            .fa.fa-fw.fa-check.o_button_icon
+                            .o_stat_info.o_form_field
+                                span.o_stat_text.o_not_hover.text-success Active
+                                span.o_stat_text.o_hover.text-danger Deactivate
+                    .alert.alert-success.text-center.o_form_header.o_form_invisible(attrs="{'invisible': [('signup_valid', '!=', True)]}")
+                        a.close(data-dismiss='alert', href='#', aria-hidden='true') x
+                        div(attrs="{'invisible': [('state', '!=', 'active')]}")
+                            strong
+                                | A password reset has been requested for this user. An email containing the following link has been sent:
+                        .o_form_invisible(attrs="{'invisible': [('state', '!=', 'new')]}")
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                             strong An invitation email containing the following subscription link has been sent:
                         div
                             a.o_form_uri.o_text_overflow.o_form_field(href='http://192.168.25.104:8069/web/login?login=rajaunleashed%40gmail.com&db=odoo', target='_blank') http://192.168.25.104:8069/web/login?login=rajaunleashed%40gmail.com&db=odoo
@@ -21,6 +55,7 @@
                     .o_form_field_image.oe_avatar.o_form_field(data-original-title='', title='')
                         img(border='1', name='image', src='/web/static/src/img/placeholder.png')
                     .oe_title
+<<<<<<< HEAD
                         label.o_form_label.oe_edit_only
                             | Name
                         h1
@@ -30,11 +65,26 @@
                             | Email Address
                         h2
                             slot(name='email')
+=======
+                        label.o_form_label.oe_edit_only(for='o_field_input_98')
+                            | Name
+                        h1
+                            span.o_form_field.o_form_required Administrators
+                        span.o_form_field.o_form_invisible rajaunleashed@gmail.com
+                        label.o_form_label.o_form_label_help.oe_edit_only(for='o_field_input_99', data-original-title='', title='')
+                            | Email Address
+                        h2
+                            span.o_form_field.o_form_required rajaunleashed@gmail.com
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                         table.o_group.o_inner_group
                             tbody
                                 tr
                                     td.o_td_label(colspan='1')
+<<<<<<< HEAD
                                         label.o_form_label.o_form_label_help.o_form_invisible
+=======
+                                        label.o_form_label.o_form_label_help.o_form_invisible(for='o_field_input_100', data-original-title='', title='')
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                                             | Related Partner
                                     td(colspan='1', style='width: 100%;')
                                         a.o_form_uri.o_form_field.o_form_invisible(href='#') YourCompany, Administrators
@@ -44,13 +94,19 @@
                                 a.nav-link.active(href='#profile', role='tab', data-toggle='tab') Access Rights
                             li.nav-item
                                 a.nav-link(href='#buzz', role='tab', data-toggle='tab') Preferences
+<<<<<<< HEAD
                             //li.nav-item
                             //    a.nav-link(href='#references', role='tab', data-toggle='tab') Calendar
+=======
+                            li.nav-item
+                                a.nav-link(href='#references', role='tab', data-toggle='tab') Calendar
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                             li.nav-item
                                 a.nav-link(href='#point', role='tab', data-toggle='tab') Point of Sale
                         // Tab panes
                         .tab-content
                             #profile.tab-pane.fade.in.active(role='tabpanel')
+<<<<<<< HEAD
                                 slot(name='mulicompany')
                                 slot(name='tableuser')
 
@@ -98,6 +154,207 @@
                             #point.tab-pane.fade.in(role='tabpanel')
                                 slot(name='pos')
 
+=======
+                                table.o_group.o_inner_group
+                                    tbody
+                                        tr
+                                            td(colspan='2', style='width: 100%;')
+                                                .o_horizontal_separator
+                                                    | Multi Companies
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label
+                                                    | Allowed Companies
+                                            td(colspan='1', style='width: 100%;')
+                                                .o_form_field_many2manytags.o_form_field
+                                                    span.badge.dropdown.o_tag_color_10(data-color='10', data-id='1', data-index='0')
+                                                        span.o_badge_text(title='test company') test company
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_help( data-original-title='', title='')
+                                                    | Current Company
+                                            td(colspan='1', style='width: 100%;')
+                                                a.o_form_uri.o_form_field.o_form_required(href='#') test company
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_invisible
+                                                    | Companies count
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field.o_form_invisible.o_form_field_number 2
+                                table.o_group.o_inner_group
+                                    tbody
+                                        tr
+                                            td(colspan='2', style='width: 100%;')
+                                                .o_horizontal_separator
+                                                    | Application
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_help( data-original-title='', title='')
+                                                    | Sales
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field Manager
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label
+                                                    | Project
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field Manager
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label
+                                                    | Inventory
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field Manager
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label
+                                                    | Manufacturing
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field Manager
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label
+                                                    | Accounting & Finance
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field Adviser
+
+                                table.o_group.o_inner_group.o_label_nowrap
+                                    tbody
+                                        tr
+                                            td(colspan='4', style='width: 100%;')
+                                                .o_horizontal_separator
+                                                    | Employees
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_help(for='o_field_input_917', data-original-title='', title='')
+                                                    | Employee
+                                            td(colspan='1', style='width: 50%;')
+                                                .o_checkbox.o_form_field_boolean.o_form_field
+                                                    input#o_field_input_917(type='checkbox', name='in_group_1', disabled='')
+                                                    span
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_help.o_form_label_false(for='o_field_input_918', data-original-title='', title='')
+                                                    | Equipment Manager
+                                            td(colspan='1', style='width: 50%;')
+                                                .o_checkbox.o_form_field_boolean.o_form_field
+                                                    input#o_field_input_918(type='checkbox', name='in_group_80', disabled='')
+                                                    span
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_help(for='o_field_input_919', data-original-title='', title='')
+                                                    | Manager
+                                            td(colspan='1', style='width: 50%;')
+                                                .o_checkbox.o_form_field_boolean.o_form_field
+                                                    input#o_field_input_919(type='checkbox', name='in_group_12', disabled='')
+                                                    span
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_help(for='o_field_input_920', data-original-title='', title='')
+                                                    | Officer
+                                            td(colspan='1', style='width: 50%;')
+                                                .o_checkbox.o_form_field_boolean.o_form_field
+                                                    input#o_field_input_920(type='checkbox', name='in_group_11', disabled='')
+                                                    span
+                            #buzz.tab-pane.fade.in(role='tabpanel')
+                                .o_group
+                                    table.o_group.o_inner_group.o_group_col_6
+                                        tbody
+                                            tr
+                                                td(colspan='2', style='width: 100%;')
+                                                    .o_horizontal_separator
+                                                        | Localization
+                                            tr
+                                                td.o_td_label(colspan='1')
+                                                    label.o_form_label.o_form_label_help( data-original-title='', title='')
+                                                        | Language
+                                                td(colspan='1', style='width: 100%;')
+                                                    span.o_form_field English
+                                            tr
+                                                td.o_td_label(colspan='1')
+                                                    label.o_form_label.o_form_label_help( data-original-title='', title='')
+                                                        | Timezone
+                                                    span.fa.fa-exclamation-triangle.o_tz_warning(data-original-title='', title='')
+                                                td(colspan='1', style='width: 100%;')
+                                                    span.o_form_field Europe/Brussels
+                                table.o_group.o_inner_group
+                                    tbody
+                                        tr
+                                            td(colspan='2', style='width: 100%;')
+                                                .o_horizontal_separator
+                                                    | Messaging and Social
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_help(data-original-title='', title='')
+                                                    | Email Messages and Notifications
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field.o_form_required Never
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_help.o_form_label_empty.o_form_label_false(data-original-title='', title='')
+                                                    | Alias
+                                            td(colspan='1', style='width: 100%;')
+                                                a.o_form_uri.o_form_field.o_form_field_empty(href='#')
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label
+                                                    | Signature
+                                            td(colspan='1', style='width: 100%;')
+                                                .oe_form_field.oe_form_field_html_text.o_form_field
+                                                    textarea(readonly='readonly', style='display: none;')
+                                                    .o_readonly
+                                                        span(data-o-mail-quote='1')
+                                                            | --
+                                                            br(data-o-mail-quote='1')
+                                                            | Administrator
+                            #references.tab-pane.fade.in(role='tabpanel')
+                                table.o_group.o_inner_group
+                                    tbody
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_empty.o_form_label_false
+                                                    | Refresh Token
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field.o_form_field_empty
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_empty.o_form_label_false
+                                                    | User token
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field.o_form_field_empty
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_empty.o_form_label_false
+                                                    | Token Validity
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field_date.o_form_field.o_form_field_empty
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_empty.o_form_label_false
+                                                    | Last synchro date
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field_date.o_form_field.o_form_field_empty
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_help.o_form_label_empty.o_form_label_false(data-original-title='', title='')
+                                                    | Calendar ID
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field.o_form_field_empty
+
+                            #point.tab-pane.fade.in(role='tabpanel')
+                                table.o_group.o_inner_group
+                                    tbody
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label.o_form_label.o_form_label_help(data-original-title='', title='')
+                                                    | Barcode
+                                            td(colspan='1', style='width: 100%;')
+                                                span.o_form_field 0410100000006
+                                        tr
+                                            td.o_td_label(colspan='1')
+                                                label(data-original-title='', title='')
+                                                    | Security PIN
+                                            td(colspan='1', style='width: 100%;')
+                                                span
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 
 

@@ -4,6 +4,7 @@ import Tabledrag from "./../../partials/Tabledrag/Tabledrag.vue"
 
 export default{
     created: function () {
+<<<<<<< HEAD
         var self = this;
         var del = []; // initialize empty array
         document.title = this.title;
@@ -34,6 +35,10 @@ export default{
             });
 
         });
+=======
+        document.title = this.title;
+
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
     },
     data(){
         return {
@@ -42,44 +47,72 @@ export default{
             btnlinks: {
                 createbtnlink: "/setting/companycreate",
                 importbtnlink: "/setting/companyimport",
+<<<<<<< HEAD
                 deletebtnlink: "",
                 exportbtnlink: "",
                 changepasswordbtnlink: "",
                 changepasswordbtnlink_modal: "",
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Company Name",
                 "Partner",
+<<<<<<< HEAD
                 "ID",
 
+=======
+                "",
+                "",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             ],
             tablefoot: [
                 "",
                 "",
                 "",
                 "",
+<<<<<<< HEAD
 
+=======
+                "",
+                "",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             ],
             tabledata: {
                 "row": {
                     "data": [
                         "ALU pak industries",
                         "alupak industries",
+<<<<<<< HEAD
 
                     ],
                     "url": "/setting/companiesin"
+=======
+                        "",
+                        "",
+                    ],
+                    "url": "/#/app/setting/companyin"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 },
                 "row1": {
                     "data": [
                         "My industries",
                         "my industries",
+<<<<<<< HEAD
                         
                     ],
                     "url": "/setting/usersin"
+=======
+                        "",
+                        "",
+                    ],
+                    "url": "/#/app/setting/usersin"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 },
             }
         }
     },
+<<<<<<< HEAD
     methods: {
         select: function () {
             var self = this;
@@ -120,6 +153,9 @@ export default{
             });
         },
     },
+=======
+
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
     components: {
         DashboardController,

@@ -2,8 +2,13 @@
     .dashboardcontroller
         .col-sm-12.main.samodashcont1
             .col-sm-12.samodashheadingmain(style='display: -webkit-inline-box;')
+<<<<<<< HEAD
                 slot(name='heading')
 
+=======
+                .col-sm-6(style='padding:0px;')
+                    h4.samodashheading(style="font-size: 18px;",v-if='heading') {{ heading }}
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 .col-sm-6
                     .input-group.stylish-input-group(style='height: 35px;',v-if='searchbar')
                         input.form-control(type='text', placeholder='Search')
@@ -32,7 +37,11 @@
                     | Edit
                 router-link.btn.btn-primary.disabled.samobuttopcontroller2(style="font-size: 13px;color:white;",v-if='validatebtn', v-bind:to="links.validatebtnlink", id='edit1')
                     | Validate
+<<<<<<< HEAD
                 router-link.btn.btn-primary.samobuttopcontroller2#save(style="font-size: 13px;color:white;",v-if='savedbtn', type='submit' , v-bind:to="links.savebtnlink")
+=======
+                router-link.btn.btn-primary.samobuttopcontroller2(style="font-size: 13px;color:white;",v-if='savedbtn', v-bind:to="links.savebtnlink", id='submitSaveBtn', type="button")
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                     | Save
                 router-link.btn.btn-default.samobuttopcontroller(style="font-size: 13px;color: #4c4c4c;", v-if='discardbtn', v-bind:to="links.discardbtnlink")
                     | Discard
@@ -83,11 +92,16 @@
                                 input(type='checkbox')
                                 |  Count
 
+<<<<<<< HEAD
                 .dropdown.samodropdownbutton2#action(style='float: right;margin-top: -15px;', v-if='actionbtn')
+=======
+                .dropdown.samodropdownbutton2(style='float: right;margin-top: -15px;', v-if='actionbtn')
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                     button.btn.btn-secondary.dropdown-toggle.samodropdownmenubutton(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false',style="font-size: 12px;border-radius: 0px;")
                         span.fa.fa-filter.iconbutton
                         | Action
                     .dropdown-menu(aria-labelledby='dropdownMenuButton')
+<<<<<<< HEAD
                         a.dropdown-item.delete_inside#delete(v-if='deletebtn' v-bind:to="links.deletebtnlink") Delete
                         router-link.dropdown-item#duplicate(v-if='duplicate' v-bind:to="links.duplicatebtnlink") Duplicate
                         router-link.dropdown-item#planorders(v-if='planorders' v-bind:to="links.planordersbtnlink") Plan Orders
@@ -95,6 +109,11 @@
                         router-link.dropdown-item#changepassword(v-if='changepassword' v-bind:to="links.changepasswordbtnlink") Change Password
                         router-link.dropdown-item#changepassword_modal(v-if='changepassword_model' v-bind:to="links.changepasswordbtnlink_modal" data-target='.bd-example-modal-lg1') Change Password
                         router-link.dropdown-item#export(v-if='exportbtn' v-bind:to="links.exportbtnlink") Export
+=======
+                        a.dropdown-item(href='#') Delete
+                        a.dropdown-item(href='#') Duplicate
+                        a.dropdown-item(href='#') Plan Orders
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 .dropdown.samodropdownbutton2(style='float: right;margin-top: -15px;', v-if='Attachmentbtn')
                     button#dropdownMenuButton2.btn.btn-secondary.dropdown-toggle.samodropdownmenubutton(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false',style="font-size: 12px;border-radius: 0px;")
@@ -140,8 +159,13 @@
                         |  /
                         span.o_pager_limit(style="padding-right: 6px;",v-if='num2') 24
                         span.btn-group.btn-group-sm
+<<<<<<< HEAD
                             button.fa.fa-chevron-left.btn.btn-icon.o_pager_previous#num01(style='background-color:white;border-color: #adadad;color: #4c4c4c;')(type='button', accesskey='p',v1-if='paginbtn1')
                             button.fa.fa-chevron-right.btn.btn-icon.o_pager_next#num10(style='background-color:white;border-color: #adadad;color: #4c4c4c;')(type='button', accesskey='n' ,v1-if='paginbtn2')
+=======
+                            button.fa.fa-chevron-left.btn.btn-icon.o_pager_previous(style='background-color:white;border-color: #adadad;color: #4c4c4c;')(type='button', accesskey='p', disabled='',v1-if='paginbtn1')
+                            button.fa.fa-chevron-right.btn.btn-icon.o_pager_next(style='background-color:white;border-color: #adadad;color: #4c4c4c;')(type='button', accesskey='n', disabled='',v1-if='paginbtn2')
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                     .col-xs-1
                         .btn-group.btn-group-sm.o_cp_switch_buttons.samodashbuttcorner
                             a.btn.btn-icon.fa.fa-lg.fa-th-large.o_cp_switch_kanban.active(style='background-color:white;border-color: #adadad;color: #4c4c4c;height: 27px;padding-top: 9px;font-size: inherit;',type='button' , title='',v-if='firstbtn',v-bind:href="links.firstbtnlink")

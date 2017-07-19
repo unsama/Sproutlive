@@ -21,9 +21,15 @@
 //             modal: "Open: Contacts",
 //             btnlinks: {
 //                 createbtnlink: "/attendance/salescustomercreate",
+<<<<<<< HEAD
 //                 discardbtnlink: "#/app/sales/salescustomeredit",
 //                 importbtnlink: "#/app/imported",
 //                 editbtnlink: "#/app/sales/salescustomeredit",
+=======
+//                 discardbtnlink: "#/app/Sales/salescustomeredit",
+//                 importbtnlink: "#/app/imported",
+//                 editbtnlink: "#/app/Sales/salescustomeredit",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 //             },
 //         }
 //     },

@@ -8,10 +8,13 @@
     line-height: 1.5;
     border-radius: 3px;
 }
+<<<<<<< HEAD
 .dropdown-item
 {
     cursor: pointer;
 }
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 .dbc
 {
     margin-left: 21px;

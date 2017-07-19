@@ -8,16 +8,20 @@ import DashboardController from "./../DashboardController/DashboardController.vu
 
 export default{
     created: function(){
+<<<<<<< HEAD
         var self = this;
         $(function () {
            self.submit();
         });
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
         $(document).ready(function () {
             $("button.samosearchicon").click(function () {
                 $(".samodropdownbutton2").toggle();
             });
         });
     },
+<<<<<<< HEAD
     data(){
         return {
             title: 'Discuss',
@@ -51,6 +55,16 @@ export default{
                 // eslint-disable-next-line
                 alert('Correct them errors!');
             });
+=======
+
+    data(){
+        return {
+            btneditlinks: {
+                editbtnlinks:"#/app/setting/newuser",
+                discardbtnlinks:"#/app/setting/tabs"
+            },
+
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
         }
     },
 

@@ -785,6 +785,7 @@ import Project_Task_Edit  from "./components/Pages/Project_Task_Edit/Project_Tas
 import SidebarModal  from "./components/partials/SidebarModal/SidebarModal.vue"
 import Tooltip  from "./components/partials/Tooltip/Tooltip.vue"
 import Signup  from "./components/Pages/Signup/Signup.vue"
+<<<<<<< HEAD
 import Companiesin  from "./components/Pages/Companiesin/Companiesin.vue"
 import Companiesinedit  from "./components/Pages/Companiesinedit/Companiesinedit.vue"
 import Companiesincompo  from "./components/partials/Companiesincompo/Companiesincompo.vue"
@@ -801,6 +802,9 @@ import incomingmailservercreate  from "./components/Pages/incomingmailservercrea
 import incomingmailserveredit  from "./components/Pages/incomingmailserveredit/incomingmailserveredit.vue"
 import incomingmailserverin  from "./components/Pages/incomingmailserverin/incomingmailserverin.vue"
 import incomingmailserverimport  from "./components/Pages/incomingmailserverimport/incomingmailserverimport.vue"
+=======
+
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 
 
@@ -1133,6 +1137,7 @@ const routes = [
                     { path: 'templatetableincompo', component: Templatetableincompo},
                     { path: 'templatetablein', component: Templatetablein},
                     { path: 'templatetableedit', component: Templatetableedit},
+<<<<<<< HEAD
                     { path: 'companiesin', component: Companiesin},
                     { path: 'companiesincompo', component: Companiesincompo},
                     { path: 'companiesinedit', component: Companiesinedit},
@@ -1149,6 +1154,8 @@ const routes = [
                     { path: 'incomingmailserveredit', component: incomingmailserveredit},
                     { path: 'incomingmailserverimport', component: incomingmailserverimport},
                     { path: 'incomingmailserverin', component: incomingmailserverin},
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 ]
             },

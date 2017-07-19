@@ -103,7 +103,11 @@ export default{
         return {
             nextactivity: "Next Activity",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink:"#/app/sales/nextactivitiescreate",
+=======
+                createbtnlink:"#/app/Sales/nextactivitiescreate",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 importbtnlink:"#/app/imported"
             },
             tableheader: [
@@ -123,7 +127,11 @@ export default{
                         "Need of tancy",
                         "testt"
                     ],
+<<<<<<< HEAD
                     "url": "/#/app/sales/request_quotation_inner"
+=======
+                    "url": "/#/app/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -134,7 +142,11 @@ export default{
                         "Need 20 Days of Consultancy",
                         "test"
                     ],
+<<<<<<< HEAD
                     "url": "/#/app/sales/request_quotation_inner"
+=======
+                    "url": "/#/app/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -145,7 +157,11 @@ export default{
                         "Need 20 Days of Consultancy",
                         "test"
                     ],
+<<<<<<< HEAD
                     "url": "/#/app/sales/request_quotation_inner"
+=======
+                    "url": "/#/app/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 
@@ -162,7 +178,11 @@ export default{
                         " ",
                         " "
                     ],
+<<<<<<< HEAD
                     "url": "/#/app/sales/request_quotation_inner"
+=======
+                    "url": "/#/app/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -170,7 +190,11 @@ export default{
                         " ",
                         " "
                     ],
+<<<<<<< HEAD
                     "url": "/#/app/sales/request_quotation_inner"
+=======
+                    "url": "/#/app/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -178,7 +202,11 @@ export default{
                         " ",
                         " "
                     ],
+<<<<<<< HEAD
                     "url": "/#/app/sales/request_quotation_inner"
+=======
+                    "url": "/#/app/Sales/request_quotation_inner"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

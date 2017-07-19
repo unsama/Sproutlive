@@ -9,10 +9,17 @@ export default{
         return {
             nextactivity: "Quotation",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink:"/sales/salesnextactivitiescreate",
                 importbtnlink:"/sales/salesnextactivityimport",
                 firstbtnlink:"/sales/quotation",
                 secondbtnlink:"/sales/salesnextactivitylistview",
+=======
+                createbtnlink:"/Sales/salesnextactivitiescreate",
+                importbtnlink:"/Sales/salesnextactivityimport",
+                firstbtnlink:"/Sales/quotation",
+                secondbtnlink:"/Sales/salesnextactivitylistview",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Opportunity",
@@ -31,7 +38,11 @@ export default{
                         "Chic/IN/00004",
 
                     ],
+<<<<<<< HEAD
                     "url": "/sales/salesquotationview"
+=======
+                    "url": "/Sales/salesquotationview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
 
                 },

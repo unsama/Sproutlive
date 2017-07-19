@@ -48,8 +48,13 @@ export default{
             btnlinks: {
                 createbtnlink: "/projects/project_issue_create",
                 importbtnlink: "/imported",
+<<<<<<< HEAD
                 firstbtnlink: "/sales/pipeline",
                 secondbtnlink: "/sales/salespipelinelistview"
+=======
+                firstbtnlink: "/Sales/pipeline",
+                secondbtnlink: "/Sales/salespipelinelistview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
         }
     },

@@ -1,0 +1,16 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    title= title
+    link(rel="shortcut icon" href="/images/icon.ico" type="image/x-icon")
+  body
+    h1 Dashboard
+    p Direct Redirection with allowed companies data will be here.
+    br
+    - for (var i = 0; i <= app_list.length; i++) {
+        if app_list[i] != 'welcome'
+          a(href='/' + app_list[i]) !{app_list[i]}
+          br
+    - }

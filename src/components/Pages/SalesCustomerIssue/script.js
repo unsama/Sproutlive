@@ -19,10 +19,17 @@ export default{
             vendormenu: "Customers / Issues",
             modal: "Open: Contacts",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink: "/sales/salescustomercreate",
                 discardbtnlink: "/sales/salescustomeredit",
                 importbtnlink: "/sales/imported",
                 editbtnlink: "/sales/salescustomeredit",
+=======
+                createbtnlink: "/Sales/salescustomercreate",
+                discardbtnlink: "/Sales/salescustomeredit",
+                importbtnlink: "/Sales/imported",
+                editbtnlink: "/Sales/salescustomeredit",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
         }
     },

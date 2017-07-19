@@ -1,5 +1,6 @@
 export default{
     created: function () {
+<<<<<<< HEAD
         var self = this;
         console.log("this is some check");
         $(function () {
@@ -18,6 +19,9 @@ export default{
             CKEDITOR.replace( 'editor1' );
         });
         this.select();
+=======
+        console.log("this is some check");
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
     },
     data(){
         return {
@@ -42,6 +46,7 @@ export default{
             pointofsale: '',
             administration: '',
             employees: '',
+<<<<<<< HEAD
             officer: '',
             equipment_manager: '',
             manager: '',
@@ -58,6 +63,8 @@ export default{
             v: true,
             v1: false
 
+=======
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
         }
     },
@@ -68,6 +75,7 @@ export default{
         }
     },
     methods: {
+<<<<<<< HEAD
         select: function () {
             var self = this;
             //alert(self.companyName);
@@ -124,6 +132,25 @@ export default{
             this.$validator.validateAll().then(() => {
                 // eslint-disable-next-line
 
+=======
+
+        submit: function () {
+            var self = this;
+              //alert(self.username+ " " + self.email+ " " + self.company_name+ " " + self.current_company+ " " + self.sales+ " " + self.project+ " " + self.inventory+ " " + self.employees+ " " );
+            self.$http.post("/add_user", {"username": self.username,"company_name": self.company_name,"current_company": self.current_company, "email": self.email, "sales": self.sales, "project": self.project,
+                "inventory": self.inventory, "manufacturing": self.manufacturing, "accounting": self.accounting, "purchases": self.purchases, "recruitment": self.recruitment,
+                "expenses": self.expenses, "timesheets": self.timesheets, "attendance": self.attendance, "fleet": self.fleet, "massmailing": self.massmailing, "pointofsale":
+                self.pointofsale, "administration": self.administration , "employees": self.employees }).then(function(res){
+                console.log(res.body);
+            },function(err){
+                alert(err);
+            });
+        },
+        
+        validateBeforeSubmit() {
+            this.$validator.validateAll().then(() => {
+                // eslint-disable-next-line
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
                 this.submit();
                 alert('From Submitted!');
             }).catch(() => {

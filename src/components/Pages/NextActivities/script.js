@@ -10,10 +10,17 @@ export default{
             nextactivity: "Next Activity",
             title: "Next Activity - Sprout",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink:"/sales/salesnextactivitiescreate",
                 importbtnlink:"/sales/salesnextactivityimport",
                 firstbtnlink:"/sales/nextactivities",
                 secondbtnlink:"/sales/salesnextactivitylistview",
+=======
+                createbtnlink:"/Sales/salesnextactivitiescreate",
+                importbtnlink:"/Sales/salesnextactivityimport",
+                firstbtnlink:"/Sales/nextactivities",
+                secondbtnlink:"/Sales/salesnextactivitylistview",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Opportunity",
@@ -49,7 +56,11 @@ export default{
                         "60,000.00",
                         "30,23"
                     ],
+<<<<<<< HEAD
                     "url": "/sales/Salesnextactivityview"
+=======
+                    "url": "/Sales/Salesnextactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -63,7 +74,11 @@ export default{
                         "60,000.00",
                         "30,23"
                     ],
+<<<<<<< HEAD
                     "url": "/sales/Salesnextactivityview"
+=======
+                    "url": "/Sales/Salesnextactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -77,7 +92,11 @@ export default{
                         "60,000.00",
                         "30,23"
                     ],
+<<<<<<< HEAD
                     "url": "/sales/Salesnextactivityview"
+=======
+                    "url": "/Sales/Salesnextactivityview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

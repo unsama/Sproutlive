@@ -10,10 +10,17 @@ export default{
             salesorder: "Sales Orders",
             title: "Sales Orders -Sprout",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink:"/sales/salesordercreate",
                 importbtnlink:"/sales/salesorderimport",
                 firstbtnlink:"/sales/order",
                 secondbtnlink:"/sales/salesordergridview",
+=======
+                createbtnlink:"/Sales/salesordercreate",
+                importbtnlink:"/Sales/salesorderimport",
+                firstbtnlink:"/Sales/order",
+                secondbtnlink:"/Sales/salesordergridview",
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Quotations Number",
@@ -43,7 +50,11 @@ export default{
                         "$ 0.00",
                         "Cancelled"
                     ],
+<<<<<<< HEAD
                     "url": "/sales/salesorderview"
+=======
+                    "url": "/Sales/salesorderview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row1": {
@@ -55,7 +66,11 @@ export default{
                         "$ 0.00",
                         "Quotation"
                     ],
+<<<<<<< HEAD
                     "url": "/sales/salesorderview"
+=======
+                    "url": "/Sales/salesorderview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
                 "row2": {
@@ -67,7 +82,11 @@ export default{
                         "$ 0.00",
                         "Cancelled"
                     ],
+<<<<<<< HEAD
                     "url": "/sales/salesorderview"
+=======
+                    "url": "/Sales/salesorderview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
 
                 },
 

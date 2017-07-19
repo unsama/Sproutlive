@@ -31,9 +31,15 @@ export default{
         return {
             quotation: "Quotations / SO014",
             btnlinks: {
+<<<<<<< HEAD
                 createbtnlink:"/sales/salesnextactivitiescreate",
                 importbtnlink:"/sales/imported",
                 discardbtnlink:"/sales/salesquotationview"
+=======
+                createbtnlink:"/Sales/salesnextactivitiescreate",
+                importbtnlink:"/Sales/imported",
+                discardbtnlink:"/Sales/salesquotationview"
+>>>>>>> 526c285025165345c1f9b3a1662a180597b10f83
             },
             tableheader: [
                 "Product",
