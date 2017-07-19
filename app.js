@@ -77,7 +77,7 @@ app.use(history({
         { from: /\/email_temp/, to: '/email_temp'},
         { from: /\/password/, to: '/password'},
         { from: /\/clear/, to: '/clear'},
-        { from: /\/yo/, to: '/yo'},
+        { from: /\/login/, to: '/login'},
 
     ]
 }));

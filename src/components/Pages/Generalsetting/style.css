@@ -1,7 +1,7 @@
 /* /web/static/lib/bootstrap/less/variables.less defined in bundle 'web.assets_backend' */
 .usamascroll{
     overflow: auto;
-    height: 80vh;
+    height: 100vh;
 
 }
 .o_web_client > .o_main .o_main_content .o_content {

@@ -24,6 +24,8 @@
                         span No Activity
                     button.btn.btn-sm.btn-default.o_form_button_cancel.discardbtn(type='button', v-if='discard', data-dismiss="modal")
                         span Discard
+                    button.btn.btn-sm.btn-default.o_form_button_cancel.discardbtn#changepassword(type='button', v-if='password' style='background-color: rgb(108, 108, 158);color: white;')
+                        span Change Password
                     button.btn.btn-sm.btn-default.o_form_button_cancel.discardbtn(type='button', v-if='cancel', data-dismiss="modal")
                         span Cancel
                     button.btn.btn-sm.btn-default.o_form_button_cancel.discardbtn(type='button', v-if='close', data-dismiss="modal")
@@ -32,4 +34,5 @@
                         span Create
                     button.btn.btn-sm.btn-default.o_form_button_cancel.discardbtn(type='button', v-if='select', data-dismiss="modal",style='background-color: #8d8cd5;')
                         span Select
+
 

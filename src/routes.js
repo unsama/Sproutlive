@@ -785,7 +785,22 @@ import Project_Task_Edit  from "./components/Pages/Project_Task_Edit/Project_Tas
 import SidebarModal  from "./components/partials/SidebarModal/SidebarModal.vue"
 import Tooltip  from "./components/partials/Tooltip/Tooltip.vue"
 import Signup  from "./components/Pages/Signup/Signup.vue"
-
+import Companiesin  from "./components/Pages/Companiesin/Companiesin.vue"
+import Companiesinedit  from "./components/Pages/Companiesinedit/Companiesinedit.vue"
+import Companiesincompo  from "./components/partials/Companiesincompo/Companiesincompo.vue"
+import Companyeditcompo  from "./components/partials/Companyeditcompo/Companyeditcompo.vue"
+import Companyconfigure  from "./components/Pages/Companyconfigure/Companyconfigure.vue"
+import outgoingemailserver  from "./components/Pages/outgoingemailserver/outgoingemailserver.vue"
+import outgoingemailservercreate  from "./components/Pages/outgoingemailservercreate/outgoingemailservercreate.vue"
+import outgoingemailserverimport  from "./components/Pages/outgoingemailserverimport/outgoingemailserverimport.vue"
+import outgoingemailserverin  from "./components/Pages/outgoingemailserverin/outgoingemailserverin.vue"
+import outgoingemailserveredit  from "./components/Pages/outgoingemailserveredit/outgoingemailserveredit.vue"
+import outgoingemailservereditcompo  from "./components/partials/outgoingemailservereditcompo/outgoingemailservereditcompo.vue"
+import incomingmailserver  from "./components/Pages/incomingmailserver/incomingmailserver.vue"
+import incomingmailservercreate  from "./components/Pages/incomingmailservercreate/incomingmailservercreate.vue"
+import incomingmailserveredit  from "./components/Pages/incomingmailserveredit/incomingmailserveredit.vue"
+import incomingmailserverin  from "./components/Pages/incomingmailserverin/incomingmailserverin.vue"
+import incomingmailserverimport  from "./components/Pages/incomingmailserverimport/incomingmailserverimport.vue"
 
 
 
@@ -1118,6 +1133,22 @@ const routes = [
                     { path: 'templatetableincompo', component: Templatetableincompo},
                     { path: 'templatetablein', component: Templatetablein},
                     { path: 'templatetableedit', component: Templatetableedit},
+                    { path: 'companiesin', component: Companiesin},
+                    { path: 'companiesincompo', component: Companiesincompo},
+                    { path: 'companiesinedit', component: Companiesinedit},
+                    { path: 'companyeditcompo', component: Companyeditcompo},
+                    { path: 'companyconfigure', component: Companyconfigure},
+                    { path: 'outgoingemailserver', component: outgoingemailserver},
+                    { path: 'outgoingemailservercreate', component: outgoingemailservercreate},
+                    { path: 'outgoingemailserverimport', component: outgoingemailserverimport},
+                    { path: 'outgoingemailserverin', component: outgoingemailserverin},
+                    { path: 'outgoingemailserveredit', component: outgoingemailserveredit},
+                    { path: 'outgoingemailservereditcompo', component: outgoingemailservereditcompo},
+                    { path: 'incomingmailserver', component: incomingmailserver},
+                    { path: 'incomingmailservercreate', component: incomingmailservercreate},
+                    { path: 'incomingmailserveredit', component: incomingmailserveredit},
+                    { path: 'incomingmailserverimport', component: incomingmailserverimport},
+                    { path: 'incomingmailserverin', component: incomingmailserverin},
 
                 ]
             },

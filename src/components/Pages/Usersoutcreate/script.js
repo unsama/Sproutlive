@@ -11,7 +11,7 @@ export default{
             head: "Users / New",
             title: 'New - Sprout',
             btnlinks: {
-                discardbtnlink: "#/app/setting/users",
+                discardbtnlink: "/setting/users",
                 savebtnlink:"",
 
             },

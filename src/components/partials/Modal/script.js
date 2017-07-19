@@ -17,6 +17,7 @@ export default{
         "Ok",
         "create",
         "select",
+        "password",
     ],
     data(){
         return {

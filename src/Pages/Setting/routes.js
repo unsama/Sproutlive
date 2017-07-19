@@ -39,6 +39,35 @@ import Usersincreate   from "./../../components/Pages/Usersincreate/Usersincreat
 import Usersoutcreate   from "./../../components/Pages/Usersoutcreate/Usersoutcreate.vue"
 import Test   from "./../../components/Pages/Test/Test.vue"
 import tssignup   from "./../../components/Pages/Signup/Signup.vue"
+import Companiesin   from "./../../components/Pages/Companiesin/Companiesin.vue"
+import Companiesincompo   from "./../../components/partials/Companiesincompo/Companiesincompo.vue"
+import Companiesinedit   from "./../../components/Pages/Companiesinedit/Companiesinedit.vue"
+import Companyeditcompo   from "./../../components/partials/Companyeditcompo/Companyeditcompo.vue"
+import Companyconfigure   from "./../../components/Pages/Companyconfigure/Companyconfigure.vue"
+import outgoingemailserver  from "./../../components/Pages/outgoingemailserver/outgoingemailserver.vue"
+import outgoingemailservercreate  from "./../../components/Pages/outgoingemailservercreate/outgoingemailservercreate.vue"
+import outgoingemailserverimport  from "./../../components/Pages/outgoingemailserverimport/outgoingemailserverimport.vue"
+import outgoingemailserverin  from "./../../components/Pages/outgoingemailserverin/outgoingemailserverin.vue"
+import outgoingemailserveredit  from "./../../components/Pages/outgoingemailserveredit/outgoingemailserveredit.vue"
+import outgoingemailservereditcompo  from "./../../components/partials/outgoingemailservereditcompo/outgoingemailservereditcompo.vue"
+import incomingmailserver  from "./../../components/Pages/incomingmailserver/incomingmailserver.vue"
+import incomingmailservercreate  from "./../../components/Pages/incomingmailservercreate/incomingmailservercreate.vue"
+import incomingmailserveredit  from "./../../components/Pages/incomingmailserveredit/incomingmailserveredit.vue"
+import incomingmailserverin  from "./../../components/Pages/incomingmailserverin/incomingmailserverin.vue"
+import incomingmailserverimport  from "./../../components/Pages/incomingmailserverimport/incomingmailserverimport.vue"
+import incomingmailservercreatecompo  from "./../../components/partials/incomingmailservercreatecompo/incomingmailservercreatecompo.vue"
+import incomingmailservereditcompo  from "./../../components/partials/incomingmailservereditcompo/incomingmailservereditcompo.vue"
+import Externallayoutheader  from "./../../components/Pages/Externallayoutheader/Externallayoutheader.vue"
+import Externallayoutheadercreate  from "./../../components/Pages/Externallayoutheadercreate/Externallayoutheadercreate.vue"
+import Externallayoutheaderedit  from "./../../components/Pages/Externallayoutheaderedit/Externallayoutheaderedit.vue"
+import Externalfooter  from "./../../components/Pages/Externallayoutheaderedit/Externallayoutheaderedit.vue"
+import Externalfootercreate  from "./../../components/Pages/Externallayoutheaderedit/Externallayoutheaderedit.vue"
+import Externalfooteredit  from "./../../components/Pages/Externallayoutheaderedit/Externallayoutheaderedit.vue"
+import Internalheader  from "./../../components/Pages/Internalheader/Internalheader.vue"
+import Internalheadercreate  from "./../../components/Pages/Internalheadercreate/Internalheadercreate.vue"
+import Internalheaderedit  from "./../../components/Pages/Internalheaderedit/Internalheaderedit.vue"
+import Externallayoutfooter  from "./../../components/Pages/Externallayoutfooter/Externallayoutfooter.vue"
+import Externallayoutfootercreate  from "./../../components/Pages/Externallayoutfootercreate/Externallayoutfootercreate.vue"
 
 
 const routes = [
@@ -69,9 +98,9 @@ const routes = [
                     { path: 'Buttonsgroup', component: Buttonsgroup},
                     { path: 'Producting', component: Producting},
                     { path: 'usersimport', component: Usersimport},
-                    { path: 'usersin', component: Usersin},
+                    { path: 'usersin/:id', component: Usersin},
                     { path: 'usersincreate', component: Usersincreate},
-                    { path: 'usersinedit', component: Usersinedit},
+                    { path: 'usersinedit/:id', component: Usersinedit},
                     { path: 'usersoutcreate', component: Usersoutcreate},
                     { path: 'companyimport', component: Companyimport},
                     { path: 'companycreate', component: Companycreate},
@@ -85,6 +114,35 @@ const routes = [
                     { path: 'templatetablein', component: Templatetablein},
                     { path: 'templatetableedit', component: Templatetableedit},
                     { path: 'tssignup', component: tssignup},
+                    { path: 'companiesin/:id', component: Companiesin},
+                    { path: 'companiesincompo', component: Companiesincompo},
+                    { path: 'companiesinedit/:id', component: Companiesinedit},
+                    { path: 'companyeditcompo', component: Companyeditcompo},
+                    { path: 'companyconfigure', component: Companyconfigure},
+                    { path: 'outgoingemailserver', component: outgoingemailserver},
+                    { path: 'outgoingemailservercreate', component: outgoingemailservercreate},
+                    { path: 'outgoingemailserverimport', component: outgoingemailserverimport},
+                    { path: 'outgoingemailserverin/:id', component: outgoingemailserverin},
+                    { path: 'outgoingemailserveredit/:id', component: outgoingemailserveredit},
+                    { path: 'outgoingemailservereditcompo', component: outgoingemailservereditcompo},
+                    { path: 'incomingmailserver', component: incomingmailserver},
+                    { path: 'incomingmailserverin/:id', component: incomingmailserverin},
+                    { path: 'incomingmailserveredit/:id', component: incomingmailserveredit},
+                    { path: 'incomingmailservercreate', component: incomingmailservercreate},
+                    { path: 'incomingmailserverimport', component: incomingmailserverimport},
+                    { path: 'incomingmailservercreatecompo', component: incomingmailservercreatecompo},
+                    { path: 'incomingmailservereditcompo', component: incomingmailservereditcompo},
+                    { path: 'externallayoutheader', component: Externallayoutheader},
+                    { path: 'externallayoutheadercreate', component: Externallayoutheadercreate},
+                    { path: 'externallayoutheaderedit', component: Externallayoutheaderedit},
+                    { path: 'externalfooter', component: Externalfooter},
+                    { path: 'externalfootercreate', component: Externalfootercreate},
+                    { path: 'externalfooteredit', component: Externalfooteredit},
+                    { path: 'internalheader', component: Internalheader},
+                    { path: 'internalheadercreate', component: Internalheadercreate},
+                    { path: 'internalheaderedit', component: Internalheaderedit},
+                    { path: 'externallayoutfooter', component: Externallayoutfooter},
+                    { path: 'externallayoutfootercreate', component: Externallayoutfootercreate},
 
                 ]
             },

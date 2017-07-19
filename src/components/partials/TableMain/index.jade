@@ -4,22 +4,18 @@
             thead.samotablehead
                 tr
                     th.o_list_record_selector.samotableheadborder(width='1')
-                        .o_checkbox
+                        .o_checkbox()
                             input#ckbCheckAll1(type='checkbox')
                             span
 
                     th.samotableheadborder(v-for='head in tableheader') {{ head }}
                     th
 
-
-
-
-
             tbody.samotbody
                 tr(v-for='tr in tabledata')
                     th.o_list_record_selector.samotableheadborder(width='1')
                         .o_checkbox
-                            input.checkBoxClass(type='checkbox')
+                            input.checkBoxClass(type='checkbox' v-bind:value="tr.data[0]")
                             span
 
                     td.samotablepadd(v-for='td in tr.data')

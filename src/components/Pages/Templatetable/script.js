@@ -12,8 +12,8 @@ export default{
             head: "Templates",
             title: 'Templates - Sprout',
             btnlinks: {
-                createbtnlink: "#/app/setting/templatetablecreate",
-                importbtnlink: "#/app/setting/templatetableimport",
+                createbtnlink: "/setting/templatetablecreate",
+                importbtnlink: "/setting/templatetableimport",
             },
             tableheader: [
                 "Template Name",
@@ -36,7 +36,7 @@ export default{
                         "",
 
                     ],
-                    "url": "/#/app/setting/templatetablein"
+                    "url": "/setting/templatetablein"
                 },
                 "row1": {
                     "data": [
@@ -45,7 +45,7 @@ export default{
                         "",
 
                     ],
-                    "url": "/#/app/setting/templatetablein"
+                    "url": "/setting/templatetablein"
                 },
             }
         }

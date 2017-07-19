@@ -26,12 +26,12 @@
                             .o_stat_info.o_form_field
                                 span.o_stat_text.o_not_hover.text-success Active
                                 span.o_stat_text.o_hover.text-danger Deactivate
-                    .alert.alert-success.text-center.o_form_header.o_form_invisible(attrs="{'invisible': [('signup_valid', '!=', True)]}")
+                    .alert.alert-success.text-center.o_form_header.o_form_invisible
                         a.close(data-dismiss='alert', href='#', aria-hidden='true') x
-                        .o_form_invisible(attrs="{'invisible': [('state', '!=', 'active')]}")
+                        .o_form_invisible
                             strong
                                 | A password reset has been requested for this user. An email containing the following link has been sent:
-                        .o_form_invisible(attrs="{'invisible': [('state', '!=', 'new')]}")
+                        .o_form_invisible
                             strong An invitation email containing the following subscription link has been sent:
                         div
                             a.o_form_uri.o_text_overflow.o_form_field.o_form_field_empty(href='http://false', target='_blank')
@@ -50,16 +50,18 @@
                                     input(name='callback', type='hidden')
                                     input.o_form_input_file(accept='image/*', name='ufile', type='file')
                                 iframe(style='display: none')
-                    form(style='margin-top: 59px;margin-left: 13px;')(@submit.prevent='validateBeforeSubmit')
+                    form(style='margin-top: 59px;margin-left: 13px;')(@submit.prevent="validateBeforeSubmit" v-if="!formSubmitted")
                         .oe_title
                             label.o_form_label.oe_edit_only
                                 | Name
-                            h1
-                                input.o_form_input.o_form_field.o_form_required(type='text' , v-model='username')
+                            h2
+                                input.o_form_input.o_form_field.o_form_required(type='text' ,name='name', v-model='username', v-validate="'required'")
+                                span(v-show="errors.has('name')") {{ errors.first('name') }}
                             label.o_form_label.o_form_label_help.oe_edit_only
                                 | Email Address
                             h2
-                                input.o_form_input.o_form_field.o_form_required(type='text' , v-model='email')
+                                input.o_form_input.o_form_field.o_form_required(type='text' ,name='email', v-model='email' ,v-validate="'required'")
+                                span(v-show="errors.has('email')") {{ errors.first('email') }}
                             table.o_group.o_inner_group
                                 tbody
                                     tr
@@ -76,12 +78,13 @@
                                     a.nav-link.active(href='#profile', role='tab', data-toggle='tab') Access Rights
                                 li.nav-item
                                     a.nav-link(href='#buzz', role='tab', data-toggle='tab') Preferences
-                                li.nav-item
-                                    a.nav-link(href='#buzz1', role='tab', data-toggle='tab') Calendar
+                                //li.nav-item
+                                //    a.nav-link(href='#buzz1', role='tab', data-toggle='tab') Calendar
                                 li.nav-item
                                     a.nav-link(href='#buzz2', role='tab', data-toggle='tab') Point of Sale
 
                             // Tab panes
+
                         .tab-content
                             #profile.tab-pane.fade.in.active(role='tabpanel')
                                 table.o_group.o_inner_group
@@ -101,18 +104,24 @@
                                                         //span.fa.fa-times.o_delete
                                                     .o_form_field_many2one.o_form_field
                                                         .o_form_input_dropdown
-                                                            input.o_form_input.ui-autocomplete-input(type='text', autocomplete='off' v-model='company_name')
-                                                            span.o_dropdown_button(draggable='false')
+                                                            select
+                                                                option(v-for='option in options', v-bind:value="option.id")
+                                                                    | {{ option.company_name }}
+                                                            //input.o_form_input.ui-autocomplete-input(type='text', autocomplete='off', v-model='company_id')
+                                                            //span.o_dropdown_button(draggable='false')
                                         tr
                                             td.o_td_label(colspan='1')
-                                                label.o_form_label.o_form_label_help(for='o_field_input_14', data-original-title='', title='')
+                                                label.o_form_label.o_form_label_help
                                                     | Current Company
                                             td(colspan='1', style='width: 100%;')
                                                 .o_form_field_many2one.o_with_button.o_form_field.o_form_required
                                                     .o_form_input_dropdown
-                                                        input#o_field_input_14.o_form_input.ui-autocomplete-input(type='text', v-model='current_company')
-                                                        span.o_dropdown_button(draggable='false')
-                                                    button.fa.fa-external-link.btn.btn-default.o_external_button(draggable='false', tabindex='-1', type='button')
+                                                        select(v-model='current_company')
+                                                            option(v-for='option in options', v-bind:value="option.id")
+                                                                | {{ option.company_name }}
+                                                        //input#o_field_input_14.o_form_input.ui-autocomplete-input(type='text', v-model='current_company')
+                                                        //span.o_dropdown_button(draggable='false')
+                                                    button.fa.fa-external-link.btn.btn-default.o_external_button(draggable='false', @click='project_modal' tabindex='-1', type='button',style='padding: 0px;color: #7C7BAD;background-color: white;',data-toggle='modal', data-target='.bd-example-modal-lg')
                                         tr
                                             td.o_td_label(colspan='1')
                                                 label.o_form_label.o_form_invisible
@@ -536,33 +545,33 @@
                                                     | Employees
                                         tr
                                             td.o_td_label(colspan='1')
-                                                label.o_form_label.o_form_label_help(for='o_field_input_68', data-original-title='', title='')
+                                                label.o_form_label.o_form_label_help(for='o_field_input_68')
                                                     | Employee
                                             td(colspan='1', style='width: 50%;')
-                                                .o_checkbox.o_form_field_boolean.o_form_field
-                                                    input#o_field_input_68(type='checkbox', value='employee' , v-model='employees')
+                                                .o_checkbox
+                                                    input#o_field_input_68(type='checkbox', value='1' , v-model='employees')
                                                     span
                                             td.o_td_label(colspan='1')
-                                                label.o_form_label.o_form_label_help(for='o_field_input_69', data-original-title='', title='')
+                                                label.o_form_label.o_form_label_help(for='o_field_input_69')
                                                     | Equipment Manager
                                             td(colspan='1', style='width: 50%;')
-                                                .o_checkbox.o_form_field_boolean.o_form_field
-                                                    input#o_field_input_69(type='checkbox', value='equipment_manager'  , v-model='employees')
+                                                .o_checkbox
+                                                    input#o_field_input_69(type='checkbox', value='1'  , v-model='equipment_manager')
                                                     span
                                         tr
                                             td.o_td_label(colspan='1')
-                                                label.o_form_label.o_form_label_help(for='o_field_input_70', data-original-title='', title='')
+                                                label.o_form_label.o_form_label_help(for='o_field_input_70')
                                                     | Manager
                                             td(colspan='1', style='width: 50%;')
                                                 .o_checkbox.o_form_field_boolean.o_form_field
-                                                    input#o_field_input_70(type='checkbox', value='manager' , v-model='employees')
+                                                    input#o_field_input_70(type='checkbox', value='1' , v-model='manager')
                                                     span
                                             td.o_td_label(colspan='1')
-                                                label.o_form_label.o_form_label_help(for='o_field_input_71', data-original-title='', title='')
+                                                label.o_form_label.o_form_label_help(for='o_field_input_71')
                                                     | Officer
                                             td(colspan='1', style='width: 50%;')
                                                 .o_checkbox.o_form_field_boolean.o_form_field
-                                                    input#o_field_input_71(type='checkbox',value='officer' , v-model='employees')
+                                                    input#o_field_input_71(type='checkbox',value='1' , v-model='officer')
                                                     span
                                         tr
                                             td(colspan='4', style='width: 100%;')
@@ -620,7 +629,7 @@
                                                     span
 
 
-                            button(type='submit') Submit
+                            //button(type='submit') Submit
                             #buzz.tab-pane.fade.in(role='tabpanel')
                                 .o_group
                                     table.o_group.o_inner_group.o_group_col_6
@@ -636,8 +645,8 @@
                                                 td(colspan='1', style='width: 100%;')
                                                     select#o_field_input_78.o_form_input.o_form_field(name='lang' v-model='language')
                                                         option(value='false')
-                                                        option(value='"English"') English
-                                                        option(value='"Urdu"') Urdu
+                                                        option(value='English') English
+                                                        option(value='Urdu') Urdu
 
                                             tr
                                                 td.o_td_label(colspan='1')
@@ -646,8 +655,8 @@
                                                 td(colspan='1', style='width: 100%;')
                                                     select#o_field_input_79.o_form_input.o_form_field(name='tz' v-model='timezone')
                                                         option(value='false')
-                                                        option(value='"English"') English
-                                                        option(value='"Urdu"') Urdu
+                                                        option(value='India') India
+                                                        option(value='pakistan') Pakistan
 
 
                                             tr
@@ -685,20 +694,23 @@
                                             td(colspan='1', style='width: 100%;')
                                                 .o_form_field_radio.o_vertical.o_form_field.o_form_required
                                                     .o_radio_item
-                                                        input#radio93_none.o_form_radio(type='radio', name='radio93', value='none' ,v-model='emailmessages')
+                                                        input#radio93_none.o_form_radio(type='radio', name='radio93', value='Never' ,v-model='emailmessages')
                                                         label.o_form_label(for='radio93_none') Never
                                                     .o_radio_item
                                                         input#radio93_always.o_form_radio(type='radio', name='radio93', value='always' v-model='emailmessages')
                                                         label.o_form_label(for='radio93_always') All Messages
                                         tr
                                             td.o_td_label(colspan='1')
-                                                label.o_form_label.o_form_label_help(for='o_field_input_83', data-original-title='', title='')
+                                                label.o_form_label.o_form_label_help
                                                     | Alias
                                             td(colspan='1', style='width: 100%;')
                                                 .o_form_field_many2one.o_form_field
                                                     .o_form_input_dropdown
-                                                        input#o_field_input_83.o_form_input.ui-autocomplete-input(type='text', autocomplete='off' v-model='alias')
-                                                        span.o_dropdown_button(draggable='false')
+                                                        select(v-model='alias')
+                                                            option(v-for='option in options2', v-bind:value="option.id" )
+                                                                | {{ option.name }}
+                                                        //input#o_field_input_83.o_form_input.ui-autocomplete-input(type='text', autocomplete='off' v-model='alias')
+                                                        //span.o_dropdown_button(draggable='false')
                                                     button.fa.fa-external-link.btn.btn-default.o_external_button(draggable='false', tabindex='-1', type='button', style='display: none;')
                                         tr
                                             td.o_td_label(colspan='1')
@@ -713,634 +725,49 @@
                                                     option(value='"employees"') Authenticated Employees
                                         tr
                                             td.o_td_label(colspan='1')
-                                                label.o_form_label(for='o_field_input_85')
+                                                label.o_form_label
                                                     | Signature
                                             td(colspan='1', style='width: 100%;')
                                                 .oe_form_field.oe_form_field_html_text.o_form_field
-                                                    textarea(readonly='readonly', style='display: none;')
-                                                    .note-editor.panel.panel-default
-                                                        .note-dialog
-                                                            .note-image-dialog.modal(aria-hidden='false')
-                                                                .modal-dialog
-                                                                    .modal-content
-                                                                        .modal-header
-                                                                            button.close(type='button', aria-hidden='true', tabindex='-1') ×
-                                                                            h4.modal-title Insert Image
-                                                                        .modal-body
-                                                                            .form-group.row.note-group-select-from-files
-                                                                                label Select from files
-                                                                                input.note-image-input.form-control(type='file', name='files', accept='image/*', multiple='multiple')
-                                                                            .form-group.row
-                                                                                label Image URL
-                                                                                input.note-image-url.form-control.col-md-12(type='password')
-                                                                        .modal-footer
-                                                                            button.btn.btn-primary.note-image-btn.disabled(href='#', disabled='') Insert Image
-                                                            .note-link-dialog.modal(aria-hidden='false')
-                                                                .modal-dialog
-                                                                    .modal-content
-                                                                        .modal-header
-                                                                            button.close(type='button', aria-hidden='true', tabindex='-1') ×
-                                                                            h4.modal-title Insert Link
-                                                                        .modal-body
-                                                                            .form-group.row
-                                                                                label Text to display
-                                                                                input.note-link-text.form-control.col-md-12(type='text')
-                                                                            .form-group.row
-                                                                                label To what URL should this link go?
-                                                                                input.note-link-url.form-control.col-md-12(type='text', value='http://')
-                                                                            .checkbox
-                                                                                label
-                                                                                    input(type='checkbox', checked='')
-                                                                                    |  Open in new window
-                                                                        .modal-footer
-                                                                            button.btn.btn-primary.note-link-btn.disabled(href='#', disabled='') Insert Link
-                                                            .note-help-dialog.modal(aria-hidden='false')
-                                                                .modal-dialog
-                                                                    .modal-content
-                                                                        .modal-body
-                                                                            a.modal-close.pull-right(aria-hidden='true', tabindex='-1') Close
-                                                                            .title Keyboard shortcuts
-                                                                            .note-shortcut-row.row
-                                                                                .note-shortcut.note-shortcut-col.col-sm-6.col-xs-12
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-title.col-xs-offset-6 Action
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + Z
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Undo
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + Shift + Z
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Redo
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + ]
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Indent
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + [
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Outdent
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + ENTER
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Insert Horizontal Rule
-                                                                                .note-shortcut.note-shortcut-col.col-sm-6.col-xs-12
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-title.col-xs-offset-6 Text formatting
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + B
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Bold
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + I
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Italic
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + U
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Underline
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + \
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Remove Font Style
-                                                                            .note-shortcut-row.row
-                                                                                .note-shortcut.note-shortcut-col.col-sm-6.col-xs-12
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-title.col-xs-offset-6 Document Style
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + NUM0
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Normal
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + NUM1
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Header 1
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + NUM2
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Header 2
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + NUM3
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Header 3
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + NUM4
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Header 4
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + NUM5
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Header 5
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + NUM6
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Header 6
-                                                                                .note-shortcut.note-shortcut-col.col-sm-6.col-xs-12
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-title.col-xs-offset-6 Paragraph formatting
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + Shift + L
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Align left
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + Shift + E
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Align center
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + Shift + R
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Align right
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + Shift + J
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Justify full
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + Shift + NUM7
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Ordered list
-                                                                                    .note-shortcut-row.row
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-key Ctrl + Shift + NUM8
-                                                                                        .note-shortcut-col.col-xs-6.note-shortcut-name Unordered list
-                                                                            p.text-center
-                                                                                a(href='//summernote.org/', target='_blank') Summernote @VERSION
-                                                                                |  ·
-                                                                                a(href='//github.com/summernote/summernote', target='_blank') Project
-                                                                                |  ·
-                                                                                a(href='//github.com/summernote/summernote/issues', target='_blank') Issues
-                                                        .note-dropzone
-                                                            .note-dropzone-message
-                                                        .note-toolbar.panel-heading
-                                                            .note-style.btn-group
-                                                                .btn-group(data-name='style')
-                                                                    button.btn.btn-default.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown', title='', tabindex='-1', data-original-title='Style')
-                                                                        i.fa.fa-magic
-                                                                        span.caret
-                                                                    ul.dropdown-menu
-                                                                        li
-                                                                            a(data-event='formatBlock', href='#', data-value='p') Normal
-                                                                        li
-                                                                            a(data-event='formatBlock', href='#', data-value='pre') Code
-                                                                        li
-                                                                            a(data-event='formatBlock', href='#', data-value='h1')
-                                                                                h1 Header 1
-                                                                        li
-                                                                            a(data-event='formatBlock', href='#', data-value='h2')
-                                                                                h2 Header 2
-                                                                        li
-                                                                            a(data-event='formatBlock', href='#', data-value='h3')
-                                                                                h3 Header 3
-                                                                        li
-                                                                            a(data-event='formatBlock', href='#', data-value='h4')
-                                                                                h4 Header 4
-                                                                        li
-                                                                            a(data-event='formatBlock', href='#', data-value='h5')
-                                                                                h5 Header 5
-                                                                        li
-                                                                            a(data-event='formatBlock', href='#', data-value='h6')
-                                                                                h6 Header 6
-                                                                        li
-                                                                            a(data-event='formatBlock', href='#', data-value='blockquote')
-                                                                                blockquote Quote
-                                                            .note-font.btn-group
-                                                                button.btn.btn-default.btn-sm(type='button', title='', data-event='bold', tabindex='-1', data-name='bold', data-original-title='Bold (CTRL+B)')
-                                                                    i.fa.fa-bold
-                                                                button.btn.btn-default.btn-sm(type='button', title='', data-event='italic', tabindex='-1', data-name='italic', data-original-title='Italic (CTRL+I)')
-                                                                    i.fa.fa-italic
-                                                                button.btn.btn-default.btn-sm(type='button', title='', data-event='underline', tabindex='-1', data-name='underline', data-original-title='Underline (CTRL+U)')
-                                                                    i.fa.fa-underline
-                                                                button.btn.btn-default.btn-sm(type='button', title='', data-event='removeFormat', tabindex='-1', data-name='clear', data-original-title='Remove Font Style (CTRL+\)')
-                                                                    i.fa.fa-eraser
-                                                            .note-fontsize.btn-group
-                                                                .btn-group(data-name='fontsize')
-                                                                    button.btn.btn-default.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown', title='', tabindex='-1', data-original-title='Font Size')
-                                                                        span.note-current-fontsize NaN
-                                                                        span.caret
-                                                                    ul.dropdown-menu
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='Default')
-                                                                                i.fa.fa-check
-                                                                                |  Default
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='8')
-                                                                                i.fa.fa-check
-                                                                                |  8
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='9')
-                                                                                i.fa.fa-check
-                                                                                |  9
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='10')
-                                                                                i.fa.fa-check
-                                                                                |  10
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='11')
-                                                                                i.fa.fa-check
-                                                                                |  11
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='12')
-                                                                                i.fa.fa-check
-                                                                                |  12
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='14')
-                                                                                i.fa.fa-check
-                                                                                |  14
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='18')
-                                                                                i.fa.fa-check
-                                                                                |  18
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='24')
-                                                                                i.fa.fa-check
-                                                                                |  24
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='36')
-                                                                                i.fa.fa-check
-                                                                                |  36
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='48')
-                                                                                i.fa.fa-check
-                                                                                |  48
-                                                                        li
-                                                                            a(data-event='fontSize', href='#', data-value='62')
-                                                                                i.fa.fa-check
-                                                                                |  62
-                                                            .note-color.btn-group
-                                                                button.btn.btn-default.btn-sm.note-recent-color(type='button', title='', data-event='color', data-value='{"backColor":"#B35E9B"}', tabindex='-1', data-name='color', data-original-title='Recent Color')
-                                                                    i#colors_preview.fa.fa-font(style='color:white;background-color:#B35E9B')
-                                                                .btn-group(data-name='color')
-                                                                    button.btn.btn-default.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown', title='', tabindex='-1', data-original-title='More Color')
-                                                                        span.caret
-                                                                    ul.dropdown-menu
-                                                                        li
-                                                                            .btn-group
-                                                                                .note-palette-title Background Color
-                                                                                .note-color-reset(data-event='backColor', data-value='inherit', title='Transparent') Set transparent
-                                                                                .note-color-palette(data-target-event='backColor')
-                                                                                    h6 Theme colors
-                                                                                    .note-color-row.mb8
-                                                                                        button.note-color-btn.bg-alpha(data-color='alpha', data-event='backColor', data-value='bg-alpha', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-beta(data-color='beta', data-event='backColor', data-value='bg-beta', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gamma(data-color='gamma', data-event='backColor', data-value='bg-gamma', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-delta(data-color='delta', data-event='backColor', data-value='bg-delta', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-epsilon(data-color='epsilon', data-event='backColor', data-value='bg-epsilon', data-original-title='', title='')
-                                                                                    .note-color-row.mb8
-                                                                                        button.note-color-btn.bg-white(data-color='white', data-event='backColor', data-value='bg-white', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gray-lighter(data-color='gray-lighter', data-event='backColor', data-value='bg-gray-lighter', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gray-light(data-color='gray-light', data-event='backColor', data-value='bg-gray-light', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gray(data-color='gray', data-event='backColor', data-value='bg-gray', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gray-dark(data-color='gray-dark', data-event='backColor', data-value='bg-gray-dark', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gray-darker(data-color='gray-darker', data-event='backColor', data-value='bg-gray-darker', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-black(data-color='black', data-event='backColor', data-value='bg-black', data-original-title='', title='')
-                                                                                    .note-color-row.mb8
-                                                                                        button.note-color-btn.bg-primary(data-color='primary', data-event='backColor', data-value='bg-primary', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-success(data-color='success', data-event='backColor', data-value='bg-success', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-info(data-color='info', data-event='backColor', data-value='bg-info', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-warning(data-color='warning', data-event='backColor', data-value='bg-warning', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-danger(data-color='danger', data-event='backColor', data-value='bg-danger', data-original-title='', title='')
-                                                                                    .note-color-row.mb8
-                                                                                        button.o_btn_transparent.note-color-btn.bg-undefined(data-event='backColor', data-value='bg-undefined', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-black-25(data-color='black-25', data-event='backColor', data-value='bg-black-25', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-black-50(data-color='black-50', data-event='backColor', data-value='bg-black-50', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-black-75(data-color='black-75', data-event='backColor', data-value='bg-black-75', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-white-25(data-color='white-25', data-event='backColor', data-value='bg-white-25', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-white-50(data-color='white-50', data-event='backColor', data-value='bg-white-50', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-white-75(data-color='white-75', data-event='backColor', data-value='bg-white-75', data-original-title='', title='')
-                                                                                    h6 Common colors
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#000000;', data-event='backColor', data-value='#000000', title='', data-toggle='button', tabindex='-1', data-original-title='#000000')
-                                                                                        button.note-color-btn(type='button', style='background-color:#424242;', data-event='backColor', data-value='#424242', title='', data-toggle='button', tabindex='-1', data-original-title='#424242')
-                                                                                        button.note-color-btn(type='button', style='background-color:#636363;', data-event='backColor', data-value='#636363', title='', data-toggle='button', tabindex='-1', data-original-title='#636363')
-                                                                                        button.note-color-btn(type='button', style='background-color:#9C9C94;', data-event='backColor', data-value='#9C9C94', title='', data-toggle='button', tabindex='-1', data-original-title='#9C9C94')
-                                                                                        button.note-color-btn(type='button', style='background-color:#CEC6CE;', data-event='backColor', data-value='#CEC6CE', title='', data-toggle='button', tabindex='-1', data-original-title='#CEC6CE')
-                                                                                        button.note-color-btn(type='button', style='background-color:#EFEFEF;', data-event='backColor', data-value='#EFEFEF', title='', data-toggle='button', tabindex='-1', data-original-title='#EFEFEF')
-                                                                                        button.note-color-btn(type='button', style='background-color:#F7F7F7;', data-event='backColor', data-value='#F7F7F7', title='', data-toggle='button', tabindex='-1', data-original-title='#F7F7F7')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFFFFF;', data-event='backColor', data-value='#FFFFFF', title='', data-toggle='button', tabindex='-1', data-original-title='#FFFFFF')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#FF0000;', data-event='backColor', data-value='#FF0000', title='', data-toggle='button', tabindex='-1', data-original-title='#FF0000')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FF9C00;', data-event='backColor', data-value='#FF9C00', title='', data-toggle='button', tabindex='-1', data-original-title='#FF9C00')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFFF00;', data-event='backColor', data-value='#FFFF00', title='', data-toggle='button', tabindex='-1', data-original-title='#FFFF00')
-                                                                                        button.note-color-btn(type='button', style='background-color:#00FF00;', data-event='backColor', data-value='#00FF00', title='', data-toggle='button', tabindex='-1', data-original-title='#00FF00')
-                                                                                        button.note-color-btn(type='button', style='background-color:#00FFFF;', data-event='backColor', data-value='#00FFFF', title='', data-toggle='button', tabindex='-1', data-original-title='#00FFFF')
-                                                                                        button.note-color-btn(type='button', style='background-color:#0000FF;', data-event='backColor', data-value='#0000FF', title='', data-toggle='button', tabindex='-1', data-original-title='#0000FF')
-                                                                                        button.note-color-btn(type='button', style='background-color:#9C00FF;', data-event='backColor', data-value='#9C00FF', title='', data-toggle='button', tabindex='-1', data-original-title='#9C00FF')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FF00FF;', data-event='backColor', data-value='#FF00FF', title='', data-toggle='button', tabindex='-1', data-original-title='#FF00FF')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#F7C6CE;', data-event='backColor', data-value='#F7C6CE', title='', data-toggle='button', tabindex='-1', data-original-title='#F7C6CE')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFE7CE;', data-event='backColor', data-value='#FFE7CE', title='', data-toggle='button', tabindex='-1', data-original-title='#FFE7CE')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFEFC6;', data-event='backColor', data-value='#FFEFC6', title='', data-toggle='button', tabindex='-1', data-original-title='#FFEFC6')
-                                                                                        button.note-color-btn(type='button', style='background-color:#D6EFD6;', data-event='backColor', data-value='#D6EFD6', title='', data-toggle='button', tabindex='-1', data-original-title='#D6EFD6')
-                                                                                        button.note-color-btn(type='button', style='background-color:#CEDEE7;', data-event='backColor', data-value='#CEDEE7', title='', data-toggle='button', tabindex='-1', data-original-title='#CEDEE7')
-                                                                                        button.note-color-btn(type='button', style='background-color:#CEE7F7;', data-event='backColor', data-value='#CEE7F7', title='', data-toggle='button', tabindex='-1', data-original-title='#CEE7F7')
-                                                                                        button.note-color-btn(type='button', style='background-color:#D6D6E7;', data-event='backColor', data-value='#D6D6E7', title='', data-toggle='button', tabindex='-1', data-original-title='#D6D6E7')
-                                                                                        button.note-color-btn(type='button', style='background-color:#E7D6DE;', data-event='backColor', data-value='#E7D6DE', title='', data-toggle='button', tabindex='-1', data-original-title='#E7D6DE')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#E79C9C;', data-event='backColor', data-value='#E79C9C', title='', data-toggle='button', tabindex='-1', data-original-title='#E79C9C')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFC69C;', data-event='backColor', data-value='#FFC69C', title='', data-toggle='button', tabindex='-1', data-original-title='#FFC69C')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFE79C;', data-event='backColor', data-value='#FFE79C', title='', data-toggle='button', tabindex='-1', data-original-title='#FFE79C')
-                                                                                        button.note-color-btn(type='button', style='background-color:#B5D6A5;', data-event='backColor', data-value='#B5D6A5', title='', data-toggle='button', tabindex='-1', data-original-title='#B5D6A5')
-                                                                                        button.note-color-btn(type='button', style='background-color:#A5C6CE;', data-event='backColor', data-value='#A5C6CE', title='', data-toggle='button', tabindex='-1', data-original-title='#A5C6CE')
-                                                                                        button.note-color-btn(type='button', style='background-color:#9CC6EF;', data-event='backColor', data-value='#9CC6EF', title='', data-toggle='button', tabindex='-1', data-original-title='#9CC6EF')
-                                                                                        button.note-color-btn(type='button', style='background-color:#B5A5D6;', data-event='backColor', data-value='#B5A5D6', title='', data-toggle='button', tabindex='-1', data-original-title='#B5A5D6')
-                                                                                        button.note-color-btn(type='button', style='background-color:#D6A5BD;', data-event='backColor', data-value='#D6A5BD', title='', data-toggle='button', tabindex='-1', data-original-title='#D6A5BD')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#E76363;', data-event='backColor', data-value='#E76363', title='', data-toggle='button', tabindex='-1', data-original-title='#E76363')
-                                                                                        button.note-color-btn(type='button', style='background-color:#F7AD6B;', data-event='backColor', data-value='#F7AD6B', title='', data-toggle='button', tabindex='-1', data-original-title='#F7AD6B')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFD663;', data-event='backColor', data-value='#FFD663', title='', data-toggle='button', tabindex='-1', data-original-title='#FFD663')
-                                                                                        button.note-color-btn(type='button', style='background-color:#94BD7B;', data-event='backColor', data-value='#94BD7B', title='', data-toggle='button', tabindex='-1', data-original-title='#94BD7B')
-                                                                                        button.note-color-btn(type='button', style='background-color:#73A5AD;', data-event='backColor', data-value='#73A5AD', title='', data-toggle='button', tabindex='-1', data-original-title='#73A5AD')
-                                                                                        button.note-color-btn(type='button', style='background-color:#6BADDE;', data-event='backColor', data-value='#6BADDE', title='', data-toggle='button', tabindex='-1', data-original-title='#6BADDE')
-                                                                                        button.note-color-btn(type='button', style='background-color:#8C7BC6;', data-event='backColor', data-value='#8C7BC6', title='', data-toggle='button', tabindex='-1', data-original-title='#8C7BC6')
-                                                                                        button.note-color-btn(type='button', style='background-color:#C67BA5;', data-event='backColor', data-value='#C67BA5', title='', data-toggle='button', tabindex='-1', data-original-title='#C67BA5')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#CE0000;', data-event='backColor', data-value='#CE0000', title='', data-toggle='button', tabindex='-1', data-original-title='#CE0000')
-                                                                                        button.note-color-btn(type='button', style='background-color:#E79439;', data-event='backColor', data-value='#E79439', title='', data-toggle='button', tabindex='-1', data-original-title='#E79439')
-                                                                                        button.note-color-btn(type='button', style='background-color:#EFC631;', data-event='backColor', data-value='#EFC631', title='', data-toggle='button', tabindex='-1', data-original-title='#EFC631')
-                                                                                        button.note-color-btn(type='button', style='background-color:#6BA54A;', data-event='backColor', data-value='#6BA54A', title='', data-toggle='button', tabindex='-1', data-original-title='#6BA54A')
-                                                                                        button.note-color-btn(type='button', style='background-color:#4A7B8C;', data-event='backColor', data-value='#4A7B8C', title='', data-toggle='button', tabindex='-1', data-original-title='#4A7B8C')
-                                                                                        button.note-color-btn(type='button', style='background-color:#3984C6;', data-event='backColor', data-value='#3984C6', title='', data-toggle='button', tabindex='-1', data-original-title='#3984C6')
-                                                                                        button.note-color-btn(type='button', style='background-color:#634AA5;', data-event='backColor', data-value='#634AA5', title='', data-toggle='button', tabindex='-1', data-original-title='#634AA5')
-                                                                                        button.note-color-btn(type='button', style='background-color:#A54A7B;', data-event='backColor', data-value='#A54A7B', title='', data-toggle='button', tabindex='-1', data-original-title='#A54A7B')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#9C0000;', data-event='backColor', data-value='#9C0000', title='', data-toggle='button', tabindex='-1', data-original-title='#9C0000')
-                                                                                        button.note-color-btn(type='button', style='background-color:#B56308;', data-event='backColor', data-value='#B56308', title='', data-toggle='button', tabindex='-1', data-original-title='#B56308')
-                                                                                        button.note-color-btn(type='button', style='background-color:#BD9400;', data-event='backColor', data-value='#BD9400', title='', data-toggle='button', tabindex='-1', data-original-title='#BD9400')
-                                                                                        button.note-color-btn(type='button', style='background-color:#397B21;', data-event='backColor', data-value='#397B21', title='', data-toggle='button', tabindex='-1', data-original-title='#397B21')
-                                                                                        button.note-color-btn(type='button', style='background-color:#104A5A;', data-event='backColor', data-value='#104A5A', title='', data-toggle='button', tabindex='-1', data-original-title='#104A5A')
-                                                                                        button.note-color-btn(type='button', style='background-color:#085294;', data-event='backColor', data-value='#085294', title='', data-toggle='button', tabindex='-1', data-original-title='#085294')
-                                                                                        button.note-color-btn(type='button', style='background-color:#311873;', data-event='backColor', data-value='#311873', title='', data-toggle='button', tabindex='-1', data-original-title='#311873')
-                                                                                        button.note-color-btn(type='button', style='background-color:#731842;', data-event='backColor', data-value='#731842', title='', data-toggle='button', tabindex='-1', data-original-title='#731842')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#630000;', data-event='backColor', data-value='#630000', title='', data-toggle='button', tabindex='-1', data-original-title='#630000')
-                                                                                        button.note-color-btn(type='button', style='background-color:#7B3900;', data-event='backColor', data-value='#7B3900', title='', data-toggle='button', tabindex='-1', data-original-title='#7B3900')
-                                                                                        button.note-color-btn(type='button', style='background-color:#846300;', data-event='backColor', data-value='#846300', title='', data-toggle='button', tabindex='-1', data-original-title='#846300')
-                                                                                        button.note-color-btn(type='button', style='background-color:#295218;', data-event='backColor', data-value='#295218', title='', data-toggle='button', tabindex='-1', data-original-title='#295218')
-                                                                                        button.note-color-btn(type='button', style='background-color:#083139;', data-event='backColor', data-value='#083139', title='', data-toggle='button', tabindex='-1', data-original-title='#083139')
-                                                                                        button.note-color-btn(type='button', style='background-color:#003163;', data-event='backColor', data-value='#003163', title='', data-toggle='button', tabindex='-1', data-original-title='#003163')
-                                                                                        button.note-color-btn(type='button', style='background-color:#21104A;', data-event='backColor', data-value='#21104A', title='', data-toggle='button', tabindex='-1', data-original-title='#21104A')
-                                                                                        button.note-color-btn(type='button', style='background-color:#4A1031;', data-event='backColor', data-value='#4A1031', title='', data-toggle='button', tabindex='-1', data-original-title='#4A1031')
-                                                                            .btn-group
-                                                                                .note-palette-title Font Color
-                                                                                .note-color-reset(data-event='foreColor', data-value='inherit', title='Reset') Reset to default
-                                                                                .note-color-palette(data-target-event='foreColor')
-                                                                                    h6 Theme colors
-                                                                                    .note-color-row.mb8
-                                                                                        button.note-color-btn.bg-alpha(data-color='alpha', data-event='foreColor', data-value='text-alpha', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-beta(data-color='beta', data-event='foreColor', data-value='text-beta', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gamma(data-color='gamma', data-event='foreColor', data-value='text-gamma', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-delta(data-color='delta', data-event='foreColor', data-value='text-delta', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-epsilon(data-color='epsilon', data-event='foreColor', data-value='text-epsilon', data-original-title='', title='')
-                                                                                    .note-color-row.mb8
-                                                                                        button.note-color-btn.bg-white(data-color='white', data-event='foreColor', data-value='text-white', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gray-lighter(data-color='gray-lighter', data-event='foreColor', data-value='text-gray-lighter', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gray-light(data-color='gray-light', data-event='foreColor', data-value='text-gray-light', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gray(data-color='gray', data-event='foreColor', data-value='text-gray', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gray-dark(data-color='gray-dark', data-event='foreColor', data-value='text-gray-dark', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-gray-darker(data-color='gray-darker', data-event='foreColor', data-value='text-gray-darker', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-black(data-color='black', data-event='foreColor', data-value='text-black', data-original-title='', title='')
-                                                                                    .note-color-row.mb8
-                                                                                        button.note-color-btn.bg-primary(data-color='primary', data-event='foreColor', data-value='text-primary', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-success(data-color='success', data-event='foreColor', data-value='text-success', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-info(data-color='info', data-event='foreColor', data-value='text-info', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-warning(data-color='warning', data-event='foreColor', data-value='text-warning', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-danger(data-color='danger', data-event='foreColor', data-value='text-danger', data-original-title='', title='')
-                                                                                    .note-color-row.mb8
-                                                                                        button.o_btn_transparent.note-color-btn.bg-undefined(data-event='foreColor', data-value='text-undefined', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-black-25(data-color='black-25', data-event='foreColor', data-value='text-black-25', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-black-50(data-color='black-50', data-event='foreColor', data-value='text-black-50', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-black-75(data-color='black-75', data-event='foreColor', data-value='text-black-75', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-white-25(data-color='white-25', data-event='foreColor', data-value='text-white-25', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-white-50(data-color='white-50', data-event='foreColor', data-value='text-white-50', data-original-title='', title='')
-                                                                                        button.note-color-btn.bg-white-75(data-color='white-75', data-event='foreColor', data-value='text-white-75', data-original-title='', title='')
-                                                                                    h6 Common colors
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#000000;', data-event='foreColor', data-value='#000000', title='', data-toggle='button', tabindex='-1', data-original-title='#000000')
-                                                                                        button.note-color-btn(type='button', style='background-color:#424242;', data-event='foreColor', data-value='#424242', title='', data-toggle='button', tabindex='-1', data-original-title='#424242')
-                                                                                        button.note-color-btn(type='button', style='background-color:#636363;', data-event='foreColor', data-value='#636363', title='', data-toggle='button', tabindex='-1', data-original-title='#636363')
-                                                                                        button.note-color-btn(type='button', style='background-color:#9C9C94;', data-event='foreColor', data-value='#9C9C94', title='', data-toggle='button', tabindex='-1', data-original-title='#9C9C94')
-                                                                                        button.note-color-btn(type='button', style='background-color:#CEC6CE;', data-event='foreColor', data-value='#CEC6CE', title='', data-toggle='button', tabindex='-1', data-original-title='#CEC6CE')
-                                                                                        button.note-color-btn(type='button', style='background-color:#EFEFEF;', data-event='foreColor', data-value='#EFEFEF', title='', data-toggle='button', tabindex='-1', data-original-title='#EFEFEF')
-                                                                                        button.note-color-btn(type='button', style='background-color:#F7F7F7;', data-event='foreColor', data-value='#F7F7F7', title='', data-toggle='button', tabindex='-1', data-original-title='#F7F7F7')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFFFFF;', data-event='foreColor', data-value='#FFFFFF', title='', data-toggle='button', tabindex='-1', data-original-title='#FFFFFF')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#FF0000;', data-event='foreColor', data-value='#FF0000', title='', data-toggle='button', tabindex='-1', data-original-title='#FF0000')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FF9C00;', data-event='foreColor', data-value='#FF9C00', title='', data-toggle='button', tabindex='-1', data-original-title='#FF9C00')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFFF00;', data-event='foreColor', data-value='#FFFF00', title='', data-toggle='button', tabindex='-1', data-original-title='#FFFF00')
-                                                                                        button.note-color-btn(type='button', style='background-color:#00FF00;', data-event='foreColor', data-value='#00FF00', title='', data-toggle='button', tabindex='-1', data-original-title='#00FF00')
-                                                                                        button.note-color-btn(type='button', style='background-color:#00FFFF;', data-event='foreColor', data-value='#00FFFF', title='', data-toggle='button', tabindex='-1', data-original-title='#00FFFF')
-                                                                                        button.note-color-btn(type='button', style='background-color:#0000FF;', data-event='foreColor', data-value='#0000FF', title='', data-toggle='button', tabindex='-1', data-original-title='#0000FF')
-                                                                                        button.note-color-btn(type='button', style='background-color:#9C00FF;', data-event='foreColor', data-value='#9C00FF', title='', data-toggle='button', tabindex='-1', data-original-title='#9C00FF')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FF00FF;', data-event='foreColor', data-value='#FF00FF', title='', data-toggle='button', tabindex='-1', data-original-title='#FF00FF')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#F7C6CE;', data-event='foreColor', data-value='#F7C6CE', title='', data-toggle='button', tabindex='-1', data-original-title='#F7C6CE')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFE7CE;', data-event='foreColor', data-value='#FFE7CE', title='', data-toggle='button', tabindex='-1', data-original-title='#FFE7CE')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFEFC6;', data-event='foreColor', data-value='#FFEFC6', title='', data-toggle='button', tabindex='-1', data-original-title='#FFEFC6')
-                                                                                        button.note-color-btn(type='button', style='background-color:#D6EFD6;', data-event='foreColor', data-value='#D6EFD6', title='', data-toggle='button', tabindex='-1', data-original-title='#D6EFD6')
-                                                                                        button.note-color-btn(type='button', style='background-color:#CEDEE7;', data-event='foreColor', data-value='#CEDEE7', title='', data-toggle='button', tabindex='-1', data-original-title='#CEDEE7')
-                                                                                        button.note-color-btn(type='button', style='background-color:#CEE7F7;', data-event='foreColor', data-value='#CEE7F7', title='', data-toggle='button', tabindex='-1', data-original-title='#CEE7F7')
-                                                                                        button.note-color-btn(type='button', style='background-color:#D6D6E7;', data-event='foreColor', data-value='#D6D6E7', title='', data-toggle='button', tabindex='-1', data-original-title='#D6D6E7')
-                                                                                        button.note-color-btn(type='button', style='background-color:#E7D6DE;', data-event='foreColor', data-value='#E7D6DE', title='', data-toggle='button', tabindex='-1', data-original-title='#E7D6DE')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#E79C9C;', data-event='foreColor', data-value='#E79C9C', title='', data-toggle='button', tabindex='-1', data-original-title='#E79C9C')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFC69C;', data-event='foreColor', data-value='#FFC69C', title='', data-toggle='button', tabindex='-1', data-original-title='#FFC69C')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFE79C;', data-event='foreColor', data-value='#FFE79C', title='', data-toggle='button', tabindex='-1', data-original-title='#FFE79C')
-                                                                                        button.note-color-btn(type='button', style='background-color:#B5D6A5;', data-event='foreColor', data-value='#B5D6A5', title='', data-toggle='button', tabindex='-1', data-original-title='#B5D6A5')
-                                                                                        button.note-color-btn(type='button', style='background-color:#A5C6CE;', data-event='foreColor', data-value='#A5C6CE', title='', data-toggle='button', tabindex='-1', data-original-title='#A5C6CE')
-                                                                                        button.note-color-btn(type='button', style='background-color:#9CC6EF;', data-event='foreColor', data-value='#9CC6EF', title='', data-toggle='button', tabindex='-1', data-original-title='#9CC6EF')
-                                                                                        button.note-color-btn(type='button', style='background-color:#B5A5D6;', data-event='foreColor', data-value='#B5A5D6', title='', data-toggle='button', tabindex='-1', data-original-title='#B5A5D6')
-                                                                                        button.note-color-btn(type='button', style='background-color:#D6A5BD;', data-event='foreColor', data-value='#D6A5BD', title='', data-toggle='button', tabindex='-1', data-original-title='#D6A5BD')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#E76363;', data-event='foreColor', data-value='#E76363', title='', data-toggle='button', tabindex='-1', data-original-title='#E76363')
-                                                                                        button.note-color-btn(type='button', style='background-color:#F7AD6B;', data-event='foreColor', data-value='#F7AD6B', title='', data-toggle='button', tabindex='-1', data-original-title='#F7AD6B')
-                                                                                        button.note-color-btn(type='button', style='background-color:#FFD663;', data-event='foreColor', data-value='#FFD663', title='', data-toggle='button', tabindex='-1', data-original-title='#FFD663')
-                                                                                        button.note-color-btn(type='button', style='background-color:#94BD7B;', data-event='foreColor', data-value='#94BD7B', title='', data-toggle='button', tabindex='-1', data-original-title='#94BD7B')
-                                                                                        button.note-color-btn(type='button', style='background-color:#73A5AD;', data-event='foreColor', data-value='#73A5AD', title='', data-toggle='button', tabindex='-1', data-original-title='#73A5AD')
-                                                                                        button.note-color-btn(type='button', style='background-color:#6BADDE;', data-event='foreColor', data-value='#6BADDE', title='', data-toggle='button', tabindex='-1', data-original-title='#6BADDE')
-                                                                                        button.note-color-btn(type='button', style='background-color:#8C7BC6;', data-event='foreColor', data-value='#8C7BC6', title='', data-toggle='button', tabindex='-1', data-original-title='#8C7BC6')
-                                                                                        button.note-color-btn(type='button', style='background-color:#C67BA5;', data-event='foreColor', data-value='#C67BA5', title='', data-toggle='button', tabindex='-1', data-original-title='#C67BA5')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#CE0000;', data-event='foreColor', data-value='#CE0000', title='', data-toggle='button', tabindex='-1', data-original-title='#CE0000')
-                                                                                        button.note-color-btn(type='button', style='background-color:#E79439;', data-event='foreColor', data-value='#E79439', title='', data-toggle='button', tabindex='-1', data-original-title='#E79439')
-                                                                                        button.note-color-btn(type='button', style='background-color:#EFC631;', data-event='foreColor', data-value='#EFC631', title='', data-toggle='button', tabindex='-1', data-original-title='#EFC631')
-                                                                                        button.note-color-btn(type='button', style='background-color:#6BA54A;', data-event='foreColor', data-value='#6BA54A', title='', data-toggle='button', tabindex='-1', data-original-title='#6BA54A')
-                                                                                        button.note-color-btn(type='button', style='background-color:#4A7B8C;', data-event='foreColor', data-value='#4A7B8C', title='', data-toggle='button', tabindex='-1', data-original-title='#4A7B8C')
-                                                                                        button.note-color-btn(type='button', style='background-color:#3984C6;', data-event='foreColor', data-value='#3984C6', title='', data-toggle='button', tabindex='-1', data-original-title='#3984C6')
-                                                                                        button.note-color-btn(type='button', style='background-color:#634AA5;', data-event='foreColor', data-value='#634AA5', title='', data-toggle='button', tabindex='-1', data-original-title='#634AA5')
-                                                                                        button.note-color-btn(type='button', style='background-color:#A54A7B;', data-event='foreColor', data-value='#A54A7B', title='', data-toggle='button', tabindex='-1', data-original-title='#A54A7B')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#9C0000;', data-event='foreColor', data-value='#9C0000', title='', data-toggle='button', tabindex='-1', data-original-title='#9C0000')
-                                                                                        button.note-color-btn(type='button', style='background-color:#B56308;', data-event='foreColor', data-value='#B56308', title='', data-toggle='button', tabindex='-1', data-original-title='#B56308')
-                                                                                        button.note-color-btn(type='button', style='background-color:#BD9400;', data-event='foreColor', data-value='#BD9400', title='', data-toggle='button', tabindex='-1', data-original-title='#BD9400')
-                                                                                        button.note-color-btn(type='button', style='background-color:#397B21;', data-event='foreColor', data-value='#397B21', title='', data-toggle='button', tabindex='-1', data-original-title='#397B21')
-                                                                                        button.note-color-btn(type='button', style='background-color:#104A5A;', data-event='foreColor', data-value='#104A5A', title='', data-toggle='button', tabindex='-1', data-original-title='#104A5A')
-                                                                                        button.note-color-btn(type='button', style='background-color:#085294;', data-event='foreColor', data-value='#085294', title='', data-toggle='button', tabindex='-1', data-original-title='#085294')
-                                                                                        button.note-color-btn(type='button', style='background-color:#311873;', data-event='foreColor', data-value='#311873', title='', data-toggle='button', tabindex='-1', data-original-title='#311873')
-                                                                                        button.note-color-btn(type='button', style='background-color:#731842;', data-event='foreColor', data-value='#731842', title='', data-toggle='button', tabindex='-1', data-original-title='#731842')
-                                                                                    .note-color-row
-                                                                                        button.note-color-btn(type='button', style='background-color:#630000;', data-event='foreColor', data-value='#630000', title='', data-toggle='button', tabindex='-1', data-original-title='#630000')
-                                                                                        button.note-color-btn(type='button', style='background-color:#7B3900;', data-event='foreColor', data-value='#7B3900', title='', data-toggle='button', tabindex='-1', data-original-title='#7B3900')
-                                                                                        button.note-color-btn(type='button', style='background-color:#846300;', data-event='foreColor', data-value='#846300', title='', data-toggle='button', tabindex='-1', data-original-title='#846300')
-                                                                                        button.note-color-btn(type='button', style='background-color:#295218;', data-event='foreColor', data-value='#295218', title='', data-toggle='button', tabindex='-1', data-original-title='#295218')
-                                                                                        button.note-color-btn(type='button', style='background-color:#083139;', data-event='foreColor', data-value='#083139', title='', data-toggle='button', tabindex='-1', data-original-title='#083139')
-                                                                                        button.note-color-btn(type='button', style='background-color:#003163;', data-event='foreColor', data-value='#003163', title='', data-toggle='button', tabindex='-1', data-original-title='#003163')
-                                                                                        button.note-color-btn(type='button', style='background-color:#21104A;', data-event='foreColor', data-value='#21104A', title='', data-toggle='button', tabindex='-1', data-original-title='#21104A')
-                                                                                        button.note-color-btn(type='button', style='background-color:#4A1031;', data-event='foreColor', data-value='#4A1031', title='', data-toggle='button', tabindex='-1', data-original-title='#4A1031')
-                                                            .note-para.btn-group
-                                                                button.btn.btn-default.btn-sm(type='button', title='', data-event='insertUnorderedList', tabindex='-1', data-name='ul', data-original-title='Unordered list (CTRL+SHIFT+NUM7)')
-                                                                    i.fa.fa-list-ul
-                                                                button.btn.btn-default.btn-sm(type='button', title='', data-event='insertOrderedList', tabindex='-1', data-name='ol', data-original-title='Ordered list (CTRL+SHIFT+NUM8)')
-                                                                    i.fa.fa-list-ol
-                                                                .btn-group(data-name='paragraph')
-                                                                    button.btn.btn-default.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown', title='', tabindex='-1', data-original-title='Paragraph')
-                                                                        i.fa.fa-align-left
-                                                                        span.caret
-                                                                    .dropdown-menu
-                                                                        .note-align.btn-group
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='justifyLeft', tabindex='-1', data-original-title='Align left (CTRL+SHIFT+L)')
-                                                                                i.fa.fa-align-left
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='justifyCenter', tabindex='-1', data-original-title='Align center (CTRL+SHIFT+E)')
-                                                                                i.fa.fa-align-center
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='justifyRight', tabindex='-1', data-original-title='Align right (CTRL+SHIFT+R)')
-                                                                                i.fa.fa-align-right
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='justifyFull', tabindex='-1', data-original-title='Justify full (CTRL+SHIFT+J)')
-                                                                                i.fa.fa-align-justify
-                                                                        .note-list.btn-group
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='indent', tabindex='-1', data-original-title='Indent (CTRL+])')
-                                                                                i.fa.fa-indent
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='outdent', tabindex='-1', data-original-title='Outdent (CTRL+[)')
-                                                                                i.fa.fa-outdent
-                                                            .note-table.btn-group
-                                                                .btn-group(data-name='table')
-                                                                    button.btn.btn-default.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown', title='', tabindex='-1', data-original-title='Table')
-                                                                        i.fa.fa-table
-                                                                        span.caret
-                                                                    ul.dropdown-menu.note-table
-                                                                        .note-dimension-picker
-                                                                            .note-dimension-picker-mousecatcher(data-event='insertTable', data-value='1x1', style='width: 10em; height: 10em;')
-                                                                            .note-dimension-picker-highlighted
-                                                                            .note-dimension-picker-unhighlighted
-                                                                        .note-dimension-display  1 x 1
-                                                            .note-insert.btn-group
-                                                                button.btn.btn-default.btn-sm(type='button', title='', data-event='showLinkDialog', data-hide='true', tabindex='-1', data-name='link', data-original-title='Link (CTRL+K)')
-                                                                    i.fa.fa-link
-                                                                button.btn.btn-default.btn-sm(type='button', title='', data-event='showImageDialog', data-hide='true', tabindex='-1', data-name='picture', data-original-title='File / Image')
-                                                                    i.fa.fa-file-image-o
-                                                            .note-history.btn-group
-                                                                button.btn.btn-default.btn-sm(type='button', title='', data-event='undo', tabindex='-1', data-name='undo', data-original-title='Undo (CTRL+Z)', disabled='disabled')
-                                                                    i.fa.fa-undo
-                                                                button.btn.btn-default.btn-sm(type='button', title='', data-event='redo', tabindex='-1', data-name='redo', data-original-title='Redo (CTRL+Y)', disabled='disabled')
-                                                                    i.fa.fa-repeat
-                                                        .note-editing-area
-                                                            .note-handle
-                                                                .note-control-selection(style='display: none;')
-                                                                    .note-control-selection-bg
-                                                                    .note-control-holder.note-control-nw
-                                                                    .note-control-holder.note-control-ne
-                                                                    .note-control-holder.note-control-sw
-                                                                    .note-control-sizing.note-control-se
-                                                                    .note-control-selection-info
-                                                            .note-popover
-                                                                .note-link-popover.popover.bottom.in.hidden-xs(style='display: none;')
-                                                                    .arrow
-                                                                    .popover-content
-                                                                        a(href='http://www.google.com', target='_blank') www.google.com
-                                                                        .note-insert.btn-group
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='showLinkDialog', data-hide='true', tabindex='-1', data-original-title='Edit')
-                                                                                i.fa.fa-link
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='unlink', tabindex='-1', data-original-title='Unlink')
-                                                                                i.fa.fa-unlink
-                                                                .note-image-popover.popover.bottom.in.hidden-xs(style='display: none;')
-                                                                    .arrow
-                                                                    .popover-content
-                                                                        .btn-group
-                                                                            .btn-group
-                                                                                button.btn.btn-default.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown', title='', tabindex='-1', data-original-title='Padding')
-                                                                                    i.fa.fa-plus-square-o
-                                                                                    span.caret
-                                                                                ul.dropdown-menu
-                                                                                    li
-                                                                                        a(data-event='padding', href='#', data-value='') None
-                                                                                    li
-                                                                                        a(data-event='padding', href='#', data-value='small') Small
-                                                                                    li
-                                                                                        a(data-event='padding', href='#', data-value='medium') Medium
-                                                                                    li
-                                                                                        a(data-event='padding', href='#', data-value='large') Large
-                                                                                    li
-                                                                                        a(data-event='padding', href='#', data-value='xl') Xl
-                                                                        .btn-group
-                                                                            button.btn.btn-default.btn-sm(type='button', data-event='resize', data-value='auto', tabindex='-1', data-original-title='', title='')
-                                                                                span.note-fontsize-10 Auto
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='resize', data-value='1', tabindex='-1', data-original-title='Resize Full')
-                                                                                span.note-fontsize-10 100%
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='resize', data-value='0.5', tabindex='-1', data-original-title='Resize Half')
-                                                                                span.note-fontsize-10 50%
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='resize', data-value='0.25', tabindex='-1', data-original-title='Resize Quarter')
-                                                                                span.note-fontsize-10 25%
-                                                                        .btn-group.hidden.only_fa
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='resizefa', data-value='1', tabindex='-1', data-original-title='1x')
-                                                                                span.note-fontsize-10 1x
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='resizefa', data-value='2', tabindex='-1', data-original-title='2x')
-                                                                                span.note-fontsize-10 2x
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='resizefa', data-value='3', tabindex='-1', data-original-title='3x')
-                                                                                span.note-fontsize-10 3x
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='resizefa', data-value='4', tabindex='-1', data-original-title='4x')
-                                                                                span.note-fontsize-10 4x
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='resizefa', data-value='5', tabindex='-1', data-original-title='5x')
-                                                                                span.note-fontsize-10 5x
-                                                                        .btn-group
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='floatMe', data-value='left', tabindex='-1', data-original-title='Float Left')
-                                                                                i.fa.fa-align-left
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='floatMe', data-value='center', tabindex='-1', data-original-title='Center')
-                                                                                i.fa.fa-align-center
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='floatMe', data-value='right', tabindex='-1', data-original-title='Float Right')
-                                                                                i.fa.fa-align-right
-                                                                        .btn-group
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='imageShape', data-value='img-rounded', tabindex='-1', data-original-title='Shape: Rounded')
-                                                                                i.fa.fa-square
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='imageShape', data-value='img-circle', tabindex='-1', data-original-title='Shape: Circle')
-                                                                                i.fa.fa-circle-o
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='imageShape', data-value='shadow', tabindex='-1', data-original-title='Shadow')
-                                                                                i.fa.fa-sun-o
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='imageShape', data-value='img-thumbnail', tabindex='-1', data-original-title='Shape: Thumbnail')
-                                                                                i.fa.fa-picture-o
-                                                                        .btn-group.hidden.only_fa
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='imageShape', data-value='fa-spin', tabindex='-1', data-original-title='Spin')
-                                                                                i.fa.fa-refresh
-                                                                        .btn-group
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='showImageDialog', tabindex='-1', data-original-title='Edit')
-                                                                                i.fa.fa-file-image-o
-                                                                            button.btn.btn-default.btn-sm(type='button', title='', data-event='delete', tabindex='-1', data-original-title='Remove')
-                                                                                i.fa.fa-trash-o
-                                                                        .btn-group
-                                                                            button.btn.btn-default.btn-sm.btn-small(data-event='alt', data-original-title='', title='')
-                                                                                strong Description:
-                                                                                span.o_image_alt
-                                                            textarea.note-codable
-                                                            .note-editable.panel-body(contenteditable='true', style='height: 180px;')
-                                                                p
-                                                                    br
-                                                        .note-statusbar
-                                                            .note-resizebar
-                                                                .note-icon-bar
-                                                                .note-icon-bar
-                                                                .note-icon-bar
+                                                    textarea(name='editor1')
 
-                            #buzz1.tab-pane.fade.in(role='tabpanel')
-                                table.o_group.o_inner_group
-                                    tbody
-                                        tr
-                                            td.o_td_label(colspan='1')
-                                                label.o_form_label(for='o_field_input_86')
-                                                    | Refresh Token
-                                            td(colspan='1', style='width: 100%;')
-                                                input#o_field_input_86.o_form_input.o_form_field(type='text')
-                                        tr
-                                            td.o_td_label(colspan='1')
-                                                label.o_form_label(for='o_field_input_87')
-                                                    | User token
-                                            td(colspan='1', style='width: 100%;')
-                                                input#o_field_input_87.o_form_input.o_form_field(type='text')
-                                        tr
-                                            td.o_td_label(colspan='1')
-                                                label.o_form_label(for='o_field_input_88')
-                                                    | Token Validity
-                                            td(colspan='1', style='width: 100%;')
-                                                .o_datepicker.o_form_field_date.o_form_field
-                                                    input.o_datepicker_input.o_form_input(type='text', name='google_calendar_token_validity')
-                                                    span.o_datepicker_button
-                                        tr
-                                            td.o_td_label(colspan='1')
-                                                label.o_form_label(for='o_field_input_89')
-                                                    | Last synchro date
-                                            td(colspan='1', style='width: 100%;')
-                                                .o_datepicker.o_form_field_date.o_form_field
-                                                    input.o_datepicker_input.o_form_input(type='text', name='google_calendar_last_sync_date')
-                                                    span.o_datepicker_button
-                                        tr
-                                            td.o_td_label(colspan='1')
-                                                label.o_form_label.o_form_label_help(for='o_field_input_90', data-original-title='', title='')
-                                                    | Calendar ID
-                                            td(colspan='1', style='width: 100%;')
-                                                input#o_field_input_90.o_form_input.o_form_field(type='text')
+                            //#buzz1.tab-pane.fade.in(role='tabpanel')
+                            //    table.o_group.o_inner_group
+                            //        tbody
+                            //            tr
+                            //                td.o_td_label(colspan='1')
+                            //                    label.o_form_label(for='o_field_input_86')
+                            //                        | Refresh Token
+                            //                td(colspan='1', style='width: 100%;')
+                            //                    input#o_field_input_86.o_form_input.o_form_field(type='text')
+                            //            tr
+                            //                td.o_td_label(colspan='1')
+                            //                    label.o_form_label(for='o_field_input_87')
+                            //                        | User token
+                            //                td(colspan='1', style='width: 100%;')
+                            //                    input#o_field_input_87.o_form_input.o_form_field(type='text')
+                            //            tr
+                            //                td.o_td_label(colspan='1')
+                            //                    label.o_form_label(for='o_field_input_88')
+                            //                        | Token Validity
+                            //                td(colspan='1', style='width: 100%;')
+                            //                    .o_datepicker.o_form_field_date.o_form_field
+                            //                        input.o_datepicker_input.o_form_input(type='text', name='google_calendar_token_validity')
+                            //                        span.o_datepicker_button
+                            //            tr
+                            //                td.o_td_label(colspan='1')
+                            //                    label.o_form_label(for='o_field_input_89')
+                            //                        | Last synchro date
+                            //                td(colspan='1', style='width: 100%;')
+                            //                    .o_datepicker.o_form_field_date.o_form_field
+                            //                        input.o_datepicker_input.o_form_input(type='text', name='google_calendar_last_sync_date')
+                            //                        span.o_datepicker_button
+                            //            tr
+                            //                td.o_td_label(colspan='1')
+                            //                    label.o_form_label.o_form_label_help(for='o_field_input_90', data-original-title='', title='')
+                            //                        | Calendar ID
+                            //                td(colspan='1', style='width: 100%;')
+                            //                    input#o_field_input_90.o_form_input.o_form_field(type='text')
 
                             #buzz2.tab-pane.fade.in(role='tabpanel')
                                 table.o_group.o_inner_group
@@ -1350,10 +777,11 @@
                                                 label.o_form_label.o_form_label_help(for='o_field_input_91', data-original-title='', title='')
                                                     | Barcode
                                             td(colspan='1', style='width: 100%;')
-                                                input#o_field_input_91.o_form_input.o_form_field(type='text')
+                                                input#o_field_input_91.o_form_input.o_form_field(type='text' v-model='barcode')
                                         tr
                                             td.o_td_label(colspan='1')
                                                 label.o_form_label.o_form_label_help(for='o_field_input_92', data-original-title='', title='')
                                                     | Security PIN
                                             td(colspan='1', style='width: 100%;')
-                                                input#o_field_input_92.o_form_input.o_form_field(maxlength='32', type='text')
+                                                input#o_field_input_92.o_form_input.o_form_field(maxlength='32', type='text' v-model='security_pin')
+                        //button(type="submit", id="save" style='display: none') Submit

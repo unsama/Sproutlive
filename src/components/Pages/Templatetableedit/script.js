@@ -11,8 +11,8 @@ export default{
             head: "Templates / Partner Review",
             title: 'Partner Review - Sprout',
             btnlinks: {
-                savedbtnlink: "#/app/setting/",
-                discardbtnlink: "#/app/setting/templatetablein",
+                savebtnlink: "#/app/setting/",
+                discardbtnlink: "/setting/templatetablein",
             },
         }
     },

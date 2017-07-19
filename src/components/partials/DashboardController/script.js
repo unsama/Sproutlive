@@ -67,8 +67,14 @@ export default{
         "sixthbtn",
         "seventhbtn",
         "eighthbtn",
-
-
+        "deletebtnlink",
+        "duplicate",
+        "planorders",
+        "assignedtasks",
+        "changepassword",
+        "exportbtn",
+        "deletebtn",
+        "assignedtasksbtnlink",
     ],
     data(){
         return {

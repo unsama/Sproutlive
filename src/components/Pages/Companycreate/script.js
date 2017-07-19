@@ -1,5 +1,6 @@
 import DashboardController from "./../../partials/DashboardController/DashboardController.vue"
 import Companycreatecompo from "./../../partials/Companycreatecompo/Companycreatecompo.vue"
+import Modal from "./../../partials/Modal/Modal.vue"
 
 
 
@@ -12,8 +13,8 @@ export default{
             head: "Companies / New",
             title: "Import a File - Sprout",
             btnlinks: {
-                savedbtnlink:"#/app/setting/",
-                discardbtnlink:"#/app/setting/company"
+                savebtnlink:"",
+                discardbtnlink:"/setting/company"
             },
 
         }
@@ -21,6 +22,7 @@ export default{
 
     components: {
         DashboardController,
-        Companycreatecompo
+        Companycreatecompo,
+        Modal
     }
 }

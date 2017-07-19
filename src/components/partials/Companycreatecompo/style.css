@@ -124,7 +124,7 @@
     max-width: 720px;
 }
 .o_form_view .o_form_sheet_bg {
-    background: url(images/form_sheetbg.png);
+    background: url(/images/form_sheetbg.png);
     border-bottom: 1px solid #ddd;
 }
 
